@@ -147,7 +147,7 @@ extension UIView {
         NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
     }
     
-    public override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         super.touchesCancelled(touches, withEvent: event)
         self.cancelRipple = true
         NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
@@ -242,7 +242,7 @@ extension UIButton {
         super.touchesEnded(touches, withEvent: event)
     }
     
-    public override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         super.touchesCancelled(touches, withEvent: event)
     }
 }
