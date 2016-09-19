@@ -8,18 +8,18 @@
 
 import UIKit
 
-private var colorKey : UInt8 = 0
-private var rippleKey : UInt8 = 1
-private var cancelRippleKey : UInt8 = 2
-private var rippleLayerKey : UInt8 = 3
-private var clipLayerKey : UInt8 = 4
-private var startPointKey : UInt8 = 5
-private var groupAnimationKey : UInt8 = 6
-private var rippleFinishActionKey : UInt = 7
+private var colorKey: UInt8 = 0
+private var rippleKey: UInt8 = 1
+private var cancelRippleKey: UInt8 = 2
+private var rippleLayerKey: UInt8 = 3
+private var clipLayerKey: UInt8 = 4
+private var startPointKey: UInt8 = 5
+private var groupAnimationKey: UInt8 = 6
+private var rippleFinishActionKey: UInt = 7
 
-extension UIView : CAAnimationDelegate {
+extension UIView: CAAnimationDelegate {
     // MARK:- Properties
-    var color : UIColor! {
+    var color: UIColor! {
         get {
             return objc_getAssociatedObject(self, &colorKey) as? UIColor
         }
@@ -28,27 +28,27 @@ extension UIView : CAAnimationDelegate {
         }
     }
     
-    var ripple : Bool {
+    var ripple: Bool {
         get {
             let number = objc_getAssociatedObject(self, &rippleKey) as? NSNumber
-            return number == nil ? false : number!.boolValue
+            return number == nil ? false: number!.boolValue
         }
         set(value) {
             objc_setAssociatedObject(self, &rippleKey, NSNumber.init(bool: value), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
     
-    var cancelRipple : Bool {
+    var cancelRipple: Bool {
         get {
             let number = objc_getAssociatedObject(self, &cancelRippleKey) as? NSNumber
-            return number == nil ? false : number!.boolValue
+            return number == nil ? false: number!.boolValue
         }
         set(value) {
             objc_setAssociatedObject(self, &cancelRippleKey, NSNumber.init(bool: value), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
     
-    var rippleLayer : CAShapeLayer {
+    var rippleLayer: CAShapeLayer {
         get {
             var _rippleLayer = objc_getAssociatedObject(self, &rippleLayerKey) as? CAShapeLayer
             if _rippleLayer == nil {
@@ -74,7 +74,7 @@ extension UIView : CAAnimationDelegate {
         }
     }
     
-    var clipLayer : CALayer {
+    var clipLayer: CALayer {
         get {
             return objc_getAssociatedObject(self, &clipLayerKey) as! CALayer
         }
@@ -83,9 +83,9 @@ extension UIView : CAAnimationDelegate {
         }
     }
     
-    var startPoint : CGPoint {
+    var startPoint: CGPoint {
         get {
-            let value : NSValue = objc_getAssociatedObject(self, &startPointKey) as! NSValue
+            let value: NSValue = objc_getAssociatedObject(self, &startPointKey) as! NSValue
             return value.CGPointValue()
         }
         set(value) {
@@ -93,7 +93,7 @@ extension UIView : CAAnimationDelegate {
         }
     }
     
-    var groupAnimation : CAAnimationGroup {
+    var groupAnimation: CAAnimationGroup {
         get {
             return objc_getAssociatedObject(self, &groupAnimationKey) as! CAAnimationGroup
         }
@@ -103,7 +103,7 @@ extension UIView : CAAnimationDelegate {
     }
     
 //    typealias rippleFinish = () -> Void
-//    var rippleFinishAction : rippleFinish {
+//    var rippleFinishAction: rippleFinish {
 //        get {
 //            return objc_getAssociatedObject(self, &rippleFinishActionKey) as! rippleFinish
 //        }
@@ -112,7 +112,7 @@ extension UIView : CAAnimationDelegate {
 //        }
 //    }
     /*
-    var frame : CGRect {
+    var frame: CGRect {
         didSet {
             if self.ripple {
                 self.clipLayer.frame = self.bounds;
@@ -127,7 +127,7 @@ extension UIView : CAAnimationDelegate {
         self.createRippleView(UIColor.grey300().colorWithAlphaComponent(0.5))
     }
     
-    func createRippleView(color : UIColor) {
+    func createRippleView(color: UIColor) {
         if !self.ripple {
             self.color = color;
             self.ripple = true;
@@ -135,7 +135,7 @@ extension UIView : CAAnimationDelegate {
         }
     }
     
-    func createRippleView(color : UIColor, alpha : CGFloat) {
+    func createRippleView(color: UIColor, alpha: CGFloat) {
         self.createRippleView(color.colorWithAlphaComponent(alpha))
     }
     
@@ -162,7 +162,7 @@ extension UIView : CAAnimationDelegate {
         NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
     }
     
-    func startRipple(timer : NSTimer) {
+    func startRipple(timer: NSTimer) {
         let touches = timer.userInfo!
         if !self.ripple || self.cancelRipple {
             return
@@ -179,17 +179,17 @@ extension UIView : CAAnimationDelegate {
         if !self.ripple {
             return
         }
-        let point : CGPoint = self.startPoint
+        let point: CGPoint = self.startPoint
         let startTime = self.rippleLayer.timeOffset
         let timeSinceBegan = self.rippleLayer.convertTime(CACurrentMediaTime(), fromLayer: self.rippleLayer) - startTime
         self.rippleStart(point, offset: timeSinceBegan, speed: 12)
     }
     
-    func rippleStart(point : CGPoint, offset : CFTimeInterval, speed : Float) {
+    func rippleStart(point: CGPoint, offset: CFTimeInterval, speed: Float) {
         let width = self.frame.size.width
         let height = self.frame.size.height
         let radius = sqrt(width * width + height * height) / 2
-        let duration : NSTimeInterval = 3
+        let duration: NSTimeInterval = 3
         
         // 绘制圆形
         let circle = UIBezierPath.init(arcCenter: CGPoint(x: width / 2, y: height / 2), radius: radius, startAngle: 0, endAngle: 2 * CGFloat(M_PI), clockwise: true)
@@ -197,15 +197,15 @@ extension UIView : CAAnimationDelegate {
         
         // 移动动画，将圆心从手指处移动到控件中心
         let moveAnimation = CABasicAnimation.init(keyPath: "position")
-        let fromValue = 1 - (duration - offset > 0 ? (duration - offset) / duration : 0)
+        let fromValue = 1 - (duration - offset > 0 ? (duration - offset) / duration: 0)
         let fromPoint = CGPoint(x: (width / 2 - point.x) * CGFloat(fromValue) + point.x, y: (height / 2 - point.y) * CGFloat(fromValue) + point.y)
         moveAnimation.fromValue = NSValue.init(CGPoint: fromPoint)
         moveAnimation.toValue = NSValue.init(CGPoint: CGPoint(x: width / 2, y: height / 2))
-        moveAnimation.duration = duration - offset > 0 ? duration - offset : 0
+        moveAnimation.duration = duration - offset > 0 ? duration - offset: 0
         
         // 比例动画，将圆形从0个像素的大小放大到铺满整个控件
         let pathAnimation = CABasicAnimation.init(keyPath: "transform.scale")
-        pathAnimation.duration = duration - offset > 0 ? duration - offset : 0
+        pathAnimation.duration = duration - offset > 0 ? duration - offset: 0
         pathAnimation.fromValue = fromValue
         pathAnimation.toValue = 1
         pathAnimation.fillMode = kCAFillModeForwards
@@ -213,10 +213,10 @@ extension UIView : CAAnimationDelegate {
         
         // 透明度动画，当圆形扩散到整个控件时让圆形淡出
         let alphaAnimation = CABasicAnimation.init(keyPath: "opacity")
-        alphaAnimation.fromValue = offset > duration ? (duration * 2 - offset) / duration : 1
+        alphaAnimation.fromValue = offset > duration ? (duration * 2 - offset) / duration: 1
         alphaAnimation.toValue = 0
-        alphaAnimation.duration = offset > duration ? duration * 2 - offset : duration
-        alphaAnimation.beginTime = offset > duration ? 0 : duration - offset
+        alphaAnimation.duration = offset > duration ? duration * 2 - offset: duration
+        alphaAnimation.beginTime = offset > duration ? 0: duration - offset
         
         // 将以上三个动画组合并按顺序显示
         let groupAnimation = CAAnimationGroup.init()

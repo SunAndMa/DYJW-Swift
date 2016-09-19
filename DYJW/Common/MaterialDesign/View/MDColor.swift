@@ -10,14 +10,14 @@ import UIKit
 
 extension UIColor {
     
-    public class func rgb(hexColor : Int) -> UIColor {
+    public class func rgb(hexColor: Int) -> UIColor {
         let red = CGFloat(hexColor >> 16) / 255.0
         let green = CGFloat(hexColor >> 8 & 0xFF) / 255.0
         let blue = CGFloat(hexColor & 0xFF) / 255.0
         return UIColor.init(red: red, green: green, blue: blue, alpha: 1)
     }
     
-    // lightBlue
+    // MARK:- lightBlue
     public class func red50() -> UIColor {return UIColor.rgb(0xfde0dc)}
     public class func red100() -> UIColor {return UIColor.rgb(0xf9bdbb)}
     public class func red200() -> UIColor {return UIColor.rgb(0xf69988)}
@@ -32,7 +32,7 @@ extension UIColor {
     public class func redA200() -> UIColor {return UIColor.rgb(0xff5177)}
     public class func redA400() -> UIColor {return UIColor.rgb(0xff2d6f)}
     public class func redA700() -> UIColor {return UIColor.rgb(0xe00032)}
-    // Pink
+    // MARK:- Pink
     public class func pink50() -> UIColor {return UIColor.rgb(0xfce4ec)}
     public class func pink100() -> UIColor {return UIColor.rgb(0xf8bbd0)}
     public class func pink200() -> UIColor {return UIColor.rgb(0xf48fb1)}
@@ -47,7 +47,7 @@ extension UIColor {
     public class func pinkA200() -> UIColor {return UIColor.rgb(0xff4081)}
     public class func pinkA400() -> UIColor {return UIColor.rgb(0xf50057)}
     public class func pinkA700() -> UIColor {return UIColor.rgb(0xc51162)}
-    // Purplex
+    // MARK:- Purplex
     public class func purple50() -> UIColor {return UIColor.rgb(0xf3e5f5)}
     public class func purple100() -> UIColor {return UIColor.rgb(0xe1bee7)}
     public class func purple200() -> UIColor {return UIColor.rgb(0xce93d8)}
@@ -62,7 +62,7 @@ extension UIColor {
     public class func purpleA200() -> UIColor {return UIColor.rgb(0xe040fb)}
     public class func purpleA400() -> UIColor {return UIColor.rgb(0xd500f9)}
     public class func purpleA700() -> UIColor {return UIColor.rgb(0xaa00ff)}
-    // Deep Purple
+    // MARK:- Deep Purple
     public class func deepPurple50() -> UIColor {return UIColor.rgb(0xede7f6)}
     public class func deepPurple100() -> UIColor {return UIColor.rgb(0xd1c4e9)}
     public class func deepPurple200() -> UIColor {return UIColor.rgb(0xb39ddb)}
@@ -77,7 +77,7 @@ extension UIColor {
     public class func deepPurpleA200() -> UIColor {return UIColor.rgb(0x7c4dff)}
     public class func deepPurpleA400() -> UIColor {return UIColor.rgb(0x651fff)}
     public class func deepPurpleA700() -> UIColor {return UIColor.rgb(0x6200ea)}
-    // Indigo
+    // MARK:- Indigo
     public class func indigo50() -> UIColor {return UIColor.rgb(0xe8eaf6)}
     public class func indigo100() -> UIColor {return UIColor.rgb(0xc5cae9)}
     public class func indigo200() -> UIColor {return UIColor.rgb(0x9fa8da)}
@@ -92,7 +92,7 @@ extension UIColor {
     public class func indigoA200() -> UIColor {return UIColor.rgb(0x536dfe)}
     public class func indigoA400() -> UIColor {return UIColor.rgb(0x3d5afe)}
     public class func indigoA700() -> UIColor {return UIColor.rgb(0x304ffe)}
-    // Blue
+    // MARK:- Blue
     public class func blue50() -> UIColor {return UIColor.rgb(0xe7e9fd)}
     public class func blue100() -> UIColor {return UIColor.rgb(0xd0d9ff)}
     public class func blue200() -> UIColor {return UIColor.rgb(0xafbfff)}
@@ -107,7 +107,7 @@ extension UIColor {
     public class func blueA200() -> UIColor {return UIColor.rgb(0x6889ff)}
     public class func blueA400() -> UIColor {return UIColor.rgb(0x4d73ff)}
     public class func blueA700() -> UIColor {return UIColor.rgb(0x4d69ff)}
-    // Light Blue
+    // MARK:- Light Blue
     public class func lightBlue50() -> UIColor {return UIColor.rgb(0xe1f5fe)}
     public class func lightBlue100() -> UIColor {return UIColor.rgb(0xb3e5fc)}
     public class func lightBlue200() -> UIColor {return UIColor.rgb(0x81d4fa)}
@@ -122,7 +122,7 @@ extension UIColor {
     public class func lightBlueA200() -> UIColor {return UIColor.rgb(0x40c4ff)}
     public class func lightBlueA400() -> UIColor {return UIColor.rgb(0x00b0ff)}
     public class func lightBlueA700() -> UIColor {return UIColor.rgb(0x0091ea)}
-    // Cyan
+    // MARK:- Cyan
     public class func cyan50() -> UIColor {return UIColor.rgb(0xe0f7fa)}
     public class func cyan100() -> UIColor {return UIColor.rgb(0xb2ebf2)}
     public class func cyan200() -> UIColor {return UIColor.rgb(0x80deea)}
@@ -137,7 +137,7 @@ extension UIColor {
     public class func cyanA200() -> UIColor {return UIColor.rgb(0x18ffff)}
     public class func cyanA400() -> UIColor {return UIColor.rgb(0x00e5ff)}
     public class func cyanA700() -> UIColor {return UIColor.rgb(0x00b8d4)}
-    // Teal
+    // MARK:- Teal
     public class func teal50() -> UIColor {return UIColor.rgb(0xe0f2f1)}
     public class func teal100() -> UIColor {return UIColor.rgb(0xb2dfdb)}
     public class func teal200() -> UIColor {return UIColor.rgb(0x80cbc4)}
@@ -152,7 +152,7 @@ extension UIColor {
     public class func tealA200() -> UIColor {return UIColor.rgb(0x64ffda)}
     public class func tealA400() -> UIColor {return UIColor.rgb(0x1de9b6)}
     public class func tealA700() -> UIColor {return UIColor.rgb(0x00bfa5)}
-    // Green
+    // MARK:- Green
     public class func green50() -> UIColor {return UIColor.rgb(0xd0f8ce)}
     public class func green100() -> UIColor {return UIColor.rgb(0xa3e9a4)}
     public class func green200() -> UIColor {return UIColor.rgb(0x72d572)}
@@ -167,7 +167,7 @@ extension UIColor {
     public class func greenA200() -> UIColor {return UIColor.rgb(0x5af158)}
     public class func greenA400() -> UIColor {return UIColor.rgb(0x14e715)}
     public class func greenA700() -> UIColor {return UIColor.rgb(0x12c700)}
-    // Light Green
+    // MARK:- Light Green
     public class func lightGreen50() -> UIColor {return UIColor.rgb(0xf1f8e9)}
     public class func lightGreen100() -> UIColor {return UIColor.rgb(0xdcedc8)}
     public class func lightGreen200() -> UIColor {return UIColor.rgb(0xc5e1a5)}
@@ -182,7 +182,7 @@ extension UIColor {
     public class func lightGreenA200() -> UIColor {return UIColor.rgb(0xb2ff59)}
     public class func lightGreenA400() -> UIColor {return UIColor.rgb(0x76ff03)}
     public class func lightGreenA700() -> UIColor {return UIColor.rgb(0x64dd17)}
-    // Lime
+    // MARK:- Lime
     public class func lime50() -> UIColor {return UIColor.rgb(0xf9fbe7)}
     public class func lime100() -> UIColor {return UIColor.rgb(0xf0f4c3)}
     public class func lime200() -> UIColor {return UIColor.rgb(0xe6ee9c)}
@@ -197,7 +197,7 @@ extension UIColor {
     public class func limeA200() -> UIColor {return UIColor.rgb(0xeeff41)}
     public class func limeA400() -> UIColor {return UIColor.rgb(0xc6ff00)}
     public class func limeA700() -> UIColor {return UIColor.rgb(0xaeea00)}
-    // Yellow
+    // MARK:- Yellow
     public class func yellow50() -> UIColor {return UIColor.rgb(0xfffde7)}
     public class func yellow100() -> UIColor {return UIColor.rgb(0xfff9c4)}
     public class func yellow200() -> UIColor {return UIColor.rgb(0xfff59d)}
@@ -212,7 +212,7 @@ extension UIColor {
     public class func yellowA200() -> UIColor {return UIColor.rgb(0xffff00)}
     public class func yellowA400() -> UIColor {return UIColor.rgb(0xffea00)}
     public class func yellowA700() -> UIColor {return UIColor.rgb(0xffd600)}
-    // Amber
+    // MARK:- Amber
     public class func amber50() -> UIColor {return UIColor.rgb(0xfff8e1)}
     public class func amber100() -> UIColor {return UIColor.rgb(0xffecb3)}
     public class func amber200() -> UIColor {return UIColor.rgb(0xffe082)}
@@ -227,7 +227,7 @@ extension UIColor {
     public class func amberA200() -> UIColor {return UIColor.rgb(0xffd740)}
     public class func amberA400() -> UIColor {return UIColor.rgb(0xffc400)}
     public class func amberA700() -> UIColor {return UIColor.rgb(0xffab00)}
-    // Orange
+    // MARK:- Orange
     public class func orange50() -> UIColor {return UIColor.rgb(0xfff3e0)}
     public class func orange100() -> UIColor {return UIColor.rgb(0xffe0b2)}
     public class func orange200() -> UIColor {return UIColor.rgb(0xffcc80)}
@@ -242,7 +242,7 @@ extension UIColor {
     public class func orangeA200() -> UIColor {return UIColor.rgb(0xffab40)}
     public class func orangeA400() -> UIColor {return UIColor.rgb(0xff9100)}
     public class func orangeA700() -> UIColor {return UIColor.rgb(0xff6d00)}
-    // Deep Orange
+    // MARK:- Deep Orange
     public class func deepOrange50() -> UIColor {return UIColor.rgb(0xfbe9e7)}
     public class func deepOrange100() -> UIColor {return UIColor.rgb(0xffccbc)}
     public class func deepOrange200() -> UIColor {return UIColor.rgb(0xffab91)}
@@ -257,7 +257,7 @@ extension UIColor {
     public class func deepOrangeA200() -> UIColor {return UIColor.rgb(0xff6e40)}
     public class func deepOrangeA400() -> UIColor {return UIColor.rgb(0xff3d00)}
     public class func deepOrangeA700() -> UIColor {return UIColor.rgb(0xdd2c00)}
-    // Brown
+    // MARK:- Brown
     public class func brown50() -> UIColor {return UIColor.rgb(0xefebe9)}
     public class func brown100() -> UIColor {return UIColor.rgb(0xd7ccc8)}
     public class func brown200() -> UIColor {return UIColor.rgb(0xbcaaa4)}
@@ -268,7 +268,7 @@ extension UIColor {
     public class func brown700() -> UIColor {return UIColor.rgb(0x5d4037)}
     public class func brown800() -> UIColor {return UIColor.rgb(0x4e342e)}
     public class func brown900() -> UIColor {return UIColor.rgb(0x3e2723)}
-    // Grey
+    // MARK:- Grey
     public class func grey50() -> UIColor {return UIColor.rgb(0xfafafa)}
     public class func grey100() -> UIColor {return UIColor.rgb(0xf5f5f5)}
     public class func grey200() -> UIColor {return UIColor.rgb(0xeeeeee)}
@@ -279,7 +279,7 @@ extension UIColor {
     public class func grey700() -> UIColor {return UIColor.rgb(0x616161)}
     public class func grey800() -> UIColor {return UIColor.rgb(0x424242)}
     public class func grey900() -> UIColor {return UIColor.rgb(0x212121)}
-    // blueGrey
+    // MARK:- blueGrey
     public class func blueGrey50() -> UIColor {return UIColor.rgb(0xeceff1)}
     public class func blueGrey100() -> UIColor {return UIColor.rgb(0xcfd8dc)}
     public class func blueGrey200() -> UIColor {return UIColor.rgb(0xb0bec5)}

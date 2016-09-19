@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let controller = MDToolbarController.init()
+        let drawer = MDNavigationDrawer.init()
+        let navigationController = MDNavigationDrawerController.init(drawerView: drawer, toolbarController: controller)
+        self.window?.rootViewController = navigationController
+        self.window?.backgroundColor = UIColor.grey50()
         return true
     }
 

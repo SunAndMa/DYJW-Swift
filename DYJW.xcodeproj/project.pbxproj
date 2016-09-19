@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6C22978A1D89444200F451CA /* MDHamburgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2297891D89444200F451CA /* MDHamburgerView.swift */; };
+		6C45D6721D8FD1070083578B /* MDToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C45D6711D8FD1070083578B /* MDToolbarController.swift */; };
+		6C45D6741D8FDBEB0083578B /* MDNavigationDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C45D6731D8FDBEB0083578B /* MDNavigationDrawerController.swift */; };
+		6C45D6761D8FDCCA0083578B /* MDNavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C45D6751D8FDCCA0083578B /* MDNavigationDrawer.swift */; };
 		A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018851D86CA030085DF80 /* AppDelegate.swift */; };
 		A62018881D86CA030085DF80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018871D86CA030085DF80 /* ViewController.swift */; };
 		A620188B1D86CA030085DF80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62018891D86CA030085DF80 /* Main.storyboard */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		6C2297891D89444200F451CA /* MDHamburgerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDHamburgerView.swift; sourceTree = "<group>"; };
+		6C45D6711D8FD1070083578B /* MDToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDToolbarController.swift; sourceTree = "<group>"; };
+		6C45D6731D8FDBEB0083578B /* MDNavigationDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDNavigationDrawerController.swift; sourceTree = "<group>"; };
+		6C45D6751D8FDCCA0083578B /* MDNavigationDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDNavigationDrawer.swift; sourceTree = "<group>"; };
 		A62018821D86CA030085DF80 /* DYJW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYJW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62018851D86CA030085DF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A62018871D86CA030085DF80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +49,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C45D66F1D8FD0D40083578B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6C45D6731D8FDBEB0083578B /* MDNavigationDrawerController.swift */,
+				6C45D6711D8FD1070083578B /* MDToolbarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6C45D6701D8FD0D40083578B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A62018791D86CA030085DF80 = {
 			isa = PBXGroup;
 			children = (
@@ -102,25 +124,11 @@
 		A620189D1D86CAD90085DF80 /* MaterialDesign */ = {
 			isa = PBXGroup;
 			children = (
-				A620189E1D86CAD90085DF80 /* Controller */,
-				A620189F1D86CAD90085DF80 /* Model */,
+				6C45D66F1D8FD0D40083578B /* Controller */,
+				6C45D6701D8FD0D40083578B /* Model */,
 				A62018A01D86CAD90085DF80 /* View */,
 			);
 			path = MaterialDesign;
-			sourceTree = "<group>";
-		};
-		A620189E1D86CAD90085DF80 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		A620189F1D86CAD90085DF80 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A62018A01D86CAD90085DF80 /* View */ = {
@@ -129,6 +137,7 @@
 				A62018A11D86CAE80085DF80 /* MDRippleView.swift */,
 				A62018CC1D86E7900085DF80 /* MDColor.swift */,
 				6C2297891D89444200F451CA /* MDHamburgerView.swift */,
+				6C45D6751D8FDCCA0083578B /* MDNavigationDrawer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +181,7 @@
 				TargetAttributes = {
 					A62018811D86CA030085DF80 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 77M64ZZJGP;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -214,8 +224,11 @@
 			files = (
 				A62018CD1D86E7900085DF80 /* MDColor.swift in Sources */,
 				6C22978A1D89444200F451CA /* MDHamburgerView.swift in Sources */,
+				6C45D6721D8FD1070083578B /* MDToolbarController.swift in Sources */,
+				6C45D6741D8FDBEB0083578B /* MDNavigationDrawerController.swift in Sources */,
 				A62018881D86CA030085DF80 /* ViewController.swift in Sources */,
 				A620188E1D86CA030085DF80 /* DYJW.xcdatamodeld in Sources */,
+				6C45D6761D8FDCCA0083578B /* MDNavigationDrawer.swift in Sources */,
 				A62018A21D86CAE80085DF80 /* MDRippleView.swift in Sources */,
 				A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */,
 			);
@@ -332,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 77M64ZZJGP;
 				INFOPLIST_FILE = DYJW/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flykite.DYJW;
@@ -344,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 77M64ZZJGP;
 				INFOPLIST_FILE = DYJW/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flykite.DYJW;

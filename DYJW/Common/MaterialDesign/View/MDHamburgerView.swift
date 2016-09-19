@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum MDHamburgerState : Int {
+public enum MDHamburgerState: Int {
     case Normal
     case Back
     case PopBack
@@ -16,24 +16,24 @@ public enum MDHamburgerState : Int {
 
 class MDHamburgerView: UIView {
     
-    private let width : CGFloat = 56
-    private let height : CGFloat = 56
-    private let padding : CGFloat = 18.0
-    private let lineWidth : CGFloat = 20.0
-    private let lineHeight : CGFloat = 2.0
-    private let interval : CGFloat = 3.0
-    private let lineY : CGFloat = 28.0
-    private let duration : NSTimeInterval = 0.3
-    private let pi : CGFloat = CGFloat(M_PI)
+    private let width: CGFloat = 56
+    private let height: CGFloat = 56
+    private let padding: CGFloat = 18.0
+    private let lineWidth: CGFloat = 20.0
+    private let lineHeight: CGFloat = 2.0
+    private let interval: CGFloat = 3.0
+    private let lineY: CGFloat = 28.0
+    private let duration: NSTimeInterval = 0.3
+    private let pi: CGFloat = CGFloat(M_PI)
     
     // Lines
-    private let line1 : CAShapeLayer = CAShapeLayer.init()
-    private let line2 : CAShapeLayer = CAShapeLayer.init()
-    private let line3 : CAShapeLayer = CAShapeLayer.init()
+    private let line1: CAShapeLayer = CAShapeLayer.init()
+    private let line2: CAShapeLayer = CAShapeLayer.init()
+    private let line3: CAShapeLayer = CAShapeLayer.init()
     
     // HamburgerViewState
-    private var _state : MDHamburgerState = MDHamburgerState.Normal
-    var state : MDHamburgerState {
+    private var _state: MDHamburgerState = MDHamburgerState.Normal
+    var state: MDHamburgerState {
         get {
             return _state
         }
@@ -41,29 +41,29 @@ class MDHamburgerView: UIView {
             if value != MDHamburgerState.PopBack && _state != value {
                 self.toggle()
             } else if value == MDHamburgerState.PopBack {
-                self.stateValue = _state == MDHamburgerState.Normal ? 1 : 0;
+                self.stateValue = _state == MDHamburgerState.Normal ? 1: 0;
                 _state = MDHamburgerState.PopBack;
             }
         }
     }
     
     // The stateValue is between 0.00 and 1.00 for Hamburger rotation;
-    private var _stateValue : CGFloat = 0
-    var stateValue : CGFloat {
+    private var _stateValue: CGFloat = 0
+    var stateValue: CGFloat {
         get {
             return _stateValue
         }
         set(value) {
             let lastState = _stateValue
-            _stateValue = value > 1 ? 1 : (value < 0 ? 0 : value)
+            _stateValue = value > 1 ? 1: (value < 0 ? 0: value)
             UIView.animateWithDuration(duration * 1 - Double(lastState)) {
                 // 整个控件的旋转
                 self.clearTransform()
-                self.transform = CGAffineTransformMakeRotation(self.pi * (value + (self.state == MDHamburgerState.Normal ? 0 : 1)))
+                self.transform = CGAffineTransformMakeRotation(self.pi * (value + (self.state == MDHamburgerState.Normal ? 0: 1)))
                 
                 // 判断是从剪头状态回到普通状态还是从普通状态转为剪头状态
-                let xyValue = self.state == MDHamburgerState.Normal ? value : 1 - value
-                let widthValue = self.state == MDHamburgerState.Normal ? 3 - value : 2 + value
+                let xyValue = self.state == MDHamburgerState.Normal ? value: 1 - value
+                let widthValue = self.state == MDHamburgerState.Normal ? 3 - value: 2 + value
                 
                 // line1的变换
                 self.line1.transform = CATransform3DMakeTranslation(6 * xyValue, 1 * xyValue, 0)
@@ -75,15 +75,15 @@ class MDHamburgerView: UIView {
                 self.line3.transform = CATransform3DRotate(self.line3.transform, -self.pi / 4 * xyValue, 0, 0, 1)
                 self.line3.transform = CATransform3DScale(self.line3.transform, widthValue / 3, 1, 1)
             }
-            _state = value == 1 ? (_state == MDHamburgerState.Normal ? MDHamburgerState.Back : MDHamburgerState.Normal) : _state;
-            _stateValue = value == 1 ? 0 : value;
+            _state = value == 1 ? (_state == MDHamburgerState.Normal ? MDHamburgerState.Back: MDHamburgerState.Normal): _state;
+            _stateValue = value == 1 ? 0: value;
         }
     }
     
     func toggle() {
         UIView.animateWithDuration(duration * (1 - Double(_stateValue)), animations: {
             self.stateValue = 1
-        }) { (finished : Bool) in
+        }) { (finished: Bool) in
             if self.state == MDHamburgerState.Normal {
                 self.transform = CGAffineTransformMakeRotation(0);
             }
@@ -98,6 +98,7 @@ class MDHamburgerView: UIView {
         self.line3.transform = CATransform3DScale(self.line3.transform, 1, 1, 1)
     }
     
+    // MARK:- initialize
     convenience init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 56.0, height: 56.0))
     }
@@ -108,7 +109,7 @@ class MDHamburgerView: UIView {
             let path = UIBezierPath.init()
             path.moveToPoint(CGPoint(x: padding, y: lineY))
             path.addLineToPoint(CGPoint(x: padding + lineWidth, y: lineY))
-            var line : CAShapeLayer
+            var line: CAShapeLayer
             switch index {
             case 0: line = line1
             case 1: line = line2
