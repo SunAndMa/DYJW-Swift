@@ -17,7 +17,7 @@ private var startPointKey : UInt8 = 5
 private var groupAnimationKey : UInt8 = 6
 private var rippleFinishActionKey : UInt = 7
 
-extension UIView {
+extension UIView : CAAnimationDelegate {
     // MARK:- Properties
     var color : UIColor! {
         get {
@@ -111,7 +111,16 @@ extension UIView {
 //            objc_setAssociatedObject(self, &rippleFinishActionKey, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
 //        }
 //    }
-    
+    /*
+    var frame : CGRect {
+        didSet {
+            if self.ripple {
+                self.clipLayer.frame = self.bounds;
+                self.rippleLayer.frame = self.layer.bounds;
+            }
+        }
+    }
+ */
     
     // MARK:- Create ripple view
     func createRippleView() {
@@ -170,7 +179,6 @@ extension UIView {
         if !self.ripple {
             return
         }
-        self.clipLayer.frame = self.bounds
         let point : CGPoint = self.startPoint
         let startTime = self.rippleLayer.timeOffset
         let timeSinceBegan = self.rippleLayer.convertTime(CACurrentMediaTime(), fromLayer: self.rippleLayer) - startTime
@@ -184,15 +192,15 @@ extension UIView {
         let duration : NSTimeInterval = 3
         
         // 绘制圆形
-        let circle = UIBezierPath.init(arcCenter: CGPointMake(width / 2, height / 2), radius: radius, startAngle: 0, endAngle: 2 * CGFloat(M_PI), clockwise: true)
+        let circle = UIBezierPath.init(arcCenter: CGPoint(x: width / 2, y: height / 2), radius: radius, startAngle: 0, endAngle: 2 * CGFloat(M_PI), clockwise: true)
         self.rippleLayer.path = circle.CGPath
         
         // 移动动画，将圆心从手指处移动到控件中心
         let moveAnimation = CABasicAnimation.init(keyPath: "position")
         let fromValue = 1 - (duration - offset > 0 ? (duration - offset) / duration : 0)
-        let fromPoint = CGPointMake((width / 2 - point.x) * CGFloat(fromValue) + point.x, (height / 2 - point.y) * CGFloat(fromValue) + point.y)
+        let fromPoint = CGPoint(x: (width / 2 - point.x) * CGFloat(fromValue) + point.x, y: (height / 2 - point.y) * CGFloat(fromValue) + point.y)
         moveAnimation.fromValue = NSValue.init(CGPoint: fromPoint)
-        moveAnimation.toValue = NSValue.init(CGPoint: CGPointMake(width / 2, height / 2))
+        moveAnimation.toValue = NSValue.init(CGPoint: CGPoint(x: width / 2, y: height / 2))
         moveAnimation.duration = duration - offset > 0 ? duration - offset : 0
         
         // 比例动画，将圆形从0个像素的大小放大到铺满整个控件
@@ -223,7 +231,7 @@ extension UIView {
         self.rippleLayer.addAnimation(groupAnimation, forKey: "groupAnimation")
     }
     
-    public override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if self.respondsToSelector(#selector(rippleFinished)) && !flag {
             NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: #selector(rippleFinished), userInfo: nil, repeats: false)
         }

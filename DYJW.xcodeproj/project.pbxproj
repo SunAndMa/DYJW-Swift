@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C22978A1D89444200F451CA /* MDHamburgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2297891D89444200F451CA /* MDHamburgerView.swift */; };
 		A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018851D86CA030085DF80 /* AppDelegate.swift */; };
 		A62018881D86CA030085DF80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018871D86CA030085DF80 /* ViewController.swift */; };
 		A620188B1D86CA030085DF80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62018891D86CA030085DF80 /* Main.storyboard */; };
 		A620188E1D86CA030085DF80 /* DYJW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A620188C1D86CA030085DF80 /* DYJW.xcdatamodeld */; };
 		A62018901D86CA030085DF80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A620188F1D86CA030085DF80 /* Assets.xcassets */; };
 		A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62018911D86CA030085DF80 /* LaunchScreen.storyboard */; };
-		A62018A21D86CAE80085DF80 /* UIRippleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018A11D86CAE80085DF80 /* UIRippleView.swift */; };
+		A62018A21D86CAE80085DF80 /* MDRippleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018A11D86CAE80085DF80 /* MDRippleView.swift */; };
 		A62018CD1D86E7900085DF80 /* MDColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018CC1D86E7900085DF80 /* MDColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C2297891D89444200F451CA /* MDHamburgerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDHamburgerView.swift; sourceTree = "<group>"; };
 		A62018821D86CA030085DF80 /* DYJW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYJW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62018851D86CA030085DF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A62018871D86CA030085DF80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,7 +28,7 @@
 		A620188F1D86CA030085DF80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A62018921D86CA030085DF80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A62018941D86CA030085DF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A62018A11D86CAE80085DF80 /* UIRippleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRippleView.swift; sourceTree = "<group>"; };
+		A62018A11D86CAE80085DF80 /* MDRippleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDRippleView.swift; sourceTree = "<group>"; };
 		A62018CC1D86E7900085DF80 /* MDColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,8 +126,9 @@
 		A62018A01D86CAD90085DF80 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A62018A11D86CAE80085DF80 /* UIRippleView.swift */,
+				A62018A11D86CAE80085DF80 /* MDRippleView.swift */,
 				A62018CC1D86E7900085DF80 /* MDColor.swift */,
+				6C2297891D89444200F451CA /* MDHamburgerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,9 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A62018CD1D86E7900085DF80 /* MDColor.swift in Sources */,
+				6C22978A1D89444200F451CA /* MDHamburgerView.swift in Sources */,
 				A62018881D86CA030085DF80 /* ViewController.swift in Sources */,
 				A620188E1D86CA030085DF80 /* DYJW.xcdatamodeld in Sources */,
-				A62018A21D86CAE80085DF80 /* UIRippleView.swift in Sources */,
+				A62018A21D86CAE80085DF80 /* MDRippleView.swift in Sources */,
 				A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,6 +19,12 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor.lightBlue500()
         button.createRippleView()
         self.view.addSubview(button)
+        
+        let hamburger = MDHamburgerView.init()
+        self.view.addSubview(hamburger)
+        self.view.backgroundColor = UIColor.blackColor()
+        hamburger.backgroundColor = UIColor.lightBlue500()
+        hamburger.stateValue = 0.5
     }
 
     override func didReceiveMemoryWarning() {
