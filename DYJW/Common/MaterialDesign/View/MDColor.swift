@@ -10,6 +10,19 @@ import UIKit
 
 extension UIColor {
     
+    public class func pureColorImage(color: UIColor, size: CGSize) -> UIImage {
+        let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        CGContextSetFillColorWithColor(context!, color.CGColor)
+        CGContextFillRect(context!, rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
     public class func rgb(hexColor: Int) -> UIColor {
         let red = CGFloat(hexColor >> 16) / 255.0
         let green = CGFloat(hexColor >> 8 & 0xFF) / 255.0

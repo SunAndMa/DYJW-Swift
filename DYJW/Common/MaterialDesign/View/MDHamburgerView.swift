@@ -38,16 +38,21 @@ class MDHamburgerView: UIView {
             return _state
         }
         set(value) {
-            if value != MDHamburgerState.PopBack && _state != value {
-                self.toggle()
-            } else if value == MDHamburgerState.PopBack {
-                self.stateValue = _state == MDHamburgerState.Normal ? 1: 0;
-                _state = MDHamburgerState.PopBack;
+            if value != MDHamburgerState.PopBack {
+                if _state != value {
+                    stateValue = value == MDHamburgerState.Normal ? 0 : 1
+                    _state = value
+                } else {
+                    stateValue = value == MDHamburgerState.Normal ? 0 : 1
+                }
+            } else {
+                stateValue = _state == MDHamburgerState.Normal ? 1 : 0
+                _state = MDHamburgerState.PopBack
             }
         }
     }
     
-    // The stateValue is between 0.00 and 1.00 for Hamburger rotation;
+    // The stateValue is between 0.00 and 1.00 for Hamburger rotation
     private var _stateValue: CGFloat = 0
     var stateValue: CGFloat {
         get {
@@ -56,46 +61,53 @@ class MDHamburgerView: UIView {
         set(value) {
             let lastState = _stateValue
             _stateValue = value > 1 ? 1: (value < 0 ? 0: value)
-            UIView.animateWithDuration(duration * 1 - Double(lastState)) {
-                // 整个控件的旋转
-                self.clearTransform()
-                self.transform = CGAffineTransformMakeRotation(self.pi * (value + (self.state == MDHamburgerState.Normal ? 0: 1)))
-                
-                // 判断是从剪头状态回到普通状态还是从普通状态转为剪头状态
-                let xyValue = self.state == MDHamburgerState.Normal ? value: 1 - value
-                let widthValue = self.state == MDHamburgerState.Normal ? 3 - value: 2 + value
-                
-                // line1的变换
-                self.line1.transform = CATransform3DMakeTranslation(6 * xyValue, 1 * xyValue, 0)
-                self.line1.transform = CATransform3DRotate(self.line1.transform, self.pi / 4 * xyValue, 0, 0, 1)
-                self.line1.transform = CATransform3DScale(self.line1.transform, widthValue / 3, 1, 1)
-                
-                // line3的变换
-                self.line3.transform = CATransform3DMakeTranslation(6 * xyValue, -1 * xyValue, 0)
-                self.line3.transform = CATransform3DRotate(self.line3.transform, -self.pi / 4 * xyValue, 0, 0, 1)
-                self.line3.transform = CATransform3DScale(self.line3.transform, widthValue / 3, 1, 1)
-            }
-            _state = value == 1 ? (_state == MDHamburgerState.Normal ? MDHamburgerState.Back: MDHamburgerState.Normal): _state;
-            _stateValue = value == 1 ? 0: value;
+            
+            let from = String.init(self.state == MDHamburgerState.Normal ? lastState : 2 - lastState)
+            let to = String.init(self.state == MDHamburgerState.Normal ? value : 2 - value)
+            print("from " + from + " to " + to + " and value " + String(value))
+            
+            // 整个控件的旋转
+            let rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
+            rotate.fromValue = NSNumber.init(float: Float(self.pi * (self.state == MDHamburgerState.Normal ? lastState : 2 - lastState)))
+            rotate.toValue = NSNumber.init(float: Float(self.pi * (self.state == MDHamburgerState.Normal ? value : 2 - value)))
+            rotate.fillMode = kCAFillModeBoth
+            rotate.removedOnCompletion = false
+            rotate.duration = duration * 1 - Double(lastState)
+            self.layer.addAnimation(rotate, forKey: nil)
+            
+            // 判断是从剪头状态回到普通状态还是从普通状态转为剪头状态
+            let widthValue = 3 - value
+            
+            // Line1的变换
+            let line1Move = CABasicAnimation.init(keyPath: "position")
+            line1Move.toValue = NSValue.init(CGPoint: CGPoint(x: 6 * value + width / 2, y: 1 * value + lineY - lineHeight - interval))
+            let line1Rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
+            line1Rotate.toValue = NSNumber.init(float: Float(pi) / 4 * Float(value))
+            let line1Scale = CABasicAnimation.init(keyPath: "transform.scale.x")
+            line1Scale.toValue = NSNumber.init(float: Float(widthValue) / 3)
+            let line1Group = CAAnimationGroup.init()
+            line1Group.animations = [line1Move, line1Rotate, line1Scale]
+            line1Group.fillMode = kCAFillModeBoth
+            line1Group.removedOnCompletion = false
+            line1Group.duration = duration * 1 - Double(lastState)
+            self.line1.addAnimation(line1Group, forKey: nil)
+            
+            // Line3的变换
+            let line3Move = CABasicAnimation.init(keyPath: "position")
+            line3Move.toValue = NSValue.init(CGPoint: CGPoint(x: 6 * value + width / 2, y: -1 * value + lineY + lineHeight + interval))
+            let line3Rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
+            line3Rotate.toValue = NSNumber.init(float: Float(-pi) / 4 * Float(value))
+            let line3Scale = CABasicAnimation.init(keyPath: "transform.scale.x")
+            line3Scale.toValue = NSNumber.init(float: Float(widthValue) / 3)
+            let line3Group = CAAnimationGroup.init()
+            line3Group.animations = [line3Move, line3Rotate, line3Scale]
+            line3Group.fillMode = kCAFillModeBoth
+            line3Group.removedOnCompletion = false
+            line3Group.duration = duration * 1 - Double(lastState)
+            self.line3.addAnimation(line3Group, forKey: nil)
+            
+            _stateValue = value;
         }
-    }
-    
-    func toggle() {
-        UIView.animateWithDuration(duration * (1 - Double(_stateValue)), animations: {
-            self.stateValue = 1
-        }) { (finished: Bool) in
-            if self.state == MDHamburgerState.Normal {
-                self.transform = CGAffineTransformMakeRotation(0);
-            }
-        }
-    }
-    
-    private func clearTransform() {
-        self.transform = CGAffineTransformMakeRotation(0);
-        self.line1.transform = CATransform3DMakeRotation(0, 0, 0, 0)
-        self.line1.transform = CATransform3DScale(self.line1.transform, 1, 1, 1)
-        self.line3.transform = CATransform3DMakeRotation(0, 0, 0, 0)
-        self.line3.transform = CATransform3DScale(self.line3.transform, 1, 1, 1)
     }
     
     // MARK:- initialize
