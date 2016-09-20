@@ -14,6 +14,15 @@ class MDToolbarController: UINavigationController {
     let statusBarHeight: CGFloat = 20
     var screenSize: CGSize = UIScreen.mainScreen().bounds.size
     private let statusBarBgLayer = CALayer.init()
+    let titleLabel: UILabel = UILabel.init()
+    override var title: String? {
+        get {
+            return self.titleLabel.text
+        }
+        set(value) {
+            self.titleLabel.text = value
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +35,7 @@ class MDToolbarController: UINavigationController {
         var frame = self.navigationBar.frame
         frame.size.height = toolbarHeight - statusBarHeight
         self.navigationBar.frame = frame
+        self.navigationBar.addSubview(titleLabel)
     }
     
     private func setNavigationBarStyle() {
@@ -39,6 +49,9 @@ class MDToolbarController: UINavigationController {
     override func viewWillLayoutSubviews() {
         screenSize = UIScreen.mainScreen().bounds.size
         statusBarBgLayer.frame = CGRect(x: 0, y: -statusBarHeight, width: screenSize.width, height: statusBarHeight)
+        titleLabel.frame = CGRect(x: 56, y: 0, width: screenSize.width - 112, height: 56)
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.font = UIFont.systemFontOfSize(22)
     }
     
 }

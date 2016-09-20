@@ -13,16 +13,26 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var drawerController: MDNavigationDrawerController!
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         let controller = FKBaseToolbarController.init()
+        controller.pushViewController(FKBaseController.init(), animated: false)
         let drawer = MDNavigationDrawer.init()
-        let navigationController = MDNavigationDrawerController.init(drawerView: drawer, toolbarController: controller, navigationDrawerDelegate: controller)
-        self.window?.rootViewController = navigationController
+        drawerController = MDNavigationDrawerController.init(drawerView: drawer, toolbarController: controller, navigationDrawerDelegate: controller)
+        self.window?.rootViewController = drawerController
         self.window?.backgroundColor = UIColor.grey50()
         return true
+    }
+    
+    func openDrawer() {
+        drawerController.openDrawer()
+    }
+    
+    func closeDrawer() {
+        drawerController.closeDrawer()
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -15,14 +15,14 @@ public protocol MDNavigationDrawerDelegate : NSObjectProtocol {
 
 class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegate {
     
-    private var drawer: MDNavigationDrawer!
+    private var drawer: UIView!
     private var controller: MDToolbarController!
     private var delegate: MDNavigationDrawerDelegate!
     private var drawerMask: UIView!
     var screenSize: CGSize = UIScreen.mainScreen().bounds.size
     private var drawerWidth = UIScreen.mainScreen().bounds.size.width * 2 / 3
     
-    init(drawerView: MDNavigationDrawer, toolbarController: MDToolbarController, navigationDrawerDelegate: MDNavigationDrawerDelegate) {
+    init(drawerView: UIView, toolbarController: MDToolbarController, navigationDrawerDelegate: MDNavigationDrawerDelegate) {
         super.init(nibName: nil, bundle: nil)
         drawer = drawerView
         controller = toolbarController
@@ -89,13 +89,36 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
         drawerMask.addGestureRecognizer(pan)
     }
     
+    func openDrawer() {
+        drawerMask.hidden = false
+        UIView.animateWithDuration(0.3, animations: {
+            var frame = self.drawer.frame
+            frame.origin.x = 0
+            self.drawer.frame = frame
+            self.drawer.layer.shadowOpacity = 0.8
+            self.drawerMask.alpha = 0.5
+        })
+    }
+    
+    func closeDrawer() {
+        UIView.animateWithDuration(0.3, animations: {
+            var frame = self.drawer.frame
+            frame.origin.x = -frame.size.width
+            self.drawer.frame = frame
+            self.drawerMask.alpha = 0
+            }, completion: { (finished: Bool) in
+                self.drawerMask.hidden = true
+                self.drawer.layer.shadowOpacity = 0
+        })
+    }
+    
     private var panXOffset: CGFloat!
     func handlePan(pan: UIPanGestureRecognizer) {
         if pan.state == UIGestureRecognizerState.Began {
             let location = pan.locationInView(controller.view)
             if pan.view == controller.view {
                 if location.x < 30 {
-                    drawer.layer.shadowOpacity = 0.8;
+                    drawer.layer.shadowOpacity = 0.8
                     panXOffset = location.x
                     drawerMask.hidden = false
                 } else {
