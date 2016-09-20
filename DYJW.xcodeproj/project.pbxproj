@@ -26,7 +26,7 @@
 		6C45D6711D8FD1070083578B /* MDToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDToolbarController.swift; sourceTree = "<group>"; };
 		6C45D6731D8FDBEB0083578B /* MDNavigationDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDNavigationDrawerController.swift; sourceTree = "<group>"; };
 		6C45D6751D8FDCCA0083578B /* MDNavigationDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDNavigationDrawer.swift; sourceTree = "<group>"; };
-		A62018821D86CA030085DF80 /* DYJW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYJW.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62018821D86CA030085DF80 /* 东油教务.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "东油教务.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62018851D86CA030085DF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A62018871D86CA030085DF80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A620188A1D86CA030085DF80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		A62018831D86CA030085DF80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A62018821D86CA030085DF80 /* DYJW.app */,
+				A62018821D86CA030085DF80 /* 东油教务.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 			);
 			name = DYJW;
 			productName = DYJW;
-			productReference = A62018821D86CA030085DF80 /* DYJW.app */;
+			productReference = A62018821D86CA030085DF80 /* 东油教务.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -347,9 +347,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 77M64ZZJGP;
 				INFOPLIST_FILE = DYJW/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flykite.DYJW;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "东油教务";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
@@ -360,9 +361,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 77M64ZZJGP;
 				INFOPLIST_FILE = DYJW/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flykite.DYJW;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "东油教务";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Release;

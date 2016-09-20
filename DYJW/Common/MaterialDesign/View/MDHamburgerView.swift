@@ -62,10 +62,6 @@ class MDHamburgerView: UIView {
             let lastState = _stateValue
             _stateValue = value > 1 ? 1: (value < 0 ? 0: value)
             
-            let from = String.init(self.state == MDHamburgerState.Normal ? lastState : 2 - lastState)
-            let to = String.init(self.state == MDHamburgerState.Normal ? value : 2 - value)
-            print("from " + from + " to " + to + " and value " + String(value))
-            
             // 整个控件的旋转
             let rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
             rotate.fromValue = NSNumber.init(float: Float(self.pi * (self.state == MDHamburgerState.Normal ? lastState : 2 - lastState)))
@@ -75,7 +71,7 @@ class MDHamburgerView: UIView {
             rotate.duration = duration * 1 - Double(lastState)
             self.layer.addAnimation(rotate, forKey: nil)
             
-            // 判断是从剪头状态回到普通状态还是从普通状态转为剪头状态
+            // 两条横线长度变化的值
             let widthValue = 3 - value
             
             // Line1的变换
