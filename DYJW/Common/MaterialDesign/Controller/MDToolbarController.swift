@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MDToolbarController: UINavigationController, MDNavigationDrawerDelegate {
+class MDToolbarController: UINavigationController {
     
     let toolbarHeight: CGFloat = 76
     let statusBarHeight: CGFloat = 20
-    let screenSize: CGSize = UIScreen.mainScreen().bounds.size
-    let hamburger: MDHamburgerView = MDHamburgerView.init()
+    var screenSize: CGSize = UIScreen.mainScreen().bounds.size
+    private let statusBarBgLayer = CALayer.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,20 +31,14 @@ class MDToolbarController: UINavigationController, MDNavigationDrawerDelegate {
     private func setNavigationBarStyle() {
         self.navigationBar.setBackgroundImage(UIColor.pureColorImage(UIColor.lightBlue500(), size: CGSize(width: screenSize.width, height: toolbarHeight)), forBarMetrics: UIBarMetrics.Default)
         self.navigationBar.shadowImage = UIImage.init()
-        let statusBarBgLayer = CALayer.init()
         statusBarBgLayer.frame = CGRect(x: 0, y: -statusBarHeight, width: screenSize.width, height: statusBarHeight)
         statusBarBgLayer.backgroundColor = UIColor.lightBlue600().CGColor
         self.navigationBar.layer.addSublayer(statusBarBgLayer)
-        
-        self.navigationBar.addSubview(hamburger)
     }
-    
-    func navigationDrawerStateValueChanged(stateValue: CGFloat) {
-        hamburger.stateValue = stateValue
-    }
-    
-    func navigationDrawerStateChanged(open: Bool) {
-        hamburger.state = open ? MDHamburgerState.Back : MDHamburgerState.Normal
+
+    override func viewWillLayoutSubviews() {
+        screenSize = UIScreen.mainScreen().bounds.size
+        statusBarBgLayer.frame = CGRect(x: 0, y: -statusBarHeight, width: screenSize.width, height: statusBarHeight)
     }
     
 }
