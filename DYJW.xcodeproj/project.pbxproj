@@ -11,6 +11,8 @@
 		6C45D6721D8FD1070083578B /* MDToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C45D6711D8FD1070083578B /* MDToolbarController.swift */; };
 		6C45D6741D8FDBEB0083578B /* MDNavigationDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C45D6731D8FDBEB0083578B /* MDNavigationDrawerController.swift */; };
 		6C45D6761D8FDCCA0083578B /* MDNavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C45D6751D8FDCCA0083578B /* MDNavigationDrawer.swift */; };
+		6C7CC63C1DAA320B007EE83C /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CC63B1DAA320B007EE83C /* CourseView.swift */; };
+		6C9773F81D924B9D00465CBE /* MyCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9773F71D924B9D00465CBE /* MyCourseController.swift */; };
 		6CED3E951D911F12009F15E8 /* FKBaseToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CED3E941D911F12009F15E8 /* FKBaseToolbarController.swift */; };
 		6CED3E971D9132F5009F15E8 /* FKBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CED3E961D9132F5009F15E8 /* FKBaseController.swift */; };
 		A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018851D86CA030085DF80 /* AppDelegate.swift */; };
@@ -28,6 +30,8 @@
 		6C45D6711D8FD1070083578B /* MDToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDToolbarController.swift; sourceTree = "<group>"; };
 		6C45D6731D8FDBEB0083578B /* MDNavigationDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDNavigationDrawerController.swift; sourceTree = "<group>"; };
 		6C45D6751D8FDCCA0083578B /* MDNavigationDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDNavigationDrawer.swift; sourceTree = "<group>"; };
+		6C7CC63B1DAA320B007EE83C /* CourseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		6C9773F71D924B9D00465CBE /* MyCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourseController.swift; sourceTree = "<group>"; };
 		6CED3E941D911F12009F15E8 /* FKBaseToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKBaseToolbarController.swift; sourceTree = "<group>"; };
 		6CED3E961D9132F5009F15E8 /* FKBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKBaseController.swift; sourceTree = "<group>"; };
 		A62018821D86CA030085DF80 /* 东油教务.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "东油教务.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +73,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		6C9773F31D924B6D00465CBE /* MyCourses */ = {
+			isa = PBXGroup;
+			children = (
+				6C9773F41D924B6D00465CBE /* Controller */,
+				6C9773F51D924B6D00465CBE /* Model */,
+				6C9773F61D924B6D00465CBE /* View */,
+			);
+			path = MyCourses;
+			sourceTree = "<group>";
+		};
+		6C9773F41D924B6D00465CBE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6C9773F71D924B9D00465CBE /* MyCourseController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6C9773F51D924B6D00465CBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6C9773F61D924B6D00465CBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C7CC63B1DAA320B007EE83C /* CourseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6CED3E8C1D911EA2009F15E8 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				6CED3E8E1D911EA2009F15E8 /* Common */,
+				6C9773F31D924B6D00465CBE /* MyCourses */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -269,7 +307,9 @@
 				6CED3E971D9132F5009F15E8 /* FKBaseController.swift in Sources */,
 				A620188E1D86CA030085DF80 /* DYJW.xcdatamodeld in Sources */,
 				6C45D6761D8FDCCA0083578B /* MDNavigationDrawer.swift in Sources */,
+				6C7CC63C1DAA320B007EE83C /* CourseView.swift in Sources */,
 				A62018A21D86CAE80085DF80 /* MDRippleView.swift in Sources */,
+				6C9773F81D924B9D00465CBE /* MyCourseController.swift in Sources */,
 				A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
