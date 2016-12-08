@@ -13,16 +13,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let button = UIButton.init(type: UIButtonType.Custom)
-        button.frame = CGRectMake(100, 100, 100, 100)
-        button.setTitle("按钮", forState: UIControlState.Normal)
+        let button = UIButton.init(type: UIButtonType.custom)
+        button.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        button.setTitle("按钮", for: UIControlState())
         button.backgroundColor = UIColor.lightBlue500()
         button.createRippleView()
         self.view.addSubview(button)
         
         let hamburger = MDHamburgerView.init()
         self.view.addSubview(hamburger)
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.black
         hamburger.backgroundColor = UIColor.lightBlue500()
         hamburger.stateValue = 0.5
     }

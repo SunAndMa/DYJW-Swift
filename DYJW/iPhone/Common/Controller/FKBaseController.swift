@@ -10,7 +10,7 @@ import UIKit
 
 class FKBaseController: UIViewController {
     
-    var screenSize: CGSize = UIScreen.mainScreen().bounds.size
+    var screenSize: CGSize = UIScreen.main.bounds.size
     
     override var title: String? {
         get {
@@ -37,7 +37,7 @@ class FKBaseController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        screenSize = UIScreen.mainScreen().bounds.size
+        screenSize = UIScreen.main.bounds.size
         self.view.frame = CGRect(x: 0, y: 76, width: screenSize.width, height: screenSize.height - 76)
     }
     

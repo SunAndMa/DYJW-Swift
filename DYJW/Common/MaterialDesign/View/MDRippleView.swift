@@ -34,7 +34,7 @@ extension UIView: CAAnimationDelegate {
             return number == nil ? false: number!.boolValue
         }
         set(value) {
-            objc_setAssociatedObject(self, &rippleKey, NSNumber.init(bool: value), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &rippleKey, NSNumber.init(value: value as Bool), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
     
@@ -44,7 +44,7 @@ extension UIView: CAAnimationDelegate {
             return number == nil ? false: number!.boolValue
         }
         set(value) {
-            objc_setAssociatedObject(self, &cancelRippleKey, NSNumber.init(bool: value), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &cancelRippleKey, NSNumber.init(value: value as Bool), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
     
@@ -57,9 +57,9 @@ extension UIView: CAAnimationDelegate {
                 self.clipLayer.masksToBounds = true
                 
                 _rippleLayer = CAShapeLayer.init()
-                _rippleLayer!.geometryFlipped = true
+                _rippleLayer!.isGeometryFlipped = true
                 _rippleLayer!.lineWidth = 0
-                _rippleLayer!.fillColor = self.color.CGColor
+                _rippleLayer!.fillColor = self.color.cgColor
                 _rippleLayer!.lineJoin = kCALineJoinBevel
                 self.clipLayer.addSublayer(_rippleLayer!)
                 self.rippleLayer = _rippleLayer!
@@ -86,10 +86,10 @@ extension UIView: CAAnimationDelegate {
     var startPoint: CGPoint {
         get {
             let value: NSValue = objc_getAssociatedObject(self, &startPointKey) as! NSValue
-            return value.CGPointValue()
+            return value.cgPointValue
         }
         set(value) {
-            objc_setAssociatedObject(self, &startPointKey, NSValue.init(CGPoint: value), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &startPointKey, NSValue.init(cgPoint: value), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
     
@@ -124,10 +124,10 @@ extension UIView: CAAnimationDelegate {
     
     // MARK:- Create ripple view
     func createRippleView() {
-        self.createRippleView(UIColor.grey300().colorWithAlphaComponent(0.5))
+        self.createRippleView(UIColor.grey300().withAlphaComponent(0.5))
     }
     
-    func createRippleView(color: UIColor) {
+    func createRippleView(_ color: UIColor) {
         if !self.ripple {
             self.color = color;
             self.ripple = true;
@@ -135,8 +135,8 @@ extension UIView: CAAnimationDelegate {
         }
     }
     
-    func createRippleView(color: UIColor, alpha: CGFloat) {
-        self.createRippleView(color.colorWithAlphaComponent(alpha))
+    func createRippleView(_ color: UIColor, alpha: CGFloat) {
+        self.createRippleView(color.withAlphaComponent(alpha))
     }
     
     func rippleFinished() {
@@ -144,34 +144,34 @@ extension UIView: CAAnimationDelegate {
     }
     
     // MARK:- Touch events
-    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         self.cancelRipple = false
-        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(startRipple), userInfo: touches, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(startRipple), userInfo: touches, repeats: false)
     }
     
-    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
         self.cancelRipple = false
-        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
     }
     
-    public override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesCancelled(touches, withEvent: event)
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
         self.cancelRipple = true
-        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
     }
     
-    func startRipple(timer: NSTimer) {
+    func startRipple(_ timer: Timer) {
         let touches = timer.userInfo!
         if !self.ripple || self.cancelRipple {
             return
         }
-        let array = touches.allObjects
-        let touch = array[0]
-        let point = touch.locationInView(self)
+        let array = (touches as AnyObject).allObjects
+        let touch = array?[0]
+        let point = touch.location(in: self)
         self.startPoint = point
-        self.rippleLayer.timeOffset = self.rippleLayer.convertTime(CACurrentMediaTime(), fromLayer: self.rippleLayer)
+        self.rippleLayer.timeOffset = self.rippleLayer.convertTime(CACurrentMediaTime(), from: self.rippleLayer)
         self.rippleStart(point, offset: 0, speed: 1)
     }
     
@@ -181,26 +181,26 @@ extension UIView: CAAnimationDelegate {
         }
         let point: CGPoint = self.startPoint
         let startTime = self.rippleLayer.timeOffset
-        let timeSinceBegan = self.rippleLayer.convertTime(CACurrentMediaTime(), fromLayer: self.rippleLayer) - startTime
+        let timeSinceBegan = self.rippleLayer.convertTime(CACurrentMediaTime(), from: self.rippleLayer) - startTime
         self.rippleStart(point, offset: timeSinceBegan, speed: 12)
     }
     
-    func rippleStart(point: CGPoint, offset: CFTimeInterval, speed: Float) {
+    func rippleStart(_ point: CGPoint, offset: CFTimeInterval, speed: Float) {
         let width = self.frame.size.width
         let height = self.frame.size.height
         let radius = sqrt(width * width + height * height) / 2
-        let duration: NSTimeInterval = 3
+        let duration: TimeInterval = 3
         
         // 绘制圆形
         let circle = UIBezierPath.init(arcCenter: CGPoint(x: width / 2, y: height / 2), radius: radius, startAngle: 0, endAngle: 2 * CGFloat(M_PI), clockwise: true)
-        self.rippleLayer.path = circle.CGPath
+        self.rippleLayer.path = circle.cgPath
         
         // 移动动画，将圆心从手指处移动到控件中心
         let moveAnimation = CABasicAnimation.init(keyPath: "position")
         let fromValue = 1 - (duration - offset > 0 ? (duration - offset) / duration: 0)
         let fromPoint = CGPoint(x: (width / 2 - point.x) * CGFloat(fromValue) + point.x, y: (height / 2 - point.y) * CGFloat(fromValue) + point.y)
-        moveAnimation.fromValue = NSValue.init(CGPoint: fromPoint)
-        moveAnimation.toValue = NSValue.init(CGPoint: CGPoint(x: width / 2, y: height / 2))
+        moveAnimation.fromValue = NSValue.init(cgPoint: fromPoint)
+        moveAnimation.toValue = NSValue.init(cgPoint: CGPoint(x: width / 2, y: height / 2))
         moveAnimation.duration = duration - offset > 0 ? duration - offset: 0
         
         // 比例动画，将圆形从0个像素的大小放大到铺满整个控件
@@ -209,7 +209,7 @@ extension UIView: CAAnimationDelegate {
         pathAnimation.fromValue = fromValue
         pathAnimation.toValue = 1
         pathAnimation.fillMode = kCAFillModeForwards
-        pathAnimation.removedOnCompletion = false
+        pathAnimation.isRemovedOnCompletion = false
         
         // 透明度动画，当圆形扩散到整个控件时让圆形淡出
         let alphaAnimation = CABasicAnimation.init(keyPath: "opacity")
@@ -223,17 +223,17 @@ extension UIView: CAAnimationDelegate {
         groupAnimation.duration = duration * 2 - offset;
         groupAnimation.animations = [moveAnimation, pathAnimation, alphaAnimation]
         groupAnimation.fillMode = kCAFillModeForwards
-        groupAnimation.removedOnCompletion = false
+        groupAnimation.isRemovedOnCompletion = false
         groupAnimation.delegate = self
         groupAnimation.speed = speed
         self.groupAnimation = groupAnimation
         
-        self.rippleLayer.addAnimation(groupAnimation, forKey: "groupAnimation")
+        self.rippleLayer.add(groupAnimation, forKey: "groupAnimation")
     }
     
-    public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        if self.respondsToSelector(#selector(rippleFinished)) && !flag {
-            NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: #selector(rippleFinished), userInfo: nil, repeats: false)
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if self.responds(to: #selector(rippleFinished)) && !flag {
+            Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(rippleFinished), userInfo: nil, repeats: false)
         }
         //    } else if(self.rippleFinishAction && !flag) {
         //    self.rippleFinishAction();
@@ -242,15 +242,15 @@ extension UIView: CAAnimationDelegate {
 }
 
 extension UIButton {
-    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
     }
     
-    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
     }
     
-    public override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesCancelled(touches, withEvent: event)
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
     }
 }

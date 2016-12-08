@@ -10,11 +10,11 @@ import UIKit
 
 class MDNavigationDrawer: UIView {
     
-    private let padding: CGFloat = 8
-    private let headerView: UIView = UIView.init()
-    private let userLogo: UIImageView = UIImageView.init()
-    private let usernameLabel: UILabel = UILabel.init()
-    private let loginButton: UIButton = UIButton.init(type: UIButtonType.Custom)
+    fileprivate let padding: CGFloat = 8
+    fileprivate let headerView: UIView = UIView.init()
+    fileprivate let userLogo: UIImageView = UIImageView.init()
+    fileprivate let usernameLabel: UILabel = UILabel.init()
+    fileprivate let loginButton: UIButton = UIButton.init(type: UIButtonType.custom)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,27 +29,27 @@ class MDNavigationDrawer: UIView {
         super.init(coder: aDecoder)
     }
     
-    private func setUserLogo() {
+    fileprivate func setUserLogo() {
         userLogo.layer.cornerRadius = 40
         userLogo.clipsToBounds = true
         self.addSubview(userLogo)
     }
     
-    private func setUsernameLabel() {
-        usernameLabel.textAlignment = NSTextAlignment.Center
-        usernameLabel.textColor = UIColor.whiteColor()
+    fileprivate func setUsernameLabel() {
+        usernameLabel.textAlignment = NSTextAlignment.center
+        usernameLabel.textColor = UIColor.white
         self.addSubview(usernameLabel)
     }
     
-    private func setLoginButton() {
+    fileprivate func setLoginButton() {
         loginButton.frame = CGRect(x: 0, y: 0, width: 86, height: 24)
         loginButton.layer.borderWidth = 1
-        loginButton.layer.borderColor = UIColor.whiteColor().CGColor
+        loginButton.layer.borderColor = UIColor.white.cgColor
         loginButton.layer.cornerRadius = 6
         loginButton.clipsToBounds = true
-        loginButton.setBackgroundImage(UIColor.pureColorImage(UIColor.lightBlue500(), size: CGSize(width: 86, height: 24)), forState: UIControlState.Normal)
-        loginButton.setBackgroundImage(UIColor.pureColorImage(UIColor.lightBlue300(), size: CGSize(width: 86, height: 24)), forState: UIControlState.Highlighted)
-        loginButton.addTarget(self, action: #selector(loginButtonClick), forControlEvents: UIControlEvents.TouchUpInside)
+        loginButton.setBackgroundImage(UIColor.pureColorImage(UIColor.lightBlue500(), size: CGSize(width: 86, height: 24)), for: UIControlState())
+        loginButton.setBackgroundImage(UIColor.pureColorImage(UIColor.lightBlue300(), size: CGSize(width: 86, height: 24)), for: UIControlState.highlighted)
+        loginButton.addTarget(self, action: #selector(loginButtonClick), for: UIControlEvents.touchUpInside)
         headerView.addSubview(loginButton)
         self.addSubview(loginButton)
     }
