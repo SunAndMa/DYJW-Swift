@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MDNavigationDrawer: UIView {
     
@@ -23,6 +24,7 @@ class MDNavigationDrawer: UIView {
         self.setUserLogo()
         self.setUsernameLabel()
         self.setLoginButton()
+        self.setUserInfo()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,6 +54,25 @@ class MDNavigationDrawer: UIView {
         loginButton.addTarget(self, action: #selector(loginButtonClick), for: UIControlEvents.touchUpInside)
         headerView.addSubview(loginButton)
         self.addSubview(loginButton)
+    }
+    
+    private func setUserInfo() {
+        let uu = ModelUtil.query(User.self)?.first
+        print("123456".md5Value)
+        if let user = uu {
+            userLogo.image = UIImage(named: "default_user")
+            usernameLabel.text = user.name
+            loginButton.setTitle("注销", for: UIControlState.normal)
+        } else {
+            userLogo.image = UIImage(named: "default_user")
+            usernameLabel.text = "请登录教务管理系统"
+            loginButton.setTitle("登录", for: UIControlState.normal)
+            let _ = ModelUtil.insert({ (user: User) in
+                user.name = "风筝"
+                user.username = "1234567489"
+                user.password = "44564564"
+            })
+        }
     }
     
     override func layoutSubviews() {

@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+let app = UIApplication.shared.delegate as! AppDelegate
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,12 +20,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.backgroundColor = UIColor.white
+        window!.makeKeyAndVisible()
+        
         let controller = FKBaseToolbarController.init()
         controller.pushViewController(FKBaseController.init(), animated: false)
+        controller.pushViewController(MyCourseController(), animated: false)
         let drawer = MDNavigationDrawer.init()
         drawerController = MDNavigationDrawerController.init(drawerView: drawer, toolbarController: controller, navigationDrawerDelegate: controller)
         self.window?.rootViewController = drawerController
         self.window?.backgroundColor = UIColor.grey50()
+        
+        
+//        NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
+//        // 传入模型对象，初始化NSPersistentStoreCoordinator
+//        NSPersistentStoreCoordinator *psc = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model] autorelease];
+//        // 构建SQLite数据库文件的路径
+//        NSString *docs = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+//        NSURL *url = [NSURL fileURLWithPath:[docs stringByAppendingPathComponent:@"person.data"]];
+//        // 添加持久化存储库，这里使用SQLite作为存储库
+//        NSError *error = nil;
+//        NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error];
+//        if (store == nil) { // 直接抛异常
+//            [NSException raise:@"添加数据库错误" format:@"%@", [error localizedDescription]];
+//        }
+//        // 初始化上下文，设置persistentStoreCoordinator属性
+//        NSManagedObjectContext *context = [[NSManagedObjectContext alloc] init];
+//        context.persistentStoreCoordinator = psc;
+        
         return true
     }
     

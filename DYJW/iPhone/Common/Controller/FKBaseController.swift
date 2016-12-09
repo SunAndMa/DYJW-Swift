@@ -33,6 +33,7 @@ class FKBaseController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.grey50()
         self.automaticallyAdjustsScrollViewInsets = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView())
     }
     
     override func viewDidLayoutSubviews() {

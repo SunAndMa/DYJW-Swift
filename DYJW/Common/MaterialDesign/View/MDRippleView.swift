@@ -163,16 +163,15 @@ extension UIView: CAAnimationDelegate {
     }
     
     func startRipple(_ timer: Timer) {
-        let touches = timer.userInfo!
+        let touches:Set<UITouch> = timer.userInfo as! Set<UITouch>
         if !self.ripple || self.cancelRipple {
             return
         }
-        let array = (touches as AnyObject).allObjects
-        let touch = array?[0]
-        let point = touch.location(in: self)
-        self.startPoint = point
+        let touch = touches.first
+        let point = touch?.location(in: self)
+        self.startPoint = point!
         self.rippleLayer.timeOffset = self.rippleLayer.convertTime(CACurrentMediaTime(), from: self.rippleLayer)
-        self.rippleStart(point, offset: 0, speed: 1)
+        self.rippleStart(point!, offset: 0, speed: 1)
     }
     
     func endRipple() {

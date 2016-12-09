@@ -14,6 +14,7 @@ class MyCourseController: FKBaseController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = "东油教务"
     }
 
     override func didReceiveMemoryWarning() {
