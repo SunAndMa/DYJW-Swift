@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol MDNavigationDrawerDelegate : NSObjectProtocol {
+public protocol MDNavigationDrawerDelegate: class {
     func navigationDrawerStateValueChanged(_ stateValue: CGFloat)
     func navigationDrawerStateChanged(_ open: Bool)
 }
@@ -17,7 +17,7 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
     
     fileprivate var drawer: UIView!
     fileprivate var controller: MDToolbarController!
-    fileprivate var delegate: MDNavigationDrawerDelegate!
+    fileprivate weak var delegate: MDNavigationDrawerDelegate?
     fileprivate var drawerMask: UIView!
     var screenSize: CGSize = UIScreen.main.bounds.size
     fileprivate var drawerWidth = UIScreen.main.bounds.size.width * 2 / 3
@@ -63,7 +63,7 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
     
     fileprivate func createMask() {
         drawerMask = UIView.init(frame: CGRect(x: 0, y: controller.toolbarHeight, width: screenSize.width, height: screenSize.height - controller.toolbarHeight))
-        drawerMask.backgroundColor = UIColor.grey900()
+        drawerMask.backgroundColor = UIColor.grey900
         drawerMask.alpha = 0
         drawerMask.isHidden = true
         self.view.addSubview(drawerMask)
@@ -75,7 +75,7 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
         self.view.addSubview(drawer)
         let drawerHeight = screenSize.height - controller.toolbarHeight
         drawer.frame = CGRect(x: -drawerWidth, y: controller.toolbarHeight, width: drawerWidth, height: drawerHeight)
-        drawer.layer.shadowColor = UIColor.grey900().cgColor;
+        drawer.layer.shadowColor = UIColor.grey900.cgColor;
         drawer.layer.shadowOffset = CGSize(width: 0, height: 0);
         drawer.layer.shadowOpacity = 0.0;
         let shadowPath = UIBezierPath.init(rect: drawer.bounds)
@@ -142,7 +142,7 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
                     panXOffset = pan.location(in: controller.view).x - drawerWidth
                 }
                 if drawer.frame.origin.x < 0 && drawer.frame.origin.x > -drawerWidth {
-                    delegate.navigationDrawerStateValueChanged(percent)
+                    delegate?.navigationDrawerStateValueChanged(percent)
                 }
                 UIView.animate(withDuration: 0.05, animations: {
                     self.drawer.frame = frame
@@ -169,7 +169,7 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
                         self.drawer.layer.shadowOpacity = frame.origin.x == 0 ? 0.8 : 0;
                         self.drawerMask.isHidden = frame.origin.x < 0
                 })
-                delegate.navigationDrawerStateChanged(frame.origin.x == 0 ? true : false)
+                delegate?.navigationDrawerStateChanged(frame.origin.x == 0 ? true : false)
             }
             panXOffset = CGFloat.leastNormalMagnitude
         }

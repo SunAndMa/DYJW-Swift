@@ -39,10 +39,10 @@ class MDToolbarController: UINavigationController {
     }
     
     fileprivate func setNavigationBarStyle() {
-        self.navigationBar.setBackgroundImage(UIColor.pureColorImage(UIColor.lightBlue500(), size: CGSize(width: screenSize.width, height: toolbarHeight)), for: UIBarMetrics.default)
+        self.navigationBar.setBackgroundImage(UIColor.lightBlue500.pureColorImage(size: CGSize(width: screenSize.width, height: toolbarHeight)), for: UIBarMetrics.default)
         self.navigationBar.shadowImage = UIImage.init()
         statusBarBgLayer.frame = CGRect(x: 0, y: -statusBarHeight, width: screenSize.width, height: statusBarHeight)
-        statusBarBgLayer.backgroundColor = UIColor.lightBlue600().cgColor
+        statusBarBgLayer.backgroundColor = UIColor.lightBlue600.cgColor
         self.navigationBar.layer.addSublayer(statusBarBgLayer)
     }
 

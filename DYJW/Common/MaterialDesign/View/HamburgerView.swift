@@ -1,5 +1,5 @@
 //
-//  MDHamburgerView.swift
+//  HamburgerView.swift
 //  DYJW
 //
 //  Created by FlyKite on 16/9/14.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-public enum MDHamburgerState: Int {
+public enum HamburgerState: Int {
     case normal
     case back
     case popBack
 }
 
-class MDHamburgerView: UIView {
+class HamburgerView: UIView {
     
     fileprivate let width: CGFloat = 56
     fileprivate let height: CGFloat = 56
@@ -23,8 +23,7 @@ class MDHamburgerView: UIView {
     fileprivate let lineHeight: CGFloat = 2.0
     fileprivate let interval: CGFloat = 3.0
     fileprivate let lineY: CGFloat = 28.0
-    fileprivate let duration: TimeInterval = 0.3
-    fileprivate let pi: CGFloat = CGFloat(M_PI)
+    fileprivate let duration: TimeInterval = 0.25
     
     // Lines
     fileprivate let line1: CAShapeLayer = CAShapeLayer.init()
@@ -32,77 +31,67 @@ class MDHamburgerView: UIView {
     fileprivate let line3: CAShapeLayer = CAShapeLayer.init()
     
     // HamburgerViewState
-    fileprivate var _state: MDHamburgerState = MDHamburgerState.normal
-    var state: MDHamburgerState {
-        get {
-            return _state
-        }
-        set(value) {
-            if value != MDHamburgerState.popBack {
-                if _state != value {
-                    stateValue = value == MDHamburgerState.normal ? 0 : 1
-                    _state = value
-                } else {
-                    stateValue = value == MDHamburgerState.normal ? 0 : 1
-                }
+    var state: HamburgerState = .normal {
+        willSet(newValue) {
+            if newValue != .popBack {
+                stateValue = newValue == .normal ? 0 : 1
             } else {
-                stateValue = _state == MDHamburgerState.normal ? 1 : 0
-                _state = MDHamburgerState.popBack
+                stateValue = state == .normal ? 1 : 0
             }
         }
     }
     
     // The stateValue is between 0.00 and 1.00 for Hamburger rotation
-    fileprivate var _stateValue: CGFloat = 0
-    var stateValue: CGFloat {
-        get {
-            return _stateValue
-        }
-        set(value) {
-            let lastState = _stateValue
-            _stateValue = value > 1 ? 1: (value < 0 ? 0: value)
+    var stateValue: CGFloat = 0 {
+        willSet(newValue) {
+            guard newValue >= 0 else {
+                self.stateValue = 0
+                return
+            }
+            guard newValue <= 1 else {
+                self.stateValue = 1
+                return
+            }
             
             // 整个控件的旋转
             let rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
-            rotate.fromValue = NSNumber.init(value: Float(self.pi * (self.state == MDHamburgerState.normal ? lastState : 2 - lastState)) as Float)
-            rotate.toValue = NSNumber.init(value: Float(self.pi * (self.state == MDHamburgerState.normal ? value : 2 - value)) as Float)
+            rotate.fromValue = CGFloat.pi * (self.state == .normal ? stateValue : 2 - stateValue)
+            rotate.toValue = CGFloat.pi * (self.state == .normal ? newValue : 2 - newValue)
             rotate.fillMode = kCAFillModeBoth
             rotate.isRemovedOnCompletion = false
-            rotate.duration = duration * 1 - Double(lastState)
+            rotate.duration = duration * Double(1 - stateValue)
             self.layer.add(rotate, forKey: nil)
             
             // 两条横线长度变化的值
-            let widthValue = 3 - value
+            let widthValue = 3 - newValue
             
             // Line1的变换
             let line1Move = CABasicAnimation.init(keyPath: "position")
-            line1Move.toValue = NSValue.init(cgPoint: CGPoint(x: 6 * value + width / 2, y: 1 * value + lineY - lineHeight - interval))
+            line1Move.toValue = NSValue.init(cgPoint: CGPoint(x: 6 * newValue + width / 2, y: 1 * newValue + lineY - lineHeight - interval))
             let line1Rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
-            line1Rotate.toValue = NSNumber.init(value: Float(pi) / 4 * Float(value) as Float)
+            line1Rotate.toValue = CGFloat.pi / 4 * newValue
             let line1Scale = CABasicAnimation.init(keyPath: "transform.scale.x")
-            line1Scale.toValue = NSNumber.init(value: Float(widthValue) / 3 as Float)
+            line1Scale.toValue = widthValue / 3
             let line1Group = CAAnimationGroup.init()
             line1Group.animations = [line1Move, line1Rotate, line1Scale]
             line1Group.fillMode = kCAFillModeBoth
             line1Group.isRemovedOnCompletion = false
-            line1Group.duration = duration * 1 - Double(lastState)
+            line1Group.duration = duration * Double(1 - stateValue)
             self.line1.add(line1Group, forKey: nil)
             
             // Line3的变换
             let line3Move = CABasicAnimation.init(keyPath: "position")
-            line3Move.toValue = NSValue.init(cgPoint: CGPoint(x: 6 * value + width / 2, y: -1 * value + lineY + lineHeight + interval))
+            line3Move.toValue = NSValue.init(cgPoint: CGPoint(x: 6 * newValue + width / 2, y: -1 * newValue + lineY + lineHeight + interval))
             let line3Rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
-            line3Rotate.toValue = NSNumber.init(value: Float(-pi) / 4 * Float(value) as Float)
+            line3Rotate.toValue = -CGFloat.pi / 4 * newValue
             let line3Scale = CABasicAnimation.init(keyPath: "transform.scale.x")
-            line3Scale.toValue = NSNumber.init(value: Float(widthValue) / 3 as Float)
+            line3Scale.toValue = widthValue / 3
             let line3Group = CAAnimationGroup.init()
             line3Group.animations = [line3Move, line3Rotate, line3Scale]
             line3Group.fillMode = kCAFillModeBoth
             line3Group.isRemovedOnCompletion = false
-            line3Group.duration = duration * 1 - Double(lastState)
+            line3Group.duration = duration * Double(1 - stateValue)
             self.line3.add(line3Group, forKey: nil)
-            
-            _stateValue = value;
         }
     }
     

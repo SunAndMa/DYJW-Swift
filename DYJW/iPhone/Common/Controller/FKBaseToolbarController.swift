@@ -8,9 +8,9 @@
 
 import UIKit
 
-class FKBaseToolbarController: MDToolbarController, MDNavigationDrawerDelegate {
+class FKBaseToolbarController: MDToolbarController {
     
-    let hamburger: MDHamburgerView = MDHamburgerView.init()
+    let hamburger: HamburgerView = HamburgerView.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,27 +20,30 @@ class FKBaseToolbarController: MDToolbarController, MDNavigationDrawerDelegate {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(hamburgerClick))
         hamburger.addGestureRecognizer(tap)
     }
+    
+    func hamburgerClick() {
+        if hamburger.state == .normal {
+            hamburger.state = .back;
+            let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            app.openDrawer()
+        } else {
+            if (self.hamburger.state == .popBack) {
+                self.popViewController(animated: true)
+            }
+            hamburger.state = .normal;
+            let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            app.closeDrawer()
+        }
+    }
+}
 
+extension FKBaseToolbarController: MDNavigationDrawerDelegate {
+    
     func navigationDrawerStateValueChanged(_ stateValue: CGFloat) {
         hamburger.stateValue = stateValue
     }
     
     func navigationDrawerStateChanged(_ open: Bool) {
-        hamburger.state = open ? MDHamburgerState.back : MDHamburgerState.normal
-    }
-    
-    func hamburgerClick() {
-        if hamburger.state == MDHamburgerState.normal {
-            hamburger.state = MDHamburgerState.back;
-            let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            app.openDrawer()
-        } else {
-            if (self.hamburger.state == MDHamburgerState.popBack) {
-                self.popViewController(animated: true)
-            }
-            hamburger.state = MDHamburgerState.normal;
-            let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            app.closeDrawer()
-        }
+        hamburger.state = open ? .back : .normal
     }
 }

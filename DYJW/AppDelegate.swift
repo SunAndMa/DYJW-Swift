@@ -24,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.backgroundColor = UIColor.white
         window!.makeKeyAndVisible()
         
-        let controller = FKBaseToolbarController.init()
-        controller.pushViewController(FKBaseController.init(), animated: false)
+        let controller = FKBaseToolbarController()
+        controller.pushViewController(FKBaseController(), animated: false)
         controller.pushViewController(MyCourseController(), animated: false)
-        let drawer = MDNavigationDrawer.init()
-        drawerController = MDNavigationDrawerController.init(drawerView: drawer, toolbarController: controller, navigationDrawerDelegate: controller)
+        let drawer = NavigationDrawer()
+        drawerController = MDNavigationDrawerController(drawerView: drawer, toolbarController: controller, navigationDrawerDelegate: controller)
         self.window?.rootViewController = drawerController
-        self.window?.backgroundColor = UIColor.grey50()
+        self.window?.backgroundColor = UIColor()
         
         
 //        NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];

@@ -124,7 +124,7 @@ extension UIView: CAAnimationDelegate {
     
     // MARK:- Create ripple view
     func createRippleView() {
-        self.createRippleView(UIColor.grey300().withAlphaComponent(0.5))
+        self.createRippleView(UIColor.grey300.withAlphaComponent(0.5))
     }
     
     func createRippleView(_ color: UIColor) {
