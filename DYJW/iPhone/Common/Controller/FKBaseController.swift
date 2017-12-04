@@ -10,19 +10,21 @@ import UIKit
 
 class FKBaseController: UIViewController {
     
-    var screenSize: CGSize = UIScreen.main.bounds.size
-    
     override var title: String? {
         get {
-            if self.navigationController != nil {
-                return self.navigationController!.title
-            } else {
-                return ""
-            }
+            return self.navigationController?.title
         }
-        set(value) {
-            if self.navigationController != nil {
-                self.navigationController!.title = value
+        set {
+            self.navigationController?.title = newValue
+        }
+    }
+    
+    override var navigationController: BaseNavigationController? {
+        get {
+            if let tabController = self.tabBarController as? DrawerTabController {
+                return tabController.navigationController
+            } else {
+                return super.navigationController as? BaseNavigationController
             }
         }
     }
@@ -30,16 +32,23 @@ class FKBaseController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.grey50
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView())
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = super.title
+    }
+    
     override func viewDidLayoutSubviews() {
+        self.view.frame = CGRect(x: 0,
+                                 y: navigationBarHeight + statusBarHeight,
+                                 width: Screen.width,
+                                 height: Screen.height - navigationBarHeight - statusBarHeight)
         super.viewDidLayoutSubviews()
-        screenSize = UIScreen.main.bounds.size
-        self.view.frame = CGRect(x: 0, y: 76, width: screenSize.width, height: screenSize.height - 76)
     }
     
 }

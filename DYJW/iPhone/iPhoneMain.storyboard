@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0rh-hR-cOs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0rh-hR-cOs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Toolbar Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="Bxu-oC-EP0">
             <objects>
-                <navigationController id="0rh-hR-cOs" customClass="MDToolbarController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="0rh-hR-cOs" customClass="BaseNavigationController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JQl-F5-4uv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -26,42 +25,98 @@
             </objects>
             <point key="canvasLocation" x="-910" y="153"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="v9m-kk-tdA">
+        <!--东油教务-->
+        <scene sceneID="yKY-3N-iP6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9UP-V9-tXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="yFV-dY-mT9" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="E0E-yX-CVt">
+                <viewController title="东油教务" id="PxZ-c3-SDW" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dCl-NN-UTf"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Uk-pO-lDO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wLH-yi-u5h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="3Fl-bz-alH"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-gp-bcU">
+                                <rect key="frame" x="0.0" y="64" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KlN-gp-bcU" firstAttribute="top" secondItem="dCl-NN-UTf" secondAttribute="bottom" id="GFC-Sn-QUb"/>
+                            <constraint firstItem="KlN-gp-bcU" firstAttribute="leading" secondItem="wLH-yi-u5h" secondAttribute="leading" id="ce6-ip-Jzh"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="dOS-cA-rbt"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="yxz-BO-VH7"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMu-NX-Nqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="484"/>
+            <point key="canvasLocation" x="820" y="-173"/>
         </scene>
-        <!--Item 1-->
-        <scene sceneID="6Xz-n5-93h">
+        <!--东油新闻-->
+        <scene sceneID="b3k-Se-o3P">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cBu-KF-QUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="ww9-bd-0VB" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="efk-qz-o8W">
+                <viewController title="东油新闻" id="P2j-x3-b5R" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6bz-T9-2zK"/>
+                        <viewControllerLayoutGuide type="bottom" id="bAi-e7-cwS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lp4-5q-Vo5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="bQL-Jh-paY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="YDS-eG-ajI"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="xEW-x6-e9q"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CeH-yC-t90" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="-180"/>
+            <point key="canvasLocation" x="1734" y="-180"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--教务系统-->
+        <scene sceneID="Cax-jj-V5Y">
+            <objects>
+                <viewController title="教务系统" id="2o9-E9-pAf" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aCn-ay-4vj"/>
+                        <viewControllerLayoutGuide type="bottom" id="vb9-N7-5DQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fUL-i4-dzR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="hot-4m-j66"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DmP-Pp-b0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="484"/>
+        </scene>
+        <!--教务通知-->
+        <scene sceneID="cV0-vy-S0g">
+            <objects>
+                <viewController title="教务通知" id="MpU-tL-opd" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vyU-Hw-bQQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="naP-At-sEf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ej8-oR-Rvd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="b2P-aP-85N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="thD-z8-wI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734" y="484"/>
+        </scene>
+        <!--Drawer Tab Controller-->
         <scene sceneID="XjH-hZ-Hon">
             <objects>
-                <tabBarController id="Bp6-Gg-8MN" sceneMemberID="viewController">
+                <tabBarController id="Bp6-Gg-8MN" customClass="DrawerTabController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="U6J-jF-6Ed"/>
                     <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6q7-LF-nIk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -69,8 +124,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ww9-bd-0VB" kind="relationship" relationship="viewControllers" id="ba6-4r-lzB"/>
-                        <segue destination="yFV-dY-mT9" kind="relationship" relationship="viewControllers" id="LbS-BE-Tpq"/>
+                        <segue destination="PxZ-c3-SDW" kind="relationship" relationship="viewControllers" id="Yjg-ve-lxx"/>
+                        <segue destination="2o9-E9-pAf" kind="relationship" relationship="viewControllers" id="7Uf-UW-NwM"/>
+                        <segue destination="P2j-x3-b5R" kind="relationship" relationship="viewControllers" id="lTg-qF-mTS"/>
+                        <segue destination="MpU-tL-opd" kind="relationship" relationship="viewControllers" id="0lU-JV-sHJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNf-Ii-bC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
