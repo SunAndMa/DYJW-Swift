@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FKBaseToolbarController: MDToolbarController {
+class FKBaseToolbarController: BaseNavigationController {
     
     let hamburger: HamburgerView = HamburgerView.init()
     
@@ -21,7 +21,7 @@ class FKBaseToolbarController: MDToolbarController {
         hamburger.addGestureRecognizer(tap)
     }
     
-    func hamburgerClick() {
+    @objc fileprivate func hamburgerClick() {
         if hamburger.state == .normal {
             hamburger.state = .back;
             let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate

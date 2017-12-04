@@ -8,16 +8,16 @@
 
 import UIKit
 
-public enum HamburgerState: Int {
-    case normal
-    case back
-    case popBack
-}
-
 class HamburgerView: UIView {
     
-    fileprivate let width: CGFloat = 56
-    fileprivate let height: CGFloat = 56
+    enum HamburgerState: Int {
+        case normal
+        case back
+        case popBack
+    }
+    
+    fileprivate let hamburgerWidth: CGFloat = 56
+    fileprivate let hamburgerHeight: CGFloat = 56
     fileprivate let padding: CGFloat = 18.0
     fileprivate let lineWidth: CGFloat = 20.0
     fileprivate let lineHeight: CGFloat = 2.0
@@ -26,9 +26,9 @@ class HamburgerView: UIView {
     fileprivate let duration: TimeInterval = 0.25
     
     // Lines
-    fileprivate let line1: CAShapeLayer = CAShapeLayer.init()
-    fileprivate let line2: CAShapeLayer = CAShapeLayer.init()
-    fileprivate let line3: CAShapeLayer = CAShapeLayer.init()
+    fileprivate let line1: CAShapeLayer = CAShapeLayer()
+    fileprivate let line2: CAShapeLayer = CAShapeLayer()
+    fileprivate let line3: CAShapeLayer = CAShapeLayer()
     
     // HamburgerViewState
     var state: HamburgerState = .normal {
@@ -54,7 +54,7 @@ class HamburgerView: UIView {
             }
             
             // 整个控件的旋转
-            let rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
+            let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
             rotate.fromValue = CGFloat.pi * (self.state == .normal ? stateValue : 2 - stateValue)
             rotate.toValue = CGFloat.pi * (self.state == .normal ? newValue : 2 - newValue)
             rotate.fillMode = kCAFillModeBoth
@@ -66,13 +66,13 @@ class HamburgerView: UIView {
             let widthValue = 3 - newValue
             
             // Line1的变换
-            let line1Move = CABasicAnimation.init(keyPath: "position")
-            line1Move.toValue = NSValue.init(cgPoint: CGPoint(x: 6 * newValue + width / 2, y: 1 * newValue + lineY - lineHeight - interval))
-            let line1Rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
+            let line1Move = CABasicAnimation(keyPath: "position")
+            line1Move.toValue = NSValue(cgPoint: CGPoint(x: 6 * newValue + hamburgerWidth / 2, y: 1 * newValue + lineY - lineHeight - interval))
+            let line1Rotate = CABasicAnimation(keyPath: "transform.rotation.z")
             line1Rotate.toValue = CGFloat.pi / 4 * newValue
-            let line1Scale = CABasicAnimation.init(keyPath: "transform.scale.x")
+            let line1Scale = CABasicAnimation(keyPath: "transform.scale.x")
             line1Scale.toValue = widthValue / 3
-            let line1Group = CAAnimationGroup.init()
+            let line1Group = CAAnimationGroup()
             line1Group.animations = [line1Move, line1Rotate, line1Scale]
             line1Group.fillMode = kCAFillModeBoth
             line1Group.isRemovedOnCompletion = false
@@ -80,13 +80,13 @@ class HamburgerView: UIView {
             self.line1.add(line1Group, forKey: nil)
             
             // Line3的变换
-            let line3Move = CABasicAnimation.init(keyPath: "position")
-            line3Move.toValue = NSValue.init(cgPoint: CGPoint(x: 6 * newValue + width / 2, y: -1 * newValue + lineY + lineHeight + interval))
-            let line3Rotate = CABasicAnimation.init(keyPath: "transform.rotation.z")
+            let line3Move = CABasicAnimation(keyPath: "position")
+            line3Move.toValue = NSValue(cgPoint: CGPoint(x: 6 * newValue + hamburgerWidth / 2, y: -1 * newValue + lineY + lineHeight + interval))
+            let line3Rotate = CABasicAnimation(keyPath: "transform.rotation.z")
             line3Rotate.toValue = -CGFloat.pi / 4 * newValue
-            let line3Scale = CABasicAnimation.init(keyPath: "transform.scale.x")
+            let line3Scale = CABasicAnimation(keyPath: "transform.scale.x")
             line3Scale.toValue = widthValue / 3
-            let line3Group = CAAnimationGroup.init()
+            let line3Group = CAAnimationGroup()
             line3Group.animations = [line3Move, line3Rotate, line3Scale]
             line3Group.fillMode = kCAFillModeBoth
             line3Group.isRemovedOnCompletion = false
@@ -101,9 +101,9 @@ class HamburgerView: UIView {
     }
     
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: frame.origin.x, y: frame.origin.y, width: width, height: height))
+        super.init(frame: CGRect(x: frame.origin.x, y: frame.origin.y, width: hamburgerWidth, height: hamburgerHeight))
         for index in 0...2 {
-            let path = UIBezierPath.init()
+            let path = UIBezierPath()
             path.move(to: CGPoint(x: padding, y: lineY))
             path.addLine(to: CGPoint(x: padding + lineWidth, y: lineY))
             var line: CAShapeLayer
@@ -113,7 +113,7 @@ class HamburgerView: UIView {
             case 2: line = line3
             default: line = line1
             }
-            line.frame = CGRect(x: 0, y: (lineHeight + interval) * CGFloat(index - 1), width: width, height: height)
+            line.frame = CGRect(x: 0, y: (lineHeight + interval) * CGFloat(index - 1), width: hamburgerWidth, height: hamburgerHeight)
             line.path = path.cgPath
             line.lineWidth = lineHeight
             line.strokeColor = UIColor.white.cgColor

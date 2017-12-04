@@ -49,8 +49,10 @@ class NavigationDrawer: UIView {
         loginButton.layer.borderColor = UIColor.white.cgColor
         loginButton.layer.cornerRadius = 6
         loginButton.clipsToBounds = true
-        loginButton.setBackgroundImage(UIColor.lightBlue500.pureColorImage(size: CGSize(width: 86, height: 24)), for: .normal)
-        loginButton.setBackgroundImage(UIColor.lightBlue300.pureColorImage(size: CGSize(width: 86, height: 24)), for: .highlighted)
+        let normalImage = UIImage.createImage(with: UIColor.lightBlue500, size: CGSize(width: 86, height: 24))
+        let highlightedImage = UIImage.createImage(with: UIColor.lightBlue300, size: CGSize(width: 86, height: 24))
+        loginButton.setBackgroundImage(normalImage, for: .normal)
+        loginButton.setBackgroundImage(highlightedImage, for: .highlighted)
         loginButton.addTarget(self, action: #selector(loginButtonClick), for: UIControlEvents.touchUpInside)
         headerView.addSubview(loginButton)
         self.addSubview(loginButton)
@@ -82,7 +84,7 @@ class NavigationDrawer: UIView {
         loginButton.center = CGPoint(x: self.frame.size.width / 2, y: 80 + 18 + 12 + padding * 3.5)
     }
     
-    func loginButtonClick() {
+    @objc fileprivate func loginButtonClick() {
         
     }
 }

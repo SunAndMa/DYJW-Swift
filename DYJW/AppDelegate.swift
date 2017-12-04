@@ -15,22 +15,37 @@ let app = UIApplication.shared.delegate as! AppDelegate
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    fileprivate var drawerController: MDNavigationDrawerController!
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window!.backgroundColor = UIColor.white
-        window!.makeKeyAndVisible()
         
-        let controller = FKBaseToolbarController()
-        controller.pushViewController(FKBaseController(), animated: false)
-        controller.pushViewController(MyCourseController(), animated: false)
-        let drawer = NavigationDrawer()
-        drawerController = MDNavigationDrawerController(drawerView: drawer, toolbarController: controller, navigationDrawerDelegate: controller)
-        self.window?.rootViewController = drawerController
-        self.window?.backgroundColor = UIColor()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        if UIDevice.current.model == "iPhone" || UIDevice.current.model == "iPod Touch" {
+            let storyboard = UIStoryboard(name: "iPhoneMain", bundle: Bundle.main)
+            storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = storyboard.instantiateInitialViewController()
+        } else if UIDevice.current.model == "iPad" {
+            let storyboard = UIStoryboard(name: "iPhoneMain", bundle: Bundle.main)
+            storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = storyboard.instantiateInitialViewController()
+        } else {
+            let storyboard = UIStoryboard(name: "iPhoneMain", bundle: Bundle.main)
+            storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = storyboard.instantiateInitialViewController()
+        }
+        self.window?.backgroundColor = UIColor.white
+        self.window?.makeKeyAndVisible()
+        // Override point for customization after application launch.
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.backgroundColor = UIColor.white
+//        self.window?.makeKeyAndVisible()
+//        
+//        let controller = FKBaseToolbarController()
+//        controller.pushViewController(FKBaseController(), animated: false)
+//        controller.pushViewController(MyCourseController(), animated: false)
+//        let drawer = NavigationDrawer()
+//        drawerController = MDNavigationDrawerController(drawerView: drawer, toolbarController: controller, navigationDrawerDelegate: controller)
+//        self.window?.rootViewController = drawerController
+//        self.window?.backgroundColor = UIColor.white
         
         
 //        NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
@@ -53,11 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func openDrawer() {
-        drawerController.openDrawer()
+//        drawerController.openDrawer()
     }
     
     func closeDrawer() {
-        drawerController.closeDrawer()
+//        drawerController.closeDrawer()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

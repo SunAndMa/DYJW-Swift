@@ -16,13 +16,12 @@ public protocol MDNavigationDrawerDelegate: class {
 class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegate {
     
     fileprivate var drawer: UIView!
-    fileprivate var controller: MDToolbarController!
+    fileprivate var controller: BaseNavigationController!
     fileprivate weak var delegate: MDNavigationDrawerDelegate?
     fileprivate var drawerMask: UIView!
-    var screenSize: CGSize = UIScreen.main.bounds.size
     fileprivate var drawerWidth = UIScreen.main.bounds.size.width * 2 / 3
     
-    init(drawerView: UIView, toolbarController: MDToolbarController, navigationDrawerDelegate: MDNavigationDrawerDelegate) {
+    init(drawerView: UIView, toolbarController: BaseNavigationController, navigationDrawerDelegate: MDNavigationDrawerDelegate) {
         super.init(nibName: nil, bundle: nil)
         drawer = drawerView
         controller = toolbarController
@@ -44,14 +43,13 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
     }
     
     override func viewWillLayoutSubviews() {
-        screenSize = UIScreen.main.bounds.size
-        let drawerHeight = screenSize.height - controller.toolbarHeight
+        let drawerHeight = Screen.height - statusBarHeight - navigationBarHeight
         drawerWidth = UIScreen.main.bounds.size.width * 2 / 3
-        drawer.frame = CGRect(x: drawer.frame.origin.x == 0 ? 0 : -drawerWidth, y: controller.toolbarHeight, width: drawerWidth, height: drawerHeight)
+        drawer.frame = CGRect(x: drawer.frame.origin.x == 0 ? 0 : -drawerWidth, y: statusBarHeight + navigationBarHeight, width: drawerWidth, height: drawerHeight)
         let shadowPath = UIBezierPath.init(rect: drawer.bounds)
         drawer.layer.shadowPath = shadowPath.cgPath;
         drawer.layer.mask!.frame = CGRect(x: -20, y: 0, width: drawerWidth + 40, height: drawerHeight + 20)
-        drawerMask.frame = CGRect(x: 0, y: controller.toolbarHeight, width: screenSize.width, height: screenSize.height - controller.toolbarHeight)
+        drawerMask.frame = CGRect(x: 0, y: statusBarHeight + navigationBarHeight, width: Screen.width, height: Screen.height - statusBarHeight - navigationBarHeight)
     }
     
     fileprivate func addControllerView() {
@@ -62,7 +60,7 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
     }
     
     fileprivate func createMask() {
-        drawerMask = UIView.init(frame: CGRect(x: 0, y: controller.toolbarHeight, width: screenSize.width, height: screenSize.height - controller.toolbarHeight))
+        drawerMask = UIView.init(frame: CGRect(x: 0, y: statusBarHeight + navigationBarHeight, width: Screen.width, height: Screen.height - statusBarHeight - navigationBarHeight))
         drawerMask.backgroundColor = UIColor.grey900
         drawerMask.alpha = 0
         drawerMask.isHidden = true
@@ -73,8 +71,8 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
     
     fileprivate func addDrawer() {
         self.view.addSubview(drawer)
-        let drawerHeight = screenSize.height - controller.toolbarHeight
-        drawer.frame = CGRect(x: -drawerWidth, y: controller.toolbarHeight, width: drawerWidth, height: drawerHeight)
+        let drawerHeight = Screen.height - statusBarHeight - navigationBarHeight
+        drawer.frame = CGRect(x: -drawerWidth, y: statusBarHeight + navigationBarHeight, width: drawerWidth, height: drawerHeight)
         drawer.layer.shadowColor = UIColor.grey900.cgColor;
         drawer.layer.shadowOffset = CGSize(width: 0, height: 0);
         drawer.layer.shadowOpacity = 0.0;
@@ -113,7 +111,7 @@ class MDNavigationDrawerController: UIViewController, UIGestureRecognizerDelegat
     }
     
     fileprivate var panXOffset: CGFloat!
-    func handlePan(_ pan: UIPanGestureRecognizer) {
+    @objc fileprivate func handlePan(_ pan: UIPanGestureRecognizer) {
         if pan.state == UIGestureRecognizerState.began {
             let location = pan.location(in: controller.view)
             if pan.view == controller.view {
