@@ -12,11 +12,13 @@ class MyCourseController: FKBaseController {
 
     @IBOutlet fileprivate weak var collectionView: UICollectionView!
     @IBOutlet fileprivate weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet fileprivate weak var noCourseLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupCollectionView()
+        self.loadData()
     }
     
     fileprivate func setupCollectionView() {
@@ -28,6 +30,11 @@ class MyCourseController: FKBaseController {
             self.flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0)
         }
         self.collectionView.register(UINib(nibName: "CourseCell", bundle: Bundle.main), forCellWithReuseIdentifier: "cell")
+    }
+    
+    fileprivate func loadData() {
+        self.collectionView.isHidden = true
+        self.noCourseLabel.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {

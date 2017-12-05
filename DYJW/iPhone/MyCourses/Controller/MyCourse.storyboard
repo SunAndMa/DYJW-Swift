@@ -115,14 +115,24 @@
                                     <outlet property="delegate" destination="PxZ-c3-SDW" id="1kI-JM-01j"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbZ-nv-3Fe">
+                                <rect key="frame" x="68" y="316" width="239" height="36"/>
+                                <string key="text">还没有课程哦~
+快登录教务管理系统获取课程表吧~</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lef-oz-hGk" firstAttribute="leading" secondItem="wLH-yi-u5h" secondAttribute="leading" id="7EA-J1-T8s"/>
                             <constraint firstAttribute="trailing" secondItem="lef-oz-hGk" secondAttribute="trailing" id="AZV-m2-tG0"/>
+                            <constraint firstItem="tbZ-nv-3Fe" firstAttribute="centerY" secondItem="wLH-yi-u5h" secondAttribute="centerY" id="DoA-3f-ndz"/>
                             <constraint firstAttribute="trailing" secondItem="bff-Rp-1L2" secondAttribute="trailing" id="IHV-8h-Uve"/>
                             <constraint firstAttribute="bottom" secondItem="lef-oz-hGk" secondAttribute="bottom" id="LO8-RC-Yza"/>
                             <constraint firstItem="bff-Rp-1L2" firstAttribute="top" secondItem="wLH-yi-u5h" secondAttribute="top" id="Vck-Zz-PL0"/>
+                            <constraint firstItem="tbZ-nv-3Fe" firstAttribute="centerX" secondItem="wLH-yi-u5h" secondAttribute="centerX" id="chi-es-qSY"/>
                             <constraint firstItem="bff-Rp-1L2" firstAttribute="leading" secondItem="wLH-yi-u5h" secondAttribute="leading" id="ir2-Yw-z0Q"/>
                             <constraint firstItem="lef-oz-hGk" firstAttribute="top" secondItem="bff-Rp-1L2" secondAttribute="bottom" id="k1a-hg-2HI"/>
                         </constraints>
@@ -131,6 +141,7 @@
                     <connections>
                         <outlet property="collectionView" destination="lef-oz-hGk" id="zdc-0r-ysQ"/>
                         <outlet property="flowLayout" destination="efF-cu-FO0" id="XQ0-VB-LIx"/>
+                        <outlet property="noCourseLabel" destination="tbZ-nv-3Fe" id="9zb-yF-KuO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMu-NX-Nqv" userLabel="First Responder" sceneMemberID="firstResponder"/>

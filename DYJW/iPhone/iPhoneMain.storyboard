@@ -53,34 +53,6 @@
             </objects>
             <point key="canvasLocation" x="1734" y="-180"/>
         </scene>
-        <!--教务系统-->
-        <scene sceneID="Cax-jj-V5Y">
-            <objects>
-                <viewController title="教务系统" id="2o9-E9-pAf" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QfC-fY-Xkq"/>
-                        <viewControllerLayoutGuide type="bottom" id="vZ7-ET-PdN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fUL-i4-dzR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WLl-7m-yZD">
-                                <rect key="frame" x="163" y="64" width="51" height="31"/>
-                            </switch>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="WLl-7m-yZD" firstAttribute="top" secondItem="QfC-fY-Xkq" secondAttribute="bottom" id="Kn8-BQ-8CZ"/>
-                            <constraint firstItem="WLl-7m-yZD" firstAttribute="centerX" secondItem="fUL-i4-dzR" secondAttribute="centerX" id="mAm-pi-BYL"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hot-4m-j66"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DmP-Pp-b0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="820" y="484"/>
-        </scene>
         <!--教务通知-->
         <scene sceneID="cV0-vy-S0g">
             <objects>
@@ -122,7 +94,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ajb-lk-nD9" kind="relationship" relationship="viewControllers" id="Yjg-ve-lxx"/>
-                        <segue destination="2o9-E9-pAf" kind="relationship" relationship="viewControllers" id="7Uf-UW-NwM"/>
+                        <segue destination="aIJ-tG-dKI" kind="relationship" relationship="viewControllers" id="7Uf-UW-NwM"/>
                         <segue destination="P2j-x3-b5R" kind="relationship" relationship="viewControllers" id="lTg-qF-mTS"/>
                         <segue destination="MpU-tL-opd" kind="relationship" relationship="viewControllers" id="0lU-JV-sHJ"/>
                     </connections>
@@ -140,6 +112,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zll-62-3IS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="820" y="-173.16341829085459"/>
+        </scene>
+        <!--EduSystem-->
+        <scene sceneID="WrG-Va-soL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EduSystem" id="aIJ-tG-dKI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="1DO-Gh-Zsx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPV-2E-Cg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="484"/>
         </scene>
     </scenes>
 </document>

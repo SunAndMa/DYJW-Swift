@@ -12,6 +12,10 @@
 		A607E3461FD6A30300766EF8 /* MyCourse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A607E3451FD6A30300766EF8 /* MyCourse.storyboard */; };
 		A607E34C1FD6A8E000766EF8 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A607E34A1FD6A8E000766EF8 /* CourseCell.swift */; };
 		A607E34D1FD6A8E000766EF8 /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607E34B1FD6A8E000766EF8 /* CourseCell.xib */; };
+		A607E3551FD6ABE500766EF8 /* EduSystem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A607E3541FD6ABE500766EF8 /* EduSystem.storyboard */; };
+		A607E3571FD6ABFC00766EF8 /* EduSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A607E3561FD6ABFC00766EF8 /* EduSystemController.swift */; };
+		A607E3591FD6AC7E00766EF8 /* LoginPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A607E3581FD6AC7E00766EF8 /* LoginPanel.swift */; };
+		A607E35B1FD6AC8700766EF8 /* LoginPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607E35A1FD6AC8700766EF8 /* LoginPanel.xib */; };
 		A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018851D86CA030085DF80 /* AppDelegate.swift */; };
 		A62018901D86CA030085DF80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A620188F1D86CA030085DF80 /* Assets.xcassets */; };
 		A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62018911D86CA030085DF80 /* LaunchScreen.storyboard */; };
@@ -46,6 +50,10 @@
 		A607E3451FD6A30300766EF8 /* MyCourse.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyCourse.storyboard; sourceTree = "<group>"; };
 		A607E34A1FD6A8E000766EF8 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		A607E34B1FD6A8E000766EF8 /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
+		A607E3541FD6ABE500766EF8 /* EduSystem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EduSystem.storyboard; sourceTree = "<group>"; };
+		A607E3561FD6ABFC00766EF8 /* EduSystemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduSystemController.swift; sourceTree = "<group>"; };
+		A607E3581FD6AC7E00766EF8 /* LoginPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPanel.swift; sourceTree = "<group>"; };
+		A607E35A1FD6AC8700766EF8 /* LoginPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPanel.xib; sourceTree = "<group>"; };
 		A62018821D86CA030085DF80 /* 东油教务.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "东油教务.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62018851D86CA030085DF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A620188F1D86CA030085DF80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,9 +142,10 @@
 		6CED3E8D1D911EA2009F15E8 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */,
 				6CED3E8E1D911EA2009F15E8 /* Common */,
 				6C9773F31D924B6D00465CBE /* MyCourses */,
-				A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */,
+				A607E34E1FD6ABB300766EF8 /* EduSystem */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -169,6 +178,41 @@
 		6CED3E911D911EA2009F15E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A607E34E1FD6ABB300766EF8 /* EduSystem */ = {
+			isa = PBXGroup;
+			children = (
+				A607E3541FD6ABE500766EF8 /* EduSystem.storyboard */,
+				A607E34F1FD6ABB300766EF8 /* Controller */,
+				A607E3501FD6ABB300766EF8 /* Model */,
+				A607E3511FD6ABB300766EF8 /* View */,
+			);
+			path = EduSystem;
+			sourceTree = "<group>";
+		};
+		A607E34F1FD6ABB300766EF8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A607E3561FD6ABFC00766EF8 /* EduSystemController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A607E3501FD6ABB300766EF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A607E3511FD6ABB300766EF8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A607E3581FD6AC7E00766EF8 /* LoginPanel.swift */,
+				A607E35A1FD6AC8700766EF8 /* LoginPanel.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,12 +425,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A607E35B1FD6AC8700766EF8 /* LoginPanel.xib in Resources */,
 				A67DBB271FD52ED800F085A3 /* DrawerCell.xib in Resources */,
 				A607E3461FD6A30300766EF8 /* MyCourse.storyboard in Resources */,
 				A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */,
 				A607E34D1FD6A8E000766EF8 /* CourseCell.xib in Resources */,
 				A62018901D86CA030085DF80 /* Assets.xcassets in Resources */,
 				A67DBB231FD52AD300F085A3 /* NavigationDrawer.xib in Resources */,
+				A607E3551FD6ABE500766EF8 /* EduSystem.storyboard in Resources */,
 				A67007B91FBD6A53008391F0 /* iPhoneMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A67DBB091FD50ED600F085A3 /* File.swift in Sources */,
+				A607E3591FD6AC7E00766EF8 /* LoginPanel.swift in Sources */,
 				6CED3E971D9132F5009F15E8 /* FKBaseController.swift in Sources */,
 				A67DBB1E1FD5275000F085A3 /* NavigationDrawer.swift in Sources */,
 				A67DBB291FD54F9800F085A3 /* BaseViewController.swift in Sources */,
@@ -417,6 +464,7 @@
 				A607E34C1FD6A8E000766EF8 /* CourseCell.swift in Sources */,
 				A67DBB031FD50ED600F085A3 /* UIView.swift in Sources */,
 				A67DBB1B1FD5275000F085A3 /* Utils.swift in Sources */,
+				A607E3571FD6ABFC00766EF8 /* EduSystemController.swift in Sources */,
 				A67DBB071FD50ED600F085A3 /* String.swift in Sources */,
 				6C9773F81D924B9D00465CBE /* MyCourseController.swift in Sources */,
 				A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */,
