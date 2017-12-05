@@ -15,10 +15,10 @@
 		A607E3551FD6ABE500766EF8 /* EduSystem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A607E3541FD6ABE500766EF8 /* EduSystem.storyboard */; };
 		A607E3571FD6ABFC00766EF8 /* EduSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A607E3561FD6ABFC00766EF8 /* EduSystemController.swift */; };
 		A607E3591FD6AC7E00766EF8 /* LoginPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A607E3581FD6AC7E00766EF8 /* LoginPanel.swift */; };
-		A607E35B1FD6AC8700766EF8 /* LoginPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607E35A1FD6AC8700766EF8 /* LoginPanel.xib */; };
 		A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018851D86CA030085DF80 /* AppDelegate.swift */; };
 		A62018901D86CA030085DF80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A620188F1D86CA030085DF80 /* Assets.xcassets */; };
 		A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62018911D86CA030085DF80 /* LaunchScreen.storyboard */; };
+		A66C9D8D1FD711C600C0E5E4 /* LoginPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */; };
 		A67007B91FBD6A53008391F0 /* iPhoneMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */; };
 		A67DBB021FD50ED600F085A3 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DBAF71FD50ED600F085A3 /* CALayer.swift */; };
 		A67DBB031FD50ED600F085A3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DBAF81FD50ED600F085A3 /* UIView.swift */; };
@@ -53,12 +53,12 @@
 		A607E3541FD6ABE500766EF8 /* EduSystem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EduSystem.storyboard; sourceTree = "<group>"; };
 		A607E3561FD6ABFC00766EF8 /* EduSystemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduSystemController.swift; sourceTree = "<group>"; };
 		A607E3581FD6AC7E00766EF8 /* LoginPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPanel.swift; sourceTree = "<group>"; };
-		A607E35A1FD6AC8700766EF8 /* LoginPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPanel.xib; sourceTree = "<group>"; };
 		A62018821D86CA030085DF80 /* 东油教务.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "东油教务.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62018851D86CA030085DF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A620188F1D86CA030085DF80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A62018921D86CA030085DF80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A62018941D86CA030085DF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPanel.xib; sourceTree = "<group>"; };
 		A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhoneMain.storyboard; sourceTree = "<group>"; };
 		A67DBAF71FD50ED600F085A3 /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		A67DBAF81FD50ED600F085A3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				A607E3581FD6AC7E00766EF8 /* LoginPanel.swift */,
-				A607E35A1FD6AC8700766EF8 /* LoginPanel.xib */,
+				A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -425,7 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A607E35B1FD6AC8700766EF8 /* LoginPanel.xib in Resources */,
+				A66C9D8D1FD711C600C0E5E4 /* LoginPanel.xib in Resources */,
 				A67DBB271FD52ED800F085A3 /* DrawerCell.xib in Resources */,
 				A607E3461FD6A30300766EF8 /* MyCourse.storyboard in Resources */,
 				A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */,

@@ -14,10 +14,10 @@ class EduSystemController: FKBaseController {
     fileprivate var loginPanelTopConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
-        self.setupLoginPanel()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupLoginPanel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,37 +26,31 @@ class EduSystemController: FKBaseController {
     }
     
     fileprivate func setupLoginPanel() {
+        self.loginPanel.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.loginPanel)
-        let topConstraint = NSLayoutConstraint(item: self.view,
+        let topConstraint = NSLayoutConstraint(item: self.loginPanel,
                                                attribute: .top,
                                                relatedBy: .equal,
-                                               toItem: self.loginPanel,
+                                               toItem: self.view,
                                                attribute: .top,
                                                multiplier: 1,
-                                               constant: -16)
-        let heightConstraint = NSLayoutConstraint(item: self.loginPanel,
-                                               attribute: .height,
-                                               relatedBy: .equal,
-                                               toItem: nil,
-                                               attribute: .height,
-                                               multiplier: 1,
-                                               constant: 284)
-        let leftConstraint = NSLayoutConstraint(item: self.view,
+                                               constant: 16)
+        let leftConstraint = NSLayoutConstraint(item: self.loginPanel,
                                                 attribute: .leading,
                                                 relatedBy: .equal,
-                                                toItem: self.loginPanel,
+                                                toItem: self.view,
                                                 attribute: .leading,
                                                 multiplier: 1,
-                                                constant: -16)
-        let rightConstraint = NSLayoutConstraint(item: self.view,
+                                                constant: 16)
+        let rightConstraint = NSLayoutConstraint(item: self.loginPanel,
                                                  attribute: .trailing,
                                                  relatedBy: .equal,
-                                                 toItem: self.loginPanel,
+                                                 toItem: self.view,
                                                  attribute: .trailing,
                                                  multiplier: 1,
                                                  constant: -16)
         self.loginPanelTopConstraint = topConstraint
-        NSLayoutConstraint.activate([topConstraint, heightConstraint, leftConstraint, rightConstraint])
+        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint])
     }
 
     /*
