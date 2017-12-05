@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate let navigationOffset = navigationBarHeight - 44.0
+
 class FKBaseController: UIViewController {
     
     override var title: String? {
@@ -43,12 +45,26 @@ class FKBaseController: UIViewController {
         self.title = super.title
     }
     
+    override func viewWillLayoutSubviews() {
+        self.view.frame = CGRect(x: 0,
+                                 y: navigationBarHeight + statusBarHeight,
+                                 width: Screen.width,
+                                 height: Screen.height - navigationBarHeight - statusBarHeight)
+//        self.view.frame = CGRect(x: 0,
+//                                 y: navigationOffset,
+//                                 width: Screen.width,
+//                                 height: Screen.height - navigationOffset)
+    }
+    
     override func viewDidLayoutSubviews() {
         self.view.frame = CGRect(x: 0,
                                  y: navigationBarHeight + statusBarHeight,
                                  width: Screen.width,
                                  height: Screen.height - navigationBarHeight - statusBarHeight)
-        super.viewDidLayoutSubviews()
+//        self.view.frame = CGRect(x: 0,
+//                                 y: navigationOffset,
+//                                 width: Screen.width,
+//                                 height: Screen.height - navigationOffset)
     }
     
 }

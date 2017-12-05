@@ -25,7 +25,7 @@ extension UIView: CAAnimationDelegate {
             return objc_getAssociatedObject(self, &colorKey) as? UIColor
         }
         set(value) {
-            objc_setAssociatedObject(self, &colorKey, value, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self, &colorKey, value, .OBJC_ASSOCIATION_COPY)
         }
     }
     
@@ -35,7 +35,7 @@ extension UIView: CAAnimationDelegate {
             return value ?? false
         }
         set {
-            objc_setAssociatedObject(self, &rippleKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &rippleKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     
@@ -45,7 +45,7 @@ extension UIView: CAAnimationDelegate {
             return value ?? false
         }
         set {
-            objc_setAssociatedObject(self, &cancelRippleKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &cancelRippleKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     
@@ -69,7 +69,7 @@ extension UIView: CAAnimationDelegate {
             return rippleLayer
         }
         set(value) {
-            objc_setAssociatedObject(self, &rippleLayerKey, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &rippleLayerKey, value, .OBJC_ASSOCIATION_RETAIN)
         }
     }
     
@@ -90,16 +90,23 @@ extension UIView: CAAnimationDelegate {
             return clipLayer
         }
         set(value) {
-            objc_setAssociatedObject(self, &clipLayerKey, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &clipLayerKey, value, .OBJC_ASSOCIATION_RETAIN)
         }
     }
     
     fileprivate var startPoint: CGPoint? {
         get {
-            return objc_getAssociatedObject(self, &startPointKey) as? CGPoint
+            guard let value = objc_getAssociatedObject(self, &startPointKey) as? NSValue else {
+                return nil
+            }
+            return value.cgPointValue
         }
         set {
-            objc_setAssociatedObject(self, &startPointKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            var value: NSValue? = nil
+            if let newValue = newValue {
+                value = NSValue(cgPoint: newValue)
+            }
+            objc_setAssociatedObject(self, &startPointKey, value, .OBJC_ASSOCIATION_COPY_NONATOMIC)
         }
     }
     
@@ -109,7 +116,7 @@ extension UIView: CAAnimationDelegate {
             return objc_getAssociatedObject(self, &rippleFinishActionKey) as? RippleFinish
         }
         set(value) {
-            objc_setAssociatedObject(self, &rippleFinishActionKey, value, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject(self, &rippleFinishActionKey, value, .OBJC_ASSOCIATION_COPY)
         }
     }
     
@@ -146,11 +153,13 @@ extension UIView: CAAnimationDelegate {
         if !self.ripple || self.cancelRipple {
             return
         }
-        let touch = touches.first
-        let point = touch?.location(in: self)
-        self.startPoint = point!
+        guard let touch = touches.first else {
+            return
+        }
+        let point = touch.location(in: self)
+        self.startPoint = point
         self.rippleLayer.timeOffset = self.rippleLayer.convertTime(CACurrentMediaTime(), from: self.rippleLayer)
-        self.rippleStart(point!, offset: 0, speed: 1)
+        self.rippleStart(point, offset: 0, speed: 1)
     }
     
     @objc fileprivate func endRipple() {

@@ -36,7 +36,7 @@ class HamburgerView: UIView {
             if newValue != .popBack {
                 stateValue = newValue == .normal ? 0 : 1
             } else {
-                stateValue = state == .normal ? 1 : 0
+                stateValue = self.state == .normal ? 1 : 0
             }
         }
     }
@@ -53,13 +53,18 @@ class HamburgerView: UIView {
                 return
             }
             
+            var duration = self.duration * Double(newValue - stateValue)
+            if duration < 0 {
+                duration *= -1
+            }
+            
             // 整个控件的旋转
             let rotate = CABasicAnimation(keyPath: "transform.rotation.z")
             rotate.fromValue = CGFloat.pi * (self.state == .normal ? stateValue : 2 - stateValue)
             rotate.toValue = CGFloat.pi * (self.state == .normal ? newValue : 2 - newValue)
             rotate.fillMode = kCAFillModeBoth
             rotate.isRemovedOnCompletion = false
-            rotate.duration = duration * Double(1 - stateValue)
+            rotate.duration = duration
             self.layer.add(rotate, forKey: nil)
             
             // 两条横线长度变化的值
@@ -76,7 +81,7 @@ class HamburgerView: UIView {
             line1Group.animations = [line1Move, line1Rotate, line1Scale]
             line1Group.fillMode = kCAFillModeBoth
             line1Group.isRemovedOnCompletion = false
-            line1Group.duration = duration * Double(1 - stateValue)
+            line1Group.duration = duration
             self.line1.add(line1Group, forKey: nil)
             
             // Line3的变换
@@ -90,7 +95,7 @@ class HamburgerView: UIView {
             line3Group.animations = [line3Move, line3Rotate, line3Scale]
             line3Group.fillMode = kCAFillModeBoth
             line3Group.isRemovedOnCompletion = false
-            line3Group.duration = duration * Double(1 - stateValue)
+            line3Group.duration = duration
             self.line3.add(line3Group, forKey: nil)
         }
     }

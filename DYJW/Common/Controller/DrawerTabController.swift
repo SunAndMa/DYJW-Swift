@@ -33,12 +33,12 @@ class DrawerTabController: UITabBarController {
         super.viewDidLoad()
 
         self.addDrawerView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        self.view.frame = CGRect(x: 10, y: 10, width: 100, height: 100)
+//        self.selectedIndex = 0
+//        self.selectedIndex = 1
+//        self.selectedIndex = 2
+//        self.selectedIndex = 3
+//        self.selectedIndex = 0
     }
     
     fileprivate func addDrawerView() {

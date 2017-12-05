@@ -16,6 +16,11 @@ class DrawerCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.createRippleView(UIColor.lightBlue50, alpha: 0.5)
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 46))
+        view.backgroundColor = UIColor.lightBlue100
+        self.selectedBackgroundView = view
     }
     
     func set(title: String, icon: UIImage) {

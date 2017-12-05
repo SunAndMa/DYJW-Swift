@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0rh-hR-cOs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0rh-hR-cOs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,49 +25,27 @@
             </objects>
             <point key="canvasLocation" x="-910" y="153"/>
         </scene>
-        <!--东油教务-->
-        <scene sceneID="yKY-3N-iP6">
-            <objects>
-                <viewController title="东油教务" id="PxZ-c3-SDW" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dCl-NN-UTf"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Uk-pO-lDO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wLH-yi-u5h">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlN-gp-bcU">
-                                <rect key="frame" x="0.0" y="64" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="KlN-gp-bcU" firstAttribute="top" secondItem="dCl-NN-UTf" secondAttribute="bottom" id="GFC-Sn-QUb"/>
-                            <constraint firstItem="KlN-gp-bcU" firstAttribute="leading" secondItem="wLH-yi-u5h" secondAttribute="leading" id="ce6-ip-Jzh"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="yxz-BO-VH7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AMu-NX-Nqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="820" y="-173"/>
-        </scene>
         <!--东油新闻-->
         <scene sceneID="b3k-Se-o3P">
             <objects>
                 <viewController title="东油新闻" id="P2j-x3-b5R" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6bz-T9-2zK"/>
-                        <viewControllerLayoutGuide type="bottom" id="bAi-e7-cwS"/>
+                        <viewControllerLayoutGuide type="top" id="vQY-hW-LkG"/>
+                        <viewControllerLayoutGuide type="bottom" id="vM7-F2-tdi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Lp4-5q-Vo5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-Jg-HrN">
+                                <rect key="frame" x="0.0" y="64" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aeL-Jg-HrN" firstAttribute="top" secondItem="vQY-hW-LkG" secondAttribute="bottom" id="fyR-Py-aRi"/>
+                            <constraint firstItem="aeL-Jg-HrN" firstAttribute="leading" secondItem="Lp4-5q-Vo5" secondAttribute="leading" id="lSj-Lq-sZt"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="xEW-x6-e9q"/>
                 </viewController>
@@ -80,13 +58,22 @@
             <objects>
                 <viewController title="教务系统" id="2o9-E9-pAf" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aCn-ay-4vj"/>
-                        <viewControllerLayoutGuide type="bottom" id="vb9-N7-5DQ"/>
+                        <viewControllerLayoutGuide type="top" id="QfC-fY-Xkq"/>
+                        <viewControllerLayoutGuide type="bottom" id="vZ7-ET-PdN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fUL-i4-dzR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WLl-7m-yZD">
+                                <rect key="frame" x="163" y="64" width="51" height="31"/>
+                            </switch>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WLl-7m-yZD" firstAttribute="top" secondItem="QfC-fY-Xkq" secondAttribute="bottom" id="Kn8-BQ-8CZ"/>
+                            <constraint firstItem="WLl-7m-yZD" firstAttribute="centerX" secondItem="fUL-i4-dzR" secondAttribute="centerX" id="mAm-pi-BYL"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="hot-4m-j66"/>
                 </viewController>
@@ -99,13 +86,23 @@
             <objects>
                 <viewController title="教务通知" id="MpU-tL-opd" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vyU-Hw-bQQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="naP-At-sEf"/>
+                        <viewControllerLayoutGuide type="top" id="KBs-tb-TVv"/>
+                        <viewControllerLayoutGuide type="bottom" id="o3o-Gu-xa7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ej8-oR-Rvd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2B-Tw-eFi">
+                                <rect key="frame" x="0.0" y="64" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S2B-Tw-eFi" firstAttribute="top" secondItem="KBs-tb-TVv" secondAttribute="bottom" id="H5H-Pm-3OR"/>
+                            <constraint firstItem="S2B-Tw-eFi" firstAttribute="leading" secondItem="ej8-oR-Rvd" secondAttribute="leading" id="z0j-AE-axH"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="b2P-aP-85N"/>
                 </viewController>
@@ -124,7 +121,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="PxZ-c3-SDW" kind="relationship" relationship="viewControllers" id="Yjg-ve-lxx"/>
+                        <segue destination="ajb-lk-nD9" kind="relationship" relationship="viewControllers" id="Yjg-ve-lxx"/>
                         <segue destination="2o9-E9-pAf" kind="relationship" relationship="viewControllers" id="7Uf-UW-NwM"/>
                         <segue destination="P2j-x3-b5R" kind="relationship" relationship="viewControllers" id="lTg-qF-mTS"/>
                         <segue destination="MpU-tL-opd" kind="relationship" relationship="viewControllers" id="0lU-JV-sHJ"/>
@@ -133,6 +130,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNf-Ii-bC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-84" y="152"/>
+        </scene>
+        <!--MyCourse-->
+        <scene sceneID="9nf-Js-ppb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyCourse" id="ajb-lk-nD9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="TlZ-Xh-o9f"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zll-62-3IS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="-173.16341829085459"/>
         </scene>
     </scenes>
 </document>

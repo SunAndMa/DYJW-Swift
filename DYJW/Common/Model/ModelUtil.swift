@@ -13,10 +13,12 @@ class ModelUtil: NSObject {
     
     fileprivate static let app = UIApplication.shared.delegate as! AppDelegate
     
-    public class func insert<T: NSManagedObject>(_ deal: (T) -> Void) -> Bool {
+    public class func insert<T: NSManagedObject>(_ handler: (T) -> Void) -> Bool {
         let className = NSStringFromClass(T.self)
-        let model = NSEntityDescription.insertNewObject(forEntityName: className, into: app.managedObjectContext) as! T
-        deal(model)
+        guard let model = NSEntityDescription.insertNewObject(forEntityName: className, into: app.managedObjectContext) as? T else {
+            return false
+        }
+        handler(model)
         do {
             try app.managedObjectContext.save()
         } catch let error as NSError {
@@ -27,10 +29,10 @@ class ModelUtil: NSObject {
     
     public class func query<T: NSManagedObject>(_ modelClass: T.Type, condition: String = "") -> [T]? {
         let className = NSStringFromClass(modelClass)
-        let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest()
-        let entity: NSEntityDescription? = NSEntityDescription.entity(forEntityName: className, in: app.managedObjectContext)
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        let entity = NSEntityDescription.entity(forEntityName: className, in: app.managedObjectContext)
         request.entity = entity
-        let models = try? app.managedObjectContext.fetch(request) as! [T]
+        let models = (try? app.managedObjectContext.fetch(request)) as? [T]
         return models
     }
     

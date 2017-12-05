@@ -46,6 +46,7 @@ class NavigationDrawer: UIView {
         super.awakeFromNib()
         
         self.tableView.register(UINib(nibName: "DrawerCell", bundle: Bundle.main), forCellReuseIdentifier: "cell")
+        self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
         
         self.setDrawerViewHidden(true)
         self.setLoginButton()
@@ -69,7 +70,6 @@ class NavigationDrawer: UIView {
     
     private func setUserInfo() {
         let uu = ModelUtil.query(User.self)?.first
-        print("123456".md5Value)
         if let user = uu {
             self.userImageView.image = #imageLiteral(resourceName: "default_user")
             self.usernameLabel.text = user.name
@@ -120,26 +120,26 @@ class NavigationDrawer: UIView {
             var percent = -self.contentViewLeadingConstraint.constant / self.contentView.bounds.width
             percent = percent < 0 ? 0 : percent
             if velocity.x < -800 {
-                self.setDrawerViewHidden(true, 0.25 * (1 - percent))
+                self.setDrawerViewHidden(true, animationDuration: 0.25 * (1 - percent))
             } else if velocity.x > 800 {
-                self.setDrawerViewHidden(false, 0.25 * percent)
+                self.setDrawerViewHidden(false, animationDuration: 0.25 * percent)
             } else {
                 if percent >= 0.5 {
-                    self.setDrawerViewHidden(true, 0.25 * (1 - percent))
+                    self.setDrawerViewHidden(true, animationDuration: 0.25 * (1 - percent))
                 } else {
-                    self.setDrawerViewHidden(false, 0.25 * percent)
+                    self.setDrawerViewHidden(false, animationDuration: 0.25 * percent)
                 }
             }
         }
     }
     
     @objc fileprivate func dealTap(_ tap: UITapGestureRecognizer) {
-        self.setDrawerViewHidden(true, 0.25)
+        self.setDrawerViewHidden(true, animationDuration: 0.25)
     }
     
-    fileprivate func setDrawerViewHidden(_ isHidden: Bool, _ animationDuration: CGFloat = 0) {
+    fileprivate func setDrawerViewHidden(_ isHidden: Bool, animationDuration: CGFloat = 0, delay: TimeInterval = 0) {
         self.delegate?.navigationDrawerDidChanged(state: !isHidden)
-        UIView.animate(withDuration: TimeInterval(animationDuration), delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: TimeInterval(animationDuration), delay: delay, options: .curveEaseInOut, animations: {
             self.contentViewLeadingConstraint.constant = (isHidden ? -self.contentView.bounds.width : 0)
             self.backgroundColor = UIColor(white: 0, alpha: isHidden ? 0 : 0.5)
             self.layoutIfNeeded()
@@ -166,9 +166,14 @@ extension NavigationDrawer: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.setDrawerViewHidden(true, 0.25)
-        self.delegate?.navigationDrawerDidSelectItem(at: indexPath.row)
+        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(didSelectedRow(_:)), userInfo: indexPath.row, repeats: false)
+    }
+    
+    @objc fileprivate func didSelectedRow(_ timer: Timer) {
+        if let index = timer.userInfo as? Int {
+            self.setDrawerViewHidden(true, animationDuration: 0.25)
+            self.delegate?.navigationDrawerDidSelectItem(at: index)
+        }
     }
 }
 

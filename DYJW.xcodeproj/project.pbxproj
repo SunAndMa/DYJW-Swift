@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C7CC63C1DAA320B007EE83C /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7CC63B1DAA320B007EE83C /* CourseView.swift */; };
 		6C9773F81D924B9D00465CBE /* MyCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9773F71D924B9D00465CBE /* MyCourseController.swift */; };
 		6CED3E971D9132F5009F15E8 /* FKBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CED3E961D9132F5009F15E8 /* FKBaseController.swift */; };
+		A607E3461FD6A30300766EF8 /* MyCourse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A607E3451FD6A30300766EF8 /* MyCourse.storyboard */; };
+		A607E34C1FD6A8E000766EF8 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A607E34A1FD6A8E000766EF8 /* CourseCell.swift */; };
+		A607E34D1FD6A8E000766EF8 /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607E34B1FD6A8E000766EF8 /* CourseCell.xib */; };
 		A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62018851D86CA030085DF80 /* AppDelegate.swift */; };
 		A62018901D86CA030085DF80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A620188F1D86CA030085DF80 /* Assets.xcassets */; };
 		A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62018911D86CA030085DF80 /* LaunchScreen.storyboard */; };
@@ -39,9 +41,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C7CC63B1DAA320B007EE83C /* CourseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		6C9773F71D924B9D00465CBE /* MyCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourseController.swift; sourceTree = "<group>"; };
 		6CED3E961D9132F5009F15E8 /* FKBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKBaseController.swift; sourceTree = "<group>"; };
+		A607E3451FD6A30300766EF8 /* MyCourse.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyCourse.storyboard; sourceTree = "<group>"; };
+		A607E34A1FD6A8E000766EF8 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		A607E34B1FD6A8E000766EF8 /* CourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
 		A62018821D86CA030085DF80 /* 东油教务.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "东油教务.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62018851D86CA030085DF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A620188F1D86CA030085DF80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		6C9773F41D924B6D00465CBE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A607E3451FD6A30300766EF8 /* MyCourse.storyboard */,
 				6C9773F71D924B9D00465CBE /* MyCourseController.swift */,
 			);
 			path = Controller;
@@ -113,7 +118,8 @@
 		6C9773F61D924B6D00465CBE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6C7CC63B1DAA320B007EE83C /* CourseView.swift */,
+				A607E34A1FD6A8E000766EF8 /* CourseCell.swift */,
+				A607E34B1FD6A8E000766EF8 /* CourseCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,7 +382,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A67DBB271FD52ED800F085A3 /* DrawerCell.xib in Resources */,
+				A607E3461FD6A30300766EF8 /* MyCourse.storyboard in Resources */,
 				A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */,
+				A607E34D1FD6A8E000766EF8 /* CourseCell.xib in Resources */,
 				A62018901D86CA030085DF80 /* Assets.xcassets in Resources */,
 				A67DBB231FD52AD300F085A3 /* NavigationDrawer.xib in Resources */,
 				A67007B91FBD6A53008391F0 /* iPhoneMain.storyboard in Resources */,
@@ -404,9 +412,9 @@
 				A67DBB051FD50ED600F085A3 /* Image.swift in Sources */,
 				A67DBB1C1FD5275000F085A3 /* HamburgerView.swift in Sources */,
 				A67DBB1A1FD5275000F085A3 /* ModelUtil.swift in Sources */,
-				6C7CC63C1DAA320B007EE83C /* CourseView.swift in Sources */,
 				A67DBB061FD50ED600F085A3 /* Screen.swift in Sources */,
 				A67DBB211FD5297400F085A3 /* DYJW.xcdatamodeld in Sources */,
+				A607E34C1FD6A8E000766EF8 /* CourseCell.swift in Sources */,
 				A67DBB031FD50ED600F085A3 /* UIView.swift in Sources */,
 				A67DBB1B1FD5275000F085A3 /* Utils.swift in Sources */,
 				A67DBB071FD50ED600F085A3 /* String.swift in Sources */,

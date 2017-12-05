@@ -99,15 +99,3 @@ class BaseNavigationController: UINavigationController {
     }
     
 }
-
-//extension FKBaseToolbarController: NavigationDrawerDelegate {
-//    
-//    func navigationDrawerStateValueChanged(_ stateValue: CGFloat) {
-//        hamburger.stateValue = stateValue
-//    }
-//    
-//    func navigationDrawerStateChanged(_ open: Bool) {
-//        hamburger.state = open ? .back : .normal
-//    }
-//}
-
