@@ -133,23 +133,22 @@ extension UIView: CAAnimationDelegate {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.cancelRipple = false
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(startRipple), userInfo: touches, repeats: false)
+        self.perform(#selector(startRipple(_:)), with: touches, afterDelay: 0.1)
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         self.cancelRipple = false
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
+        self.perform(#selector(endRipple), with: nil, afterDelay: 0.1)
     }
     
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
         self.cancelRipple = true
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(endRipple), userInfo: nil, repeats: false)
+        self.perform(#selector(endRipple), with: nil, afterDelay: 0.1)
     }
     
-    @objc fileprivate func startRipple(_ timer: Timer) {
-        let touches:Set<UITouch> = timer.userInfo as! Set<UITouch>
+    @objc fileprivate func startRipple(_ touches: Set<UITouch>) {
         if !self.ripple || self.cancelRipple {
             return
         }
@@ -234,13 +233,16 @@ extension UIButton {
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        self.perform(#selector(startRipple(_:)), with: touches, afterDelay: 0.1)
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
+        self.perform(#selector(endRipple), with: nil, afterDelay: 0.1)
     }
     
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
+        self.perform(#selector(endRipple), with: nil, afterDelay: 0.1)
     }
 }

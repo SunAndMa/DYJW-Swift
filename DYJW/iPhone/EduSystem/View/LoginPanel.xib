@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoginPanel" customModule="东油教务" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="284"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="272"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录教务管理系统" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pv-Bd-Xot">
@@ -53,17 +53,15 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="go" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jks-pz-17p">
-                    <rect key="frame" x="203.5" y="152" width="155.5" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="Oik-EG-8Mc"/>
-                    </constraints>
+                    <rect key="frame" x="203.5" y="152" width="155.5" height="36"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-mH-GLS">
-                    <rect key="frame" x="271" y="232" width="88" height="36"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-mH-GLS" customClass="MDFlatButton" customModule="东油教务" customModuleProvider="target">
+                    <rect key="frame" x="271" y="220" width="88" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="88" id="3ae-95-cvD"/>
                         <constraint firstAttribute="height" constant="36" id="FWD-Jf-kp0"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="登录">
                         <color key="titleColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -79,6 +77,7 @@
                 <constraint firstItem="pIP-uF-qsG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="NUL-De-lZN"/>
                 <constraint firstItem="Jks-pz-17p" firstAttribute="top" secondItem="pIP-uF-qsG" secondAttribute="bottom" id="Nlg-qh-M5R"/>
                 <constraint firstAttribute="trailing" secondItem="eyW-2Q-Q8g" secondAttribute="trailing" constant="16" id="PGi-iI-Thj"/>
+                <constraint firstItem="Jks-pz-17p" firstAttribute="height" secondItem="bF0-7f-RNY" secondAttribute="height" multiplier="0.75" id="PbW-AB-wuV"/>
                 <constraint firstAttribute="trailing" secondItem="Jks-pz-17p" secondAttribute="trailing" constant="16" id="ROS-bx-qcB"/>
                 <constraint firstItem="pIP-uF-qsG" firstAttribute="top" secondItem="eyW-2Q-Q8g" secondAttribute="bottom" id="a29-U4-Gr7"/>
                 <constraint firstItem="0Pv-Bd-Xot" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="aTL-1Z-bEq"/>
