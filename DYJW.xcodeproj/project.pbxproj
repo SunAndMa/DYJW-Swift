@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6305B1C575F9700CF7586525 /* Pods_DYJW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F283166917F21BF4A2FD0341 /* Pods_DYJW.framework */; };
 		6C9773F81D924B9D00465CBE /* MyCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9773F71D924B9D00465CBE /* MyCourseController.swift */; };
 		6CED3E971D9132F5009F15E8 /* FKBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CED3E961D9132F5009F15E8 /* FKBaseController.swift */; };
 		A607E3461FD6A30300766EF8 /* MyCourse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A607E3451FD6A30300766EF8 /* MyCourse.storyboard */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37AC6040293EB95F5BE7628B /* Pods-DYJW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYJW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYJW/Pods-DYJW.debug.xcconfig"; sourceTree = "<group>"; };
 		6C9773F71D924B9D00465CBE /* MyCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCourseController.swift; sourceTree = "<group>"; };
 		6CED3E961D9132F5009F15E8 /* FKBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKBaseController.swift; sourceTree = "<group>"; };
 		A607E3451FD6A30300766EF8 /* MyCourse.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyCourse.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,8 @@
 		A67DBB221FD52AD300F085A3 /* NavigationDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationDrawer.xib; sourceTree = "<group>"; };
 		A67DBB241FD52ED800F085A3 /* DrawerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerCell.swift; sourceTree = "<group>"; };
 		A67DBB251FD52ED800F085A3 /* DrawerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawerCell.xib; sourceTree = "<group>"; };
+		D312F7E4B87FAA396006D039 /* Pods-DYJW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYJW.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYJW/Pods-DYJW.release.xcconfig"; sourceTree = "<group>"; };
+		F283166917F21BF4A2FD0341 /* Pods_DYJW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYJW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2ED9901DF94B4A003FE4F8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD2ED9911DF94B4A003FE4F8 /* CoreData.framework in Frameworks */,
+				6305B1C575F9700CF7586525 /* Pods_DYJW.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +235,7 @@
 				A62018841D86CA030085DF80 /* DYJW */,
 				A62018831D86CA030085DF80 /* Products */,
 				FD2ED98F1DF94B4A003FE4F8 /* Frameworks */,
+				DA4F608D2A4E362EC5065D5D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -366,10 +372,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DA4F608D2A4E362EC5065D5D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37AC6040293EB95F5BE7628B /* Pods-DYJW.debug.xcconfig */,
+				D312F7E4B87FAA396006D039 /* Pods-DYJW.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FD2ED98F1DF94B4A003FE4F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				FD2ED9901DF94B4A003FE4F8 /* CoreData.framework */,
+				F283166917F21BF4A2FD0341 /* Pods_DYJW.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -381,9 +397,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A62018971D86CA030085DF80 /* Build configuration list for PBXNativeTarget "DYJW" */;
 			buildPhases = (
+				47A6B1FB9061641D84FB2AEB /* [CP] Check Pods Manifest.lock */,
 				A620187E1D86CA030085DF80 /* Sources */,
 				A620187F1D86CA030085DF80 /* Frameworks */,
 				A62018801D86CA030085DF80 /* Resources */,
+				D25CF3FD64084D3EA99A5D72 /* [CP] Embed Pods Frameworks */,
+				BC374EA5A26C354968F3E1DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -447,6 +466,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47A6B1FB9061641D84FB2AEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DYJW-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC374EA5A26C354968F3E1DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DYJW/Pods-DYJW-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D25CF3FD64084D3EA99A5D72 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DYJW/Pods-DYJW-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DYJW/Pods-DYJW-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A620187E1D86CA030085DF80 /* Sources */ = {
@@ -585,6 +658,7 @@
 		};
 		A62018981D86CA030085DF80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37AC6040293EB95F5BE7628B /* Pods-DYJW.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -602,6 +676,7 @@
 		};
 		A62018991D86CA030085DF80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D312F7E4B87FAA396006D039 /* Pods-DYJW.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
