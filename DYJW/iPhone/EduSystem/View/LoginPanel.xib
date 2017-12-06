@@ -52,10 +52,13 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="go" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jks-pz-17p">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jks-pz-17p">
                     <rect key="frame" x="203.5" y="152" width="155.5" height="36"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Nil-fA-z19" appends="YES" id="mvc-iR-mRr"/>
+                    </connections>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-mH-GLS" customClass="MDFlatButton" customModule="东油教务" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-mH-GLS" customClass="MDFlatButton" customModule="东油教务" customModuleProvider="target">
                     <rect key="frame" x="271" y="220" width="88" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="88" id="3ae-95-cvD"/>
@@ -68,6 +71,9 @@
                     <state key="disabled" title="正在登录">
                         <color key="titleColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="loginButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="J5T-QB-pXb"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-Xi-Zkz">
                     <rect key="frame" x="16" y="229.5" width="239" height="17"/>
@@ -176,5 +182,10 @@
             </connections>
             <point key="canvasLocation" x="33.5" y="138"/>
         </view>
+        <tapGestureRecognizer id="Nil-fA-z19">
+            <connections>
+                <action selector="verifycodeImageClicked:" destination="iN0-l3-epB" id="r6w-mu-glI"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

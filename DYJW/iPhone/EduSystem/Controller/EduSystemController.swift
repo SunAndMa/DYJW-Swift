@@ -26,6 +26,7 @@ class EduSystemController: FKBaseController {
     }
     
     fileprivate func setupLoginPanel() {
+        self.loginPanel.delegate = self
         self.loginPanel.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.loginPanel)
         let topConstraint = NSLayoutConstraint(item: self.loginPanel,
@@ -52,19 +53,20 @@ class EduSystemController: FKBaseController {
         self.loginPanelTopConstraint = topConstraint
         NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint])
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 
+}
+
+extension EduSystemController: LoginPanelDelegate {
+    
+    func login(username: String, password: String, verifycode: String) {
+        
+    }
+    
+    func loadVerifycode() {
+        
+    }
 }

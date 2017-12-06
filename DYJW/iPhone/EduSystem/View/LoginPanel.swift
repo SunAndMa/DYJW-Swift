@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol LoginPanelDelegate: NSObjectProtocol {
+    func login(username: String, password: String, verifycode: String)
+    func loadVerifycode()
+}
+
 class LoginPanel: UIView {
 
     static func loadFromNib() -> LoginPanel {
         return Bundle.main.loadNibNamed("LoginPanel", owner: nil, options: nil)?.first as! LoginPanel
     }
+    
+    weak var delegate: LoginPanelDelegate?
 
     @IBOutlet fileprivate weak var usernameField: MDTextField!
     @IBOutlet fileprivate weak var passwordField: MDTextField!
@@ -24,4 +31,54 @@ class LoginPanel: UIView {
     @IBOutlet fileprivate weak var loginLoadingView: MDProgressView!
     @IBOutlet fileprivate weak var loginButton: MDFlatButton!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.errorMessageLabel.text = ""
+        self.loadingVerifycodeView.isHidden = true
+        self.loadingVerifycodeLabel.isHidden = true
+        self.loginLoadingView.isHidden = true
+    }
+    
+    func setVerifycode(_ image: UIImage) {
+        self.verifycodeImageView.image = image
+        self.verifycodeImageView.isHidden = false
+        self.loadingVerifycodeLabel.isHidden = true
+        self.loadingVerifycodeView.isHidden = true
+        self.loadingVerifycodeView.stopAnimating()
+    }
+    
+    func setLogin(success: Bool, errorMessage: String?) {
+        
+        self.loginLoadingView.isHidden = true
+        self.loginLoadingView.stopAnimating()
+    }
+    
+    @IBAction func verifycodeImageClicked(_ sender: Any) {
+        self.verifycodeImageView.isHidden = true
+        self.loadingVerifycodeView.isHidden = false
+        self.loadingVerifycodeView.startAnimating()
+        self.loadingVerifycodeLabel.isHidden = false
+        self.delegate?.loadVerifycode()
+    }
+    
+    @IBAction func loginButtonClicked(_ sender: Any) {
+        guard let username = self.usernameField.text, username.length > 0 else {
+            self.errorMessageLabel.text = "请输入用户名!"
+            return
+        }
+        guard let password = self.passwordField.text, password.length > 0 else {
+            self.errorMessageLabel.text = "请输入密码!"
+            return
+        }
+        guard let verifycode = self.verifycodeField.text, verifycode.length > 0 else {
+            self.errorMessageLabel.text = "请输入验证码!"
+            return
+        }
+        self.errorMessageLabel.text = ""
+        self.loginLoadingView.isHidden = false
+        self.loginLoadingView.startAnimating()
+        self.loginButton.isEnabled = false
+        self.delegate?.login(username: username, password: password, verifycode: verifycode)
+    }
 }

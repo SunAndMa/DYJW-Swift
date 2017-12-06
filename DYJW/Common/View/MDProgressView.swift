@@ -60,7 +60,7 @@ class MDProgressView: UIView {
         self.progressLayer.path = path.cgPath
     }
     
-    func startAnimatingn() {
+    func startAnimating() {
         let duration = 2.0
         
         let rotation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -71,10 +71,10 @@ class MDProgressView: UIView {
         self.progressLayer.add(rotation, forKey: "transform.rotation.z")
         
         let strokeStart = CAKeyframeAnimation(keyPath: "strokeStart")
-        strokeStart.values = [0.02, 0.18, 0.18,
-                              0.34, 0.34, 0.50,
-                              0.50, 0.66, 0.66,
-                              0.82, 0.82]
+        strokeStart.values = [0.00, 0.00, 0.16,
+                              0.16, 0.32, 0.32,
+                              0.48, 0.48, 0.64,
+                              0.64, 0.80]
         strokeStart.duration = duration * 5
         strokeStart.repeatCount = MAXFLOAT
         var timingFunctions: [CAMediaTimingFunction] = []
@@ -83,16 +83,20 @@ class MDProgressView: UIView {
         }
         strokeStart.timingFunctions = timingFunctions
         self.progressLayer.add(strokeStart, forKey: "strokeStart")
-        
+
         let strokeEnd = CAKeyframeAnimation(keyPath: "strokeEnd")
-        strokeEnd.values = [0.00, 0.00, 0.16,
-                            0.16, 0.32, 0.32,
-                            0.48, 0.48, 0.64,
-                            0.64, 0.80]
+        strokeEnd.values = [0.02, 0.18, 0.18,
+                            0.34, 0.34, 0.50,
+                            0.50, 0.66, 0.66,
+                            0.82, 0.82]
         strokeEnd.duration = duration * 5
         strokeEnd.repeatCount = MAXFLOAT
         self.progressLayer.add(strokeEnd, forKey: "strokeEnd")
         
+    }
+    
+    func stopAnimating() {
+        self.progressLayer.removeAllAnimations()
     }
 
 }
