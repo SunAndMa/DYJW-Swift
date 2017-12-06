@@ -52,7 +52,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="go" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textField>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jks-pz-17p">
+                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="click_to_refresh" translatesAutoresizingMaskIntoConstraints="NO" id="Jks-pz-17p">
                     <rect key="frame" x="203.5" y="152" width="155.5" height="36"/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="Nil-fA-z19" appends="YES" id="mvc-iR-mRr"/>
@@ -188,4 +188,7 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="click_to_refresh" width="124" height="44"/>
+    </resources>
 </document>

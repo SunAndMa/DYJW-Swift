@@ -7,15 +7,36 @@
 //
 
 import UIKit
+import Alamofire
 
 class VerifyCode: NSObject {
     
     static func loadVerifycodeImage(_ completion: @escaping (VerifyCode?) -> Void) {
         
+        let url = "http://jwgl.nepu.edu.cn/verifycode.servlet"
+        let request = Alamofire.request(url)
+        request.responseData { (response) in
+            guard let data = response.data else {
+                completion(nil)
+                return
+            }
+            let image = UIImage(data: data)
+            let model = VerifyCode()
+            model.verifycodeImage = image
+            completion(model)
+        }
     }
     
-    fileprivate(set) var recognizedCode: NSString?
-    fileprivate(set) var verifycodeImage: UIImage?
+    fileprivate(set) var recognizedCode: String?
+    fileprivate(set) var verifycodeImage: UIImage? {
+        didSet {
+            guard let image = self.verifycodeImage else {
+                self.recognizedCode = nil
+                return
+            }
+            self.recognizedCode = self.recognizeVerifycode(image)
+        }
+    }
     
     fileprivate func recognizeVerifycode(_ image: UIImage) -> String? {
         let letters = ["b", "c", "m", "n", "v", "x", "z", "1", "2", "3"]
@@ -62,11 +83,10 @@ class VerifyCode: NSObject {
             }
         }
         
-        //
         var verifycode = ""
-        for lineIndex in 0 ..< colors.count {
+        for lineIndex in 0 ..< 45 {
             // 从每一列开始往后比较
-            for letterIndex in 0 ..< letters.count {
+            for letterIndex in 0 ..< 10 {
                 // 与已知各个字符进行比较
                 if self.compare(colors: colors, position: lineIndex, dest: nums[letterIndex]) {
                     verifycode.append(letters[letterIndex])

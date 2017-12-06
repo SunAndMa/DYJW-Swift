@@ -67,6 +67,12 @@ extension EduSystemController: LoginPanelDelegate {
     }
     
     func loadVerifycode() {
-        
+        VerifyCode.loadVerifycodeImage { (verifycode) in
+            guard let image = verifycode?.verifycodeImage else {
+                self.loginPanel.loadVerifycodeFail()
+                return
+            }
+            self.loginPanel.setVerifycode(image, recognizedCode: verifycode?.recognizedCode)
+        }
     }
 }

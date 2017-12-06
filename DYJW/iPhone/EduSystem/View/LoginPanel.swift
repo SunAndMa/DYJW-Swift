@@ -19,7 +19,11 @@ class LoginPanel: UIView {
         return Bundle.main.loadNibNamed("LoginPanel", owner: nil, options: nil)?.first as! LoginPanel
     }
     
-    weak var delegate: LoginPanelDelegate?
+    weak var delegate: LoginPanelDelegate? {
+        didSet {
+            self.loadVerifycode()
+        }
+    }
 
     @IBOutlet fileprivate weak var usernameField: MDTextField!
     @IBOutlet fileprivate weak var passwordField: MDTextField!
@@ -40,12 +44,21 @@ class LoginPanel: UIView {
         self.loginLoadingView.isHidden = true
     }
     
-    func setVerifycode(_ image: UIImage) {
+    func setVerifycode(_ image: UIImage, recognizedCode: String?) {
+        self.verifycodeField.text = recognizedCode
         self.verifycodeImageView.image = image
         self.verifycodeImageView.isHidden = false
         self.loadingVerifycodeLabel.isHidden = true
         self.loadingVerifycodeView.isHidden = true
         self.loadingVerifycodeView.stopAnimating()
+    }
+    
+    func loadVerifycodeFail() {
+        self.verifycodeImageView.image = #imageLiteral(resourceName: "click_to_refresh")
+        self.verifycodeImageView.isHidden = false
+        self.loadingVerifycodeView.isHidden = true
+        self.loadingVerifycodeView.stopAnimating()
+        self.loadingVerifycodeLabel.isHidden = true
     }
     
     func setLogin(success: Bool, errorMessage: String?) {
@@ -55,6 +68,10 @@ class LoginPanel: UIView {
     }
     
     @IBAction func verifycodeImageClicked(_ sender: Any) {
+        self.loadVerifycode()
+    }
+    
+    fileprivate func loadVerifycode() {
         self.verifycodeImageView.isHidden = true
         self.loadingVerifycodeView.isHidden = false
         self.loadingVerifycodeView.startAnimating()
