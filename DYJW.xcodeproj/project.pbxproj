@@ -24,6 +24,9 @@
 		A6647AF81FD7D7E900AF4949 /* MDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */; };
 		A6647AFA1FD7FBE900AF4949 /* VerifyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6647AF91FD7FBE900AF4949 /* VerifyCode.swift */; };
 		A66C9D8D1FD711C600C0E5E4 /* LoginPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */; };
+		A66C9D991FD837DE00C0E5E4 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66C9D981FD837DE00C0E5E4 /* News.storyboard */; };
+		A66C9D9E1FD8387300C0E5E4 /* NewsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C9D9D1FD8387300C0E5E4 /* NewsListController.swift */; };
+		A66C9DA01FD83B3300C0E5E4 /* NewsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C9D9F1FD83B3300C0E5E4 /* NewsTabView.swift */; };
 		A67007B91FBD6A53008391F0 /* iPhoneMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */; };
 		A67DBB021FD50ED600F085A3 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DBAF71FD50ED600F085A3 /* CALayer.swift */; };
 		A67DBB031FD50ED600F085A3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DBAF81FD50ED600F085A3 /* UIView.swift */; };
@@ -68,6 +71,9 @@
 		A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDProgressView.swift; sourceTree = "<group>"; };
 		A6647AF91FD7FBE900AF4949 /* VerifyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCode.swift; sourceTree = "<group>"; };
 		A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPanel.xib; sourceTree = "<group>"; };
+		A66C9D981FD837DE00C0E5E4 /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
+		A66C9D9D1FD8387300C0E5E4 /* NewsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListController.swift; sourceTree = "<group>"; };
+		A66C9D9F1FD83B3300C0E5E4 /* NewsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabView.swift; sourceTree = "<group>"; };
 		A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhoneMain.storyboard; sourceTree = "<group>"; };
 		A67DBAF71FD50ED600F085A3 /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		A67DBAF81FD50ED600F085A3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				6CED3E8E1D911EA2009F15E8 /* Common */,
 				6C9773F31D924B6D00465CBE /* MyCourses */,
 				A607E34E1FD6ABB300766EF8 /* EduSystem */,
+				A66C9D921FD8377C00C0E5E4 /* News */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -295,6 +302,40 @@
 			children = (
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		A66C9D921FD8377C00C0E5E4 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				A66C9D981FD837DE00C0E5E4 /* News.storyboard */,
+				A66C9D941FD8379B00C0E5E4 /* Controller */,
+				A66C9D951FD8379B00C0E5E4 /* Model */,
+				A66C9D931FD8379B00C0E5E4 /* View */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		A66C9D931FD8379B00C0E5E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A66C9D9F1FD83B3300C0E5E4 /* NewsTabView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A66C9D941FD8379B00C0E5E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A66C9D9D1FD8387300C0E5E4 /* NewsListController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A66C9D951FD8379B00C0E5E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A67DBAF51FD50ED600F085A3 /* FKTools */ = {
@@ -460,6 +501,7 @@
 				A607E34D1FD6A8E000766EF8 /* CourseCell.xib in Resources */,
 				A62018901D86CA030085DF80 /* Assets.xcassets in Resources */,
 				A67DBB231FD52AD300F085A3 /* NavigationDrawer.xib in Resources */,
+				A66C9D991FD837DE00C0E5E4 /* News.storyboard in Resources */,
 				A607E3551FD6ABE500766EF8 /* EduSystem.storyboard in Resources */,
 				A67007B91FBD6A53008391F0 /* iPhoneMain.storyboard in Resources */,
 			);
@@ -529,6 +571,7 @@
 				A67DBB091FD50ED600F085A3 /* File.swift in Sources */,
 				A607E3591FD6AC7E00766EF8 /* LoginPanel.swift in Sources */,
 				6CED3E971D9132F5009F15E8 /* FKBaseController.swift in Sources */,
+				A66C9DA01FD83B3300C0E5E4 /* NewsTabView.swift in Sources */,
 				A6647AFA1FD7FBE900AF4949 /* VerifyCode.swift in Sources */,
 				A67DBB1E1FD5275000F085A3 /* NavigationDrawer.swift in Sources */,
 				A67DBB041FD50ED600F085A3 /* Array.swift in Sources */,
@@ -540,6 +583,7 @@
 				A67DBB171FD5275000F085A3 /* BaseNavigationController.swift in Sources */,
 				A6647AF81FD7D7E900AF4949 /* MDProgressView.swift in Sources */,
 				A67DBB051FD50ED600F085A3 /* Image.swift in Sources */,
+				A66C9D9E1FD8387300C0E5E4 /* NewsListController.swift in Sources */,
 				A67DBB1C1FD5275000F085A3 /* HamburgerView.swift in Sources */,
 				A6647AF61FD7D43300AF4949 /* MDFlatButton.swift in Sources */,
 				A67DBB1A1FD5275000F085A3 /* ModelUtil.swift in Sources */,

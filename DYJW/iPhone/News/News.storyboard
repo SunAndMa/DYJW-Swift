@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--东油新闻-->
+        <scene sceneID="b3k-Se-o3P">
+            <objects>
+                <viewController storyboardIdentifier="UIViewController-P2j-x3-b5R" title="东油新闻" id="P2j-x3-b5R" customClass="NewsListController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vQY-hW-LkG"/>
+                        <viewControllerLayoutGuide type="bottom" id="vM7-F2-tdi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lp4-5q-Vo5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cvj-Vo-wEq">
+                                <rect key="frame" x="0.0" y="36" width="375" height="631"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="EM0-1E-XIh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fy1-4i-kim" customClass="NewsTabView" customModule="东油教务" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Vqu-qr-RrC"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fy1-4i-kim" firstAttribute="leading" secondItem="Lp4-5q-Vo5" secondAttribute="leading" id="1ZO-Zd-iQI"/>
+                            <constraint firstAttribute="trailing" secondItem="Cvj-Vo-wEq" secondAttribute="trailing" id="HPe-76-aT5"/>
+                            <constraint firstItem="Fy1-4i-kim" firstAttribute="top" secondItem="Lp4-5q-Vo5" secondAttribute="top" id="K9v-Qn-4pk"/>
+                            <constraint firstAttribute="bottom" secondItem="Cvj-Vo-wEq" secondAttribute="bottom" id="SAv-9l-gen"/>
+                            <constraint firstItem="Cvj-Vo-wEq" firstAttribute="leading" secondItem="Lp4-5q-Vo5" secondAttribute="leading" id="cgU-Fv-t3o"/>
+                            <constraint firstItem="Cvj-Vo-wEq" firstAttribute="top" secondItem="Fy1-4i-kim" secondAttribute="bottom" id="oiN-kB-LeM"/>
+                            <constraint firstAttribute="trailing" secondItem="Fy1-4i-kim" secondAttribute="trailing" id="qg3-1X-MBV"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="xEW-x6-e9q"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="type" value="News"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="tabView" destination="Fy1-4i-kim" id="s1D-jY-3MU"/>
+                        <outlet property="tableView" destination="Cvj-Vo-wEq" id="gFd-f8-1iO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CeH-yC-t90" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1733.5999999999999" y="-180.35982008995504"/>
+        </scene>
+        <!--教务通知-->
+        <scene sceneID="cV0-vy-S0g">
+            <objects>
+                <viewController storyboardIdentifier="UIViewController-MpU-tL-opd" title="教务通知" id="MpU-tL-opd" customClass="NewsListController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KBs-tb-TVv"/>
+                        <viewControllerLayoutGuide type="bottom" id="o3o-Gu-xa7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ej8-oR-Rvd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ss-kz-uet">
+                                <rect key="frame" x="0.0" y="36" width="375" height="631"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="goD-xc-aWh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3F-TP-3vw" customClass="NewsTabView" customModule="东油教务" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="6sQ-av-ic5"/>
+                                    <constraint firstAttribute="height" constant="36" id="Bxl-Eo-xuv"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="p3F-TP-3vw" firstAttribute="top" secondItem="ej8-oR-Rvd" secondAttribute="top" id="0cH-D9-ELW"/>
+                            <constraint firstItem="9ss-kz-uet" firstAttribute="top" secondItem="p3F-TP-3vw" secondAttribute="bottom" id="MRk-gK-TXX"/>
+                            <constraint firstItem="p3F-TP-3vw" firstAttribute="leading" secondItem="ej8-oR-Rvd" secondAttribute="leading" id="YGu-x1-9oB"/>
+                            <constraint firstItem="9ss-kz-uet" firstAttribute="leading" secondItem="ej8-oR-Rvd" secondAttribute="leading" id="oBd-Oi-CIA"/>
+                            <constraint firstAttribute="bottom" secondItem="9ss-kz-uet" secondAttribute="bottom" id="pV8-9R-Y8E"/>
+                            <constraint firstAttribute="trailing" secondItem="p3F-TP-3vw" secondAttribute="trailing" id="qFe-SJ-pgP"/>
+                            <constraint firstAttribute="trailing" secondItem="9ss-kz-uet" secondAttribute="trailing" id="qb6-Sy-dhk"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="b2P-aP-85N"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="type" value="Notice"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="tabView" destination="p3F-TP-3vw" id="3fK-rI-Y81"/>
+                        <outlet property="tableView" destination="9ss-kz-uet" id="8VI-ip-7hc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="thD-z8-wI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2528.8000000000002" y="-180.35982008995504"/>
+        </scene>
+    </scenes>
+</document>

@@ -25,63 +25,6 @@
             </objects>
             <point key="canvasLocation" x="-910" y="153"/>
         </scene>
-        <!--东油新闻-->
-        <scene sceneID="b3k-Se-o3P">
-            <objects>
-                <viewController title="东油新闻" id="P2j-x3-b5R" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vQY-hW-LkG"/>
-                        <viewControllerLayoutGuide type="bottom" id="vM7-F2-tdi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Lp4-5q-Vo5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-Jg-HrN">
-                                <rect key="frame" x="0.0" y="64" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="aeL-Jg-HrN" firstAttribute="top" secondItem="vQY-hW-LkG" secondAttribute="bottom" id="fyR-Py-aRi"/>
-                            <constraint firstItem="aeL-Jg-HrN" firstAttribute="leading" secondItem="Lp4-5q-Vo5" secondAttribute="leading" id="lSj-Lq-sZt"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="xEW-x6-e9q"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CeH-yC-t90" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1734" y="-180"/>
-        </scene>
-        <!--教务通知-->
-        <scene sceneID="cV0-vy-S0g">
-            <objects>
-                <viewController title="教务通知" id="MpU-tL-opd" customClass="FKBaseController" customModule="东油教务" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KBs-tb-TVv"/>
-                        <viewControllerLayoutGuide type="bottom" id="o3o-Gu-xa7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ej8-oR-Rvd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2B-Tw-eFi">
-                                <rect key="frame" x="0.0" y="64" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="S2B-Tw-eFi" firstAttribute="top" secondItem="KBs-tb-TVv" secondAttribute="bottom" id="H5H-Pm-3OR"/>
-                            <constraint firstItem="S2B-Tw-eFi" firstAttribute="leading" secondItem="ej8-oR-Rvd" secondAttribute="leading" id="z0j-AE-axH"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="b2P-aP-85N"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="thD-z8-wI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1734" y="484"/>
-        </scene>
         <!--Drawer Tab Controller-->
         <scene sceneID="XjH-hZ-Hon">
             <objects>
@@ -95,8 +38,8 @@
                     <connections>
                         <segue destination="ajb-lk-nD9" kind="relationship" relationship="viewControllers" id="Yjg-ve-lxx"/>
                         <segue destination="aIJ-tG-dKI" kind="relationship" relationship="viewControllers" id="7Uf-UW-NwM"/>
-                        <segue destination="P2j-x3-b5R" kind="relationship" relationship="viewControllers" id="lTg-qF-mTS"/>
-                        <segue destination="MpU-tL-opd" kind="relationship" relationship="viewControllers" id="0lU-JV-sHJ"/>
+                        <segue destination="ceM-oB-OK7" kind="relationship" relationship="viewControllers" id="lTg-qF-mTS"/>
+                        <segue destination="tK4-e1-6Vb" kind="relationship" relationship="viewControllers" id="0lU-JV-sHJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNf-Ii-bC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,6 +65,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPV-2E-Cg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="820" y="484"/>
+        </scene>
+        <!--UIViewController-P2j-x3-b5R-->
+        <scene sceneID="xB2-fg-hHA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="News" referencedIdentifier="UIViewController-P2j-x3-b5R" id="ceM-oB-OK7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="gDM-ro-nWD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bX-ul-guz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734" y="-180"/>
+        </scene>
+        <!--UIViewController-MpU-tL-opd-->
+        <scene sceneID="7DF-P0-GBZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="News" referencedIdentifier="UIViewController-MpU-tL-opd" id="tK4-e1-6Vb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="DNX-sD-3o0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q9a-gR-FIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734" y="484"/>
         </scene>
     </scenes>
 </document>
