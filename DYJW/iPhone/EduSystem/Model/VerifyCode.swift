@@ -36,27 +36,65 @@ class VerifyCode: NSObject {
         
         let imageWidth = 45
         let imageHeight = 12
-        let bytesPerRow = imageWidth * 4
-        
         
         guard let cgImage = image.cgImage?.cropping(to: CGRect(x: 3, y: 4, width: 45, height: 12)) else {
             return nil
         }
         
-        var data: Data?
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-//        let context = CGContext(data: &data, width: imageWidth, height: imageHeight, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipLast)
+        // 遍历像素
+        guard let pixelData = cgImage.dataProvider?.data else {
+            return nil
+        }
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        var colors: [[Bool]] = []
+        var colorLine: [Bool] = []
+        let pixelCount = imageWidth * imageHeight
+        for index in 0 ..< pixelCount {
+            let r = Int32(data[index * 4])
+            let g = Int32(data[index * 4 + 1])
+            let b = Int32(data[index * 4 + 2])
+            // 套用公式转灰度
+            let gray = (r * 299 + g * 587 + b * 114 + 500) / 1000
+            colorLine.append(gray < 0x99)
+            if index % 45 == 44 {
+                colors.append(colorLine)
+                colorLine = []
+            }
+        }
         
-//        let pixelData=CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage))
-//        let data:UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-//        let pixelInfo: Int = ((Int(self.size.width) * Int(pos.y)) + Int(pos.x)) * 4
-//
-//        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
-//        let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
-//        let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
-//        let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
-        
-        return nil
+        //
+        var verifycode = ""
+        for lineIndex in 0 ..< colors.count {
+            // 从每一列开始往后比较
+            for letterIndex in 0 ..< letters.count {
+                // 与已知各个字符进行比较
+                if self.compare(colors: colors, position: lineIndex, dest: nums[letterIndex]) {
+                    verifycode.append(letters[letterIndex])
+                    break
+                }
+            }
+        }
+        return verifycode
+    }
+    
+    // 对每一列进行与运算以消除图片中干扰线的影响
+    fileprivate func compare(colors: [[Bool]], position: Int, dest: [Int]) -> Bool {
+        for x in position ..< position + dest.count - 1 {
+            guard x < 45 else {
+                break
+            }
+            // 计算图片当前列的像素点的比特值
+            var lineValue = 0
+            var binBit = 1
+            for y in 0 ..< 12 {
+                lineValue += colors[y][x] ? binBit : 0
+                binBit *= 2
+            }
+            if lineValue & dest[x - position] != dest[x - position] {
+                return false
+            }
+        }
+        return true
     }
     
 }
