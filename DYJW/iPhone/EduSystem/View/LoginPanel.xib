@@ -55,7 +55,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jks-pz-17p">
                     <rect key="frame" x="203.5" y="152" width="155.5" height="36"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-mH-GLS" customClass="MDFlatButton" customModule="东油教务" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-mH-GLS" customClass="MDFlatButton" customModule="东油教务" customModuleProvider="target">
                     <rect key="frame" x="271" y="220" width="88" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="88" id="3ae-95-cvD"/>
@@ -65,17 +65,70 @@
                     <state key="normal" title="登录">
                         <color key="titleColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="disabled" title="正在登录">
+                        <color key="titleColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-Xi-Zkz">
+                    <rect key="frame" x="16" y="229.5" width="239" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.89803921568627454" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhG-LW-sFt" customClass="MDProgressView" customModule="东油教务" customModuleProvider="target">
+                    <rect key="frame" x="252" y="229" width="19" height="19"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="IvB-lI-GwN"/>
+                        <constraint firstAttribute="width" constant="19" id="tW8-uC-jHY"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                            <color key="value" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8L-eJ-wY4" customClass="MDProgressView" customModule="东油教务" customModuleProvider="target">
+                    <rect key="frame" x="231.5" y="160.5" width="19" height="19"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="19" id="ZRA-s2-knc"/>
+                        <constraint firstAttribute="height" constant="19" id="h6S-kW-rxL"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                            <color key="value" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在加载..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6J4-TE-62W">
+                    <rect key="frame" x="258.5" y="161" width="74" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="6J4-TE-62W" firstAttribute="leading" secondItem="d8L-eJ-wY4" secondAttribute="trailing" constant="8" id="60i-Cb-ZCi"/>
+                <constraint firstItem="BxU-mH-GLS" firstAttribute="leading" secondItem="kKc-Xi-Zkz" secondAttribute="trailing" constant="16" id="703-Kn-EUy"/>
                 <constraint firstItem="eyW-2Q-Q8g" firstAttribute="top" secondItem="0Pv-Bd-Xot" secondAttribute="bottom" constant="16" id="7J8-Jf-tEH"/>
                 <constraint firstItem="bF0-7f-RNY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="AbO-kx-P2a"/>
                 <constraint firstAttribute="trailing" secondItem="pIP-uF-qsG" secondAttribute="trailing" constant="16" id="Dhj-gt-oA3"/>
                 <constraint firstAttribute="bottom" secondItem="BxU-mH-GLS" secondAttribute="bottom" constant="16" id="EWt-ud-tWQ"/>
                 <constraint firstItem="bF0-7f-RNY" firstAttribute="top" secondItem="pIP-uF-qsG" secondAttribute="bottom" id="H6i-aP-87F"/>
+                <constraint firstItem="fhG-LW-sFt" firstAttribute="centerY" secondItem="BxU-mH-GLS" secondAttribute="centerY" id="IJ5-Of-1ZL"/>
+                <constraint firstItem="BxU-mH-GLS" firstAttribute="leading" secondItem="fhG-LW-sFt" secondAttribute="trailing" id="L8s-gM-75d"/>
                 <constraint firstItem="pIP-uF-qsG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="NUL-De-lZN"/>
                 <constraint firstItem="Jks-pz-17p" firstAttribute="top" secondItem="pIP-uF-qsG" secondAttribute="bottom" id="Nlg-qh-M5R"/>
+                <constraint firstItem="6J4-TE-62W" firstAttribute="centerY" secondItem="Jks-pz-17p" secondAttribute="centerY" id="P4l-U1-RPb"/>
+                <constraint firstItem="6J4-TE-62W" firstAttribute="centerX" secondItem="Jks-pz-17p" secondAttribute="centerX" constant="14" id="PDr-F0-Z57"/>
                 <constraint firstAttribute="trailing" secondItem="eyW-2Q-Q8g" secondAttribute="trailing" constant="16" id="PGi-iI-Thj"/>
                 <constraint firstItem="Jks-pz-17p" firstAttribute="height" secondItem="bF0-7f-RNY" secondAttribute="height" multiplier="0.75" id="PbW-AB-wuV"/>
                 <constraint firstAttribute="trailing" secondItem="Jks-pz-17p" secondAttribute="trailing" constant="16" id="ROS-bx-qcB"/>
@@ -84,10 +137,13 @@
                 <constraint firstItem="Jks-pz-17p" firstAttribute="leading" secondItem="bF0-7f-RNY" secondAttribute="trailing" id="abz-ya-UeH"/>
                 <constraint firstItem="0Pv-Bd-Xot" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="acW-EF-YOz"/>
                 <constraint firstAttribute="trailing" secondItem="0Pv-Bd-Xot" secondAttribute="trailing" constant="16" id="bRq-Nt-6hk"/>
+                <constraint firstItem="6J4-TE-62W" firstAttribute="centerY" secondItem="d8L-eJ-wY4" secondAttribute="centerY" id="e2l-tc-nxp"/>
                 <constraint firstItem="bF0-7f-RNY" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="feU-H3-gxb"/>
                 <constraint firstItem="BxU-mH-GLS" firstAttribute="top" secondItem="Jks-pz-17p" secondAttribute="bottom" constant="32" id="gus-hJ-Gvz"/>
                 <constraint firstAttribute="trailing" secondItem="BxU-mH-GLS" secondAttribute="trailing" constant="16" id="jj9-hO-fAq"/>
+                <constraint firstItem="kKc-Xi-Zkz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="pNq-su-KXi"/>
                 <constraint firstItem="eyW-2Q-Q8g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="vFk-XJ-spg"/>
+                <constraint firstItem="kKc-Xi-Zkz" firstAttribute="centerY" secondItem="BxU-mH-GLS" secondAttribute="centerY" id="yei-n9-4t3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
@@ -107,6 +163,17 @@
                     <real key="value" value="0.25"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="errorMessageLabel" destination="kKc-Xi-Zkz" id="6zI-5c-oaG"/>
+                <outlet property="loadingVerifycodeLabel" destination="6J4-TE-62W" id="48f-hX-Euu"/>
+                <outlet property="loadingVerifycodeView" destination="d8L-eJ-wY4" id="ZSQ-hs-bJ0"/>
+                <outlet property="loginButton" destination="BxU-mH-GLS" id="0RD-9M-dRX"/>
+                <outlet property="loginLoadingView" destination="fhG-LW-sFt" id="jh8-8x-iO3"/>
+                <outlet property="passwordField" destination="pIP-uF-qsG" id="bAG-wK-7Ig"/>
+                <outlet property="usernameField" destination="eyW-2Q-Q8g" id="z3x-pi-VMU"/>
+                <outlet property="verifycodeField" destination="bF0-7f-RNY" id="ci9-Mi-NjO"/>
+                <outlet property="verifycodeImageView" destination="Jks-pz-17p" id="UFR-zp-UXF"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="138"/>
         </view>
     </objects>

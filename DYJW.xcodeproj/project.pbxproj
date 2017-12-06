@@ -20,6 +20,7 @@
 		A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62018911D86CA030085DF80 /* LaunchScreen.storyboard */; };
 		A6647AF41FD7883F00AF4949 /* MDTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6647AF31FD7883F00AF4949 /* MDTextField.swift */; };
 		A6647AF61FD7D43300AF4949 /* MDFlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6647AF51FD7D43300AF4949 /* MDFlatButton.swift */; };
+		A6647AF81FD7D7E900AF4949 /* MDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */; };
 		A66C9D8D1FD711C600C0E5E4 /* LoginPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */; };
 		A67007B91FBD6A53008391F0 /* iPhoneMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */; };
 		A67DBB021FD50ED600F085A3 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DBAF71FD50ED600F085A3 /* CALayer.swift */; };
@@ -61,6 +62,7 @@
 		A62018941D86CA030085DF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6647AF31FD7883F00AF4949 /* MDTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDTextField.swift; sourceTree = "<group>"; };
 		A6647AF51FD7D43300AF4949 /* MDFlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDFlatButton.swift; sourceTree = "<group>"; };
+		A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDProgressView.swift; sourceTree = "<group>"; };
 		A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPanel.xib; sourceTree = "<group>"; };
 		A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhoneMain.storyboard; sourceTree = "<group>"; };
 		A67DBAF71FD50ED600F085A3 /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				A67DBB251FD52ED800F085A3 /* DrawerCell.xib */,
 				A6647AF31FD7883F00AF4949 /* MDTextField.swift */,
 				A6647AF51FD7D43300AF4949 /* MDFlatButton.swift */,
+				A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				A67DBB081FD50ED600F085A3 /* Color.swift in Sources */,
 				A67DBB261FD52ED800F085A3 /* DrawerCell.swift in Sources */,
 				A67DBB171FD5275000F085A3 /* BaseNavigationController.swift in Sources */,
+				A6647AF81FD7D7E900AF4949 /* MDProgressView.swift in Sources */,
 				A67DBB051FD50ED600F085A3 /* Image.swift in Sources */,
 				A67DBB1C1FD5275000F085A3 /* HamburgerView.swift in Sources */,
 				A6647AF61FD7D43300AF4949 /* MDFlatButton.swift in Sources */,

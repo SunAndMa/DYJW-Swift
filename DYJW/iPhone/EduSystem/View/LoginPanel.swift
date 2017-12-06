@@ -14,4 +14,14 @@ class LoginPanel: UIView {
         return Bundle.main.loadNibNamed("LoginPanel", owner: nil, options: nil)?.first as! LoginPanel
     }
 
+    @IBOutlet fileprivate weak var usernameField: MDTextField!
+    @IBOutlet fileprivate weak var passwordField: MDTextField!
+    @IBOutlet fileprivate weak var verifycodeField: MDTextField!
+    @IBOutlet fileprivate weak var verifycodeImageView: UIImageView!
+    @IBOutlet fileprivate weak var loadingVerifycodeView: MDProgressView!
+    @IBOutlet fileprivate weak var loadingVerifycodeLabel: UILabel!
+    @IBOutlet fileprivate weak var errorMessageLabel: UILabel!
+    @IBOutlet fileprivate weak var loginLoadingView: MDProgressView!
+    @IBOutlet fileprivate weak var loginButton: MDFlatButton!
+    
 }
