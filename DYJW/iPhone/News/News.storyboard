@@ -28,10 +28,10 @@
                                     <constraint firstAttribute="height" constant="36" id="Vqu-qr-RrC"/>
                                 </constraints>
                             </scrollView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DLu-No-zez">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DLu-No-zez">
                                 <rect key="frame" x="0.0" y="36" width="375" height="631"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BOw-jx-Ymk">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="BOw-jx-Ymk">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -47,6 +47,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="P2j-x3-b5R" id="7Xi-UW-uVj"/>
+                                    <outlet property="delegate" destination="P2j-x3-b5R" id="eou-K8-13K"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,6 +69,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="type" value="News"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="collectionView" destination="DLu-No-zez" id="0NE-Q7-zPZ"/>
                         <outlet property="tabView" destination="Fy1-4i-kim" id="s1D-jY-3MU"/>
                     </connections>
                 </viewController>
@@ -92,12 +97,40 @@
                                     <constraint firstAttribute="height" constant="36" id="Bxl-Eo-xuv"/>
                                 </constraints>
                             </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i1q-NR-naa">
+                                <rect key="frame" x="0.0" y="36" width="375" height="631"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MLE-MB-HEE">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EV9-3s-Td8">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="MpU-tL-opd" id="qyV-1T-HLa"/>
+                                    <outlet property="delegate" destination="MpU-tL-opd" id="6yo-aI-sUy"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="p3F-TP-3vw" firstAttribute="top" secondItem="ej8-oR-Rvd" secondAttribute="top" id="0cH-D9-ELW"/>
+                            <constraint firstAttribute="bottom" secondItem="i1q-NR-naa" secondAttribute="bottom" id="CDw-Wk-mN3"/>
                             <constraint firstItem="p3F-TP-3vw" firstAttribute="leading" secondItem="ej8-oR-Rvd" secondAttribute="leading" id="YGu-x1-9oB"/>
+                            <constraint firstItem="i1q-NR-naa" firstAttribute="leading" secondItem="ej8-oR-Rvd" secondAttribute="leading" id="bo2-al-Tze"/>
+                            <constraint firstItem="i1q-NR-naa" firstAttribute="top" secondItem="p3F-TP-3vw" secondAttribute="bottom" id="oGz-wV-FTV"/>
                             <constraint firstAttribute="trailing" secondItem="p3F-TP-3vw" secondAttribute="trailing" id="qFe-SJ-pgP"/>
+                            <constraint firstAttribute="trailing" secondItem="i1q-NR-naa" secondAttribute="trailing" id="zcu-CN-4F5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="b2P-aP-85N"/>
@@ -105,6 +138,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="type" value="Notice"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="collectionView" destination="i1q-NR-naa" id="Tah-Kc-K0G"/>
                         <outlet property="tabView" destination="p3F-TP-3vw" id="3fK-rI-Y81"/>
                     </connections>
                 </viewController>

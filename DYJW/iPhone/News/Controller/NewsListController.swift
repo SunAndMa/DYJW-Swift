@@ -25,7 +25,7 @@ class NewsListController: FKBaseController {
     fileprivate var newsSections: [NewsSection] = []
 
     @IBOutlet weak var tabView: NewsTabView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,8 @@ class NewsListController: FKBaseController {
         self.tabView.tabDelegate = self
         self.tabView.createTabLabels(self.newsSections)
         
-//        self.tableView
+        self.collectionView.register(NewsListViewCell.self)
+        
     }
     
     fileprivate func setSections() {
@@ -68,6 +69,14 @@ class NewsListController: FKBaseController {
             ]
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.itemSize = self.collectionView.bounds.size
+        }
+    }
 
 }
 
@@ -75,5 +84,23 @@ extension NewsListController: NewsTabViewDelegate {
     
     func tabDidSelect(at index: Int) {
         
+    }
+}
+
+extension NewsListController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.newsSections.count
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(NewsListViewCell.self, for: indexPath)
+        
+        return cell
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        self.tabView.selectedIndex = index
     }
 }

@@ -19,15 +19,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="418" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="06t-Qr-PPy">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="06t-Qr-PPy">
                         <rect key="frame" x="0.0" y="0.0" width="418" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tableView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="06t-Qr-PPy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kLZ-f3-S1F"/>
-                <constraint firstAttribute="trailing" secondItem="06t-Qr-PPy" secondAttribute="trailing" id="kTB-yb-491"/>
+                <constraint firstItem="06t-Qr-PPy" firstAttribute="left" secondItem="gTV-IL-0wX" secondAttribute="left" id="kLZ-f3-S1F"/>
+                <constraint firstAttribute="right" secondItem="06t-Qr-PPy" secondAttribute="right" id="kTB-yb-491"/>
                 <constraint firstItem="06t-Qr-PPy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vmM-C8-cQs"/>
                 <constraint firstAttribute="bottom" secondItem="06t-Qr-PPy" secondAttribute="bottom" id="xqP-S6-yfA"/>
             </constraints>

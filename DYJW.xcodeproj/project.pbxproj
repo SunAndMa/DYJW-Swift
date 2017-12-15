@@ -24,7 +24,7 @@
 		A6647AF81FD7D7E900AF4949 /* MDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */; };
 		A6647AFA1FD7FBE900AF4949 /* VerifyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6647AF91FD7FBE900AF4949 /* VerifyCode.swift */; };
 		A667598B1FE21A4F00EB0001 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667598A1FE21A4F00EB0001 /* Object.swift */; };
-		A667598D1FE2511600EB0001 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667598C1FE2511600EB0001 /* TableView.swift */; };
+		A667598D1FE2511600EB0001 /* RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A667598C1FE2511600EB0001 /* RegisterCell.swift */; };
 		A66C9D8D1FD711C600C0E5E4 /* LoginPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */; };
 		A66C9D991FD837DE00C0E5E4 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66C9D981FD837DE00C0E5E4 /* News.storyboard */; };
 		A66C9D9E1FD8387300C0E5E4 /* NewsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C9D9D1FD8387300C0E5E4 /* NewsListController.swift */; };
@@ -76,7 +76,7 @@
 		A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDProgressView.swift; sourceTree = "<group>"; };
 		A6647AF91FD7FBE900AF4949 /* VerifyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCode.swift; sourceTree = "<group>"; };
 		A667598A1FE21A4F00EB0001 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
-		A667598C1FE2511600EB0001 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		A667598C1FE2511600EB0001 /* RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCell.swift; sourceTree = "<group>"; };
 		A66C9D8C1FD711C600C0E5E4 /* LoginPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPanel.xib; sourceTree = "<group>"; };
 		A66C9D981FD837DE00C0E5E4 /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		A66C9D9D1FD8387300C0E5E4 /* NewsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListController.swift; sourceTree = "<group>"; };
@@ -371,7 +371,7 @@
 				A67DBAFC1FD50ED600F085A3 /* String.swift */,
 				A67DBAFD1FD50ED600F085A3 /* Color.swift */,
 				A667598A1FE21A4F00EB0001 /* Object.swift */,
-				A667598C1FE2511600EB0001 /* TableView.swift */,
+				A667598C1FE2511600EB0001 /* RegisterCell.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -624,7 +624,7 @@
 				6C9773F81D924B9D00465CBE /* MyCourseController.swift in Sources */,
 				A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */,
 				A667598B1FE21A4F00EB0001 /* Object.swift in Sources */,
-				A667598D1FE2511600EB0001 /* TableView.swift in Sources */,
+				A667598D1FE2511600EB0001 /* RegisterCell.swift in Sources */,
 				A67DBB1D1FD5275000F085A3 /* MDRippleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
