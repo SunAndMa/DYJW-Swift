@@ -52,6 +52,7 @@
 		A67DBB271FD52ED800F085A3 /* DrawerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67DBB251FD52ED800F085A3 /* DrawerCell.xib */; };
 		A67F35FE1FDE247A00EFEC3F /* NewsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F35FC1FDE247A00EFEC3F /* NewsListViewCell.swift */; };
 		A67F35FF1FDE247A00EFEC3F /* NewsListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67F35FD1FDE247A00EFEC3F /* NewsListViewCell.xib */; };
+		A69C7ED41FE3A2FC00C8523A /* MDSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69C7ED31FE3A2FC00C8523A /* MDSwitch.swift */; };
 		FD2ED9911DF94B4A003FE4F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2ED9901DF94B4A003FE4F8 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		A67DBB251FD52ED800F085A3 /* DrawerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawerCell.xib; sourceTree = "<group>"; };
 		A67F35FC1FDE247A00EFEC3F /* NewsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewCell.swift; sourceTree = "<group>"; };
 		A67F35FD1FDE247A00EFEC3F /* NewsListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsListViewCell.xib; sourceTree = "<group>"; };
+		A69C7ED31FE3A2FC00C8523A /* MDSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSwitch.swift; sourceTree = "<group>"; };
 		D312F7E4B87FAA396006D039 /* Pods-DYJW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYJW.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYJW/Pods-DYJW.release.xcconfig"; sourceTree = "<group>"; };
 		F283166917F21BF4A2FD0341 /* Pods_DYJW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYJW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2ED9901DF94B4A003FE4F8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -421,6 +423,7 @@
 				A6647AF31FD7883F00AF4949 /* MDTextField.swift */,
 				A6647AF51FD7D43300AF4949 /* MDFlatButton.swift */,
 				A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */,
+				A69C7ED31FE3A2FC00C8523A /* MDSwitch.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -481,6 +484,9 @@
 						DevelopmentTeam = 77M64ZZJGP;
 						LastSwiftMigration = 0810;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.NetworkExtensions.iOS = {
 								enabled = 0;
 							};
@@ -592,6 +598,7 @@
 				A66C9DA01FD83B3300C0E5E4 /* NewsTabView.swift in Sources */,
 				A67F35FE1FDE247A00EFEC3F /* NewsListViewCell.swift in Sources */,
 				A6647AFA1FD7FBE900AF4949 /* VerifyCode.swift in Sources */,
+				A69C7ED41FE3A2FC00C8523A /* MDSwitch.swift in Sources */,
 				A67DBB1E1FD5275000F085A3 /* NavigationDrawer.swift in Sources */,
 				A67DBB041FD50ED600F085A3 /* Array.swift in Sources */,
 				A67DBB181FD5275000F085A3 /* DrawerTabController.swift in Sources */,

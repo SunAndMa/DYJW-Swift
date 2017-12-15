@@ -116,7 +116,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbZ-nv-3Fe">
-                                <rect key="frame" x="68" y="316" width="239" height="36"/>
+                                <rect key="frame" x="68" y="259.5" width="239" height="36"/>
                                 <string key="text">还没有课程哦~
 快登录教务管理系统获取课程表吧~</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -128,7 +128,7 @@
                         <constraints>
                             <constraint firstItem="lef-oz-hGk" firstAttribute="leading" secondItem="wLH-yi-u5h" secondAttribute="leading" id="7EA-J1-T8s"/>
                             <constraint firstAttribute="trailing" secondItem="lef-oz-hGk" secondAttribute="trailing" id="AZV-m2-tG0"/>
-                            <constraint firstItem="tbZ-nv-3Fe" firstAttribute="centerY" secondItem="wLH-yi-u5h" secondAttribute="centerY" id="DoA-3f-ndz"/>
+                            <constraint firstItem="tbZ-nv-3Fe" firstAttribute="centerY" secondItem="wLH-yi-u5h" secondAttribute="centerY" constant="-56" id="DoA-3f-ndz"/>
                             <constraint firstAttribute="trailing" secondItem="bff-Rp-1L2" secondAttribute="trailing" id="IHV-8h-Uve"/>
                             <constraint firstAttribute="bottom" secondItem="lef-oz-hGk" secondAttribute="bottom" id="LO8-RC-Yza"/>
                             <constraint firstItem="bff-Rp-1L2" firstAttribute="top" secondItem="wLH-yi-u5h" secondAttribute="top" id="Vck-Zz-PL0"/>
