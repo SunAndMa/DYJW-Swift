@@ -68,15 +68,17 @@ class BaseNavigationController: UINavigationController {
     @objc fileprivate func hamburgerClick() {
         if self.hamburger.state == .normal {
             self.hamburger.state = .back;
-            let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            app.openDrawer()
+            if let tabController = self.viewControllers.first as? DrawerTabController {
+                tabController.openDrawer()
+            }
         } else {
             if (self.hamburger.state == .popBack) {
                 self.popViewController(animated: true)
             }
             self.hamburger.state = .normal;
-            let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            app.closeDrawer()
+            if let tabController = self.viewControllers.first as? DrawerTabController {
+                tabController.closeDrawer()
+            }
         }
     }
     

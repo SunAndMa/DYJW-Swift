@@ -60,6 +60,15 @@ class NavigationDrawer: UIView {
         self.addGestureRecognizer(pan)
     }
     
+    func openDrawer() {
+        self.delegate?.navigationDrawerWillShow()
+        self.startAnimation(false, animationDuration: 0.25)
+    }
+    
+    func closeDrawer() {
+        self.startAnimation(true, animationDuration: 0.25)
+    }
+    
     fileprivate func setLoginButton() {
         let normalImage = UIImage.createImage(with: UIColor.lightBlue500, size: CGSize(width: 86, height: 24))
         let highlightedImage = UIImage.createImage(with: UIColor.lightBlue300, size: CGSize(width: 86, height: 24))
@@ -139,6 +148,10 @@ class NavigationDrawer: UIView {
     
     fileprivate func setDrawerViewHidden(_ isHidden: Bool, animationDuration: CGFloat = 0, delay: TimeInterval = 0) {
         self.delegate?.navigationDrawerDidChanged(state: !isHidden)
+        self.startAnimation(isHidden, animationDuration: animationDuration, delay: delay)
+    }
+    
+    fileprivate func startAnimation(_ isHidden: Bool, animationDuration: CGFloat = 0, delay: TimeInterval = 0) {
         UIView.animate(withDuration: TimeInterval(animationDuration), delay: delay, options: .curveEaseInOut, animations: {
             self.contentViewLeadingConstraint.constant = (isHidden ? -self.contentView.bounds.width : 0)
             self.backgroundColor = UIColor(white: 0, alpha: isHidden ? 0 : 0.5)

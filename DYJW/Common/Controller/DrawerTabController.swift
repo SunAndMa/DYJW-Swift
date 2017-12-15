@@ -73,6 +73,15 @@ class DrawerTabController: UITabBarController {
         self.drawerLeadingConstraint = leftConstraint
         NSLayoutConstraint.activate([topConstraint, heightConstraint, leftConstraint, widthConstraint])
     }
+    
+    func openDrawer() {
+        self.drawer.openDrawer()
+    }
+    
+    func closeDrawer() {
+        self.drawer.closeDrawer()
+    }
+    
 }
 
 extension DrawerTabController: NavigationDrawerDelegate {

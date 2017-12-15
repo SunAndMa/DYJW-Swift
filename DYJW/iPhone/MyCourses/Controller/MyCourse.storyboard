@@ -123,17 +123,26 @@
                                 <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abo-uM-miW" customClass="MDSwitch" customModule="东油教务" customModuleProvider="target">
+                                <rect key="frame" x="128" y="303.5" width="120" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="KbG-xe-Mmp"/>
+                                    <constraint firstAttribute="height" constant="60" id="ihQ-lw-gO2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lef-oz-hGk" firstAttribute="leading" secondItem="wLH-yi-u5h" secondAttribute="leading" id="7EA-J1-T8s"/>
                             <constraint firstAttribute="trailing" secondItem="lef-oz-hGk" secondAttribute="trailing" id="AZV-m2-tG0"/>
                             <constraint firstItem="tbZ-nv-3Fe" firstAttribute="centerY" secondItem="wLH-yi-u5h" secondAttribute="centerY" constant="-56" id="DoA-3f-ndz"/>
+                            <constraint firstItem="Abo-uM-miW" firstAttribute="centerX" secondItem="wLH-yi-u5h" secondAttribute="centerX" id="EaD-XJ-XUZ"/>
                             <constraint firstAttribute="trailing" secondItem="bff-Rp-1L2" secondAttribute="trailing" id="IHV-8h-Uve"/>
                             <constraint firstAttribute="bottom" secondItem="lef-oz-hGk" secondAttribute="bottom" id="LO8-RC-Yza"/>
                             <constraint firstItem="bff-Rp-1L2" firstAttribute="top" secondItem="wLH-yi-u5h" secondAttribute="top" id="Vck-Zz-PL0"/>
                             <constraint firstItem="tbZ-nv-3Fe" firstAttribute="centerX" secondItem="wLH-yi-u5h" secondAttribute="centerX" id="chi-es-qSY"/>
                             <constraint firstItem="bff-Rp-1L2" firstAttribute="leading" secondItem="wLH-yi-u5h" secondAttribute="leading" id="ir2-Yw-z0Q"/>
+                            <constraint firstItem="Abo-uM-miW" firstAttribute="centerY" secondItem="wLH-yi-u5h" secondAttribute="centerY" id="is2-nA-opl"/>
                             <constraint firstItem="lef-oz-hGk" firstAttribute="top" secondItem="bff-Rp-1L2" secondAttribute="bottom" id="k1a-hg-2HI"/>
                         </constraints>
                     </view>
