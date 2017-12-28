@@ -17,7 +17,11 @@ class MDSwitch: UIControl {
             return self.isSwitchOn
         }
         set {
+            let oldValue = self.isOn
             self.setOn(newValue, animated: false)
+            if newValue != oldValue {
+                self.sendActions(for: .valueChanged)
+            }
         }
     }
     
@@ -104,17 +108,17 @@ class MDSwitch: UIControl {
     func setOn(_ isOn: Bool, animated: Bool) {
         self.isSwitchOn = isOn
         if animated {
-            self.beginAnimation()
+            self.beginAnimation(isOn)
         }
     }
     
-    fileprivate func beginAnimation() {
+    fileprivate func beginAnimation(_ isOn: Bool) {
         
         let duration = 0.25
         
         // 更改颜色
-        let fromColor = self.isSwitchOn ? self.defaultColor : self.onTintColor
-        let toColor = self.isSwitchOn ? self.onTintColor : self.defaultColor
+        let fromColor = isOn ? self.defaultColor : self.onTintColor
+        let toColor = isOn ? self.onTintColor : self.defaultColor
         let thumbColorAnimation = CABasicAnimation(keyPath: "fillColor")
         thumbColorAnimation.fromValue = fromColor.cgColor
         thumbColorAnimation.toValue = toColor.cgColor
@@ -134,8 +138,8 @@ class MDSwitch: UIControl {
         self.lineLayer.add(lineColorAnimation, forKey: "strokeColor")
         
         // 位移及遮罩
-        let fromCenterX = self.isSwitchOn ? self.bounds.width / 2 - 9.5 : self.bounds.width / 2 + 9.5
-        let toCenterX = self.isSwitchOn ? self.bounds.width / 2 + 9.5 : self.bounds.width / 2 - 9.5
+        let fromCenterX = isOn ? self.bounds.width / 2 - 9.5 : self.bounds.width / 2 + 9.5
+        let toCenterX = isOn ? self.bounds.width / 2 + 9.5 : self.bounds.width / 2 - 9.5
         
         let fromCirclePath = UIBezierPath(arcCenter: CGPoint(x: fromCenterX, y: self.bounds.height / 2),
                                         radius: 9.5,
@@ -159,13 +163,13 @@ class MDSwitch: UIControl {
         
         let fromMaskPath = UIBezierPath(rect: self.bounds)
         fromMaskPath.append(UIBezierPath(arcCenter: CGPoint(x: fromCenterX, y: self.bounds.height / 2),
-                                       radius: self.isSwitchOn ? 8.0 : 0.01,
+                                       radius: isOn ? 8.0 : 0.01,
                                        startAngle: 0,
                                        endAngle: CGFloat.pi * 2,
                                        clockwise: true).reversing())
         let toMaskPath = UIBezierPath(rect: self.bounds)
         toMaskPath.append(UIBezierPath(arcCenter: CGPoint(x: toCenterX, y: self.bounds.height / 2),
-                                       radius: self.isSwitchOn ? 0.01 : 8.0,
+                                       radius: isOn ? 0.01 : 8.0,
                                      startAngle: 0,
                                      endAngle: CGFloat.pi * 2,
                                      clockwise: true).reversing())
@@ -189,9 +193,79 @@ class MDSwitch: UIControl {
         self.lineMaskLayer.add(lineMaskAnimation, forKey: "path")
     }
     
+    fileprivate var beginPoint: CGPoint?
+    fileprivate var isCurrentOn: Bool = false
+    fileprivate var shouldAnimate = true
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.beginPoint = touches.first?.location(in: self)
+        self.isCurrentOn = self.isSwitchOn
+        self.shouldAnimate = true
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        guard let beginPoint = self.beginPoint else {
+            return
+        }
+        guard let location = touches.first?.location(in: self) else {
+            return
+        }
+        let offset = location.x - beginPoint.x
+        if self.isSwitchOn {
+            if offset >= 0 && self.isCurrentOn == false {
+                // 原本是打开，现在也是打开
+                self.isCurrentOn = true
+                self.shouldAnimate = false
+                self.beginAnimation(self.isCurrentOn)
+                self.impact()
+            } else if offset <= -27 && self.isCurrentOn == true {
+                // 原本是打开，现在是关闭
+                self.isCurrentOn = false
+                self.shouldAnimate = false
+                self.beginAnimation(self.isCurrentOn)
+                self.impact()
+            }
+        } else {
+            if offset >= 27 && self.isCurrentOn == false {
+                // 原本是关闭，现在是打开
+                self.isCurrentOn = true
+                self.shouldAnimate = false
+                self.beginAnimation(self.isCurrentOn)
+                self.impact()
+            } else if offset <= 0 && self.isCurrentOn == true {
+                // 原本是关闭，现在也是关闭
+                self.isCurrentOn = false
+                self.shouldAnimate = false
+                self.beginAnimation(self.isCurrentOn)
+                self.impact()
+            }
+        }
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        self.setOn(!self.isOn, animated: true)
+        if self.shouldAnimate {
+            self.setOn(!self.isOn, animated: true)
+            self.sendActions(for: .valueChanged)
+            self.impact()
+        } else if self.isSwitchOn != self.isCurrentOn {
+            self.isSwitchOn = self.isCurrentOn
+            self.sendActions(for: .valueChanged)
+        }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+    }
+    
+    fileprivate func impact() {
+        if #available(iOS 10.0, *) {
+            let impact = UIImpactFeedbackGenerator(style: .light)
+            impact.prepare()
+            impact.impactOccurred()
+        }
     }
 
 }
