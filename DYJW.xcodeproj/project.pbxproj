@@ -29,6 +29,8 @@
 		A66C9D991FD837DE00C0E5E4 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66C9D981FD837DE00C0E5E4 /* News.storyboard */; };
 		A66C9D9E1FD8387300C0E5E4 /* NewsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C9D9D1FD8387300C0E5E4 /* NewsListController.swift */; };
 		A66C9DA01FD83B3300C0E5E4 /* NewsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66C9D9F1FD83B3300C0E5E4 /* NewsTabView.swift */; };
+		A66E36811FF4C161008D88F1 /* LaunchAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E36801FF4C161008D88F1 /* LaunchAnimationView.swift */; };
+		A66E36831FF4C16C008D88F1 /* LaunchAnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66E36821FF4C16C008D88F1 /* LaunchAnimationView.xib */; };
 		A67007B91FBD6A53008391F0 /* iPhoneMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */; };
 		A67DBB021FD50ED600F085A3 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DBAF71FD50ED600F085A3 /* CALayer.swift */; };
 		A67DBB031FD50ED600F085A3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67DBAF81FD50ED600F085A3 /* UIView.swift */; };
@@ -81,6 +83,8 @@
 		A66C9D981FD837DE00C0E5E4 /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		A66C9D9D1FD8387300C0E5E4 /* NewsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListController.swift; sourceTree = "<group>"; };
 		A66C9D9F1FD83B3300C0E5E4 /* NewsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabView.swift; sourceTree = "<group>"; };
+		A66E36801FF4C161008D88F1 /* LaunchAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationView.swift; sourceTree = "<group>"; };
+		A66E36821FF4C16C008D88F1 /* LaunchAnimationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchAnimationView.xib; sourceTree = "<group>"; };
 		A67007B81FBD6A53008391F0 /* iPhoneMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhoneMain.storyboard; sourceTree = "<group>"; };
 		A67DBAF71FD50ED600F085A3 /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		A67DBAF81FD50ED600F085A3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -424,6 +428,8 @@
 				A6647AF51FD7D43300AF4949 /* MDFlatButton.swift */,
 				A6647AF71FD7D7E900AF4949 /* MDProgressView.swift */,
 				A69C7ED31FE3A2FC00C8523A /* MDSwitch.swift */,
+				A66E36801FF4C161008D88F1 /* LaunchAnimationView.swift */,
+				A66E36821FF4C16C008D88F1 /* LaunchAnimationView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,6 +529,7 @@
 				A67F35FF1FDE247A00EFEC3F /* NewsListViewCell.xib in Resources */,
 				A62018931D86CA030085DF80 /* LaunchScreen.storyboard in Resources */,
 				A607E34D1FD6A8E000766EF8 /* CourseCell.xib in Resources */,
+				A66E36831FF4C16C008D88F1 /* LaunchAnimationView.xib in Resources */,
 				A62018901D86CA030085DF80 /* Assets.xcassets in Resources */,
 				A67DBB231FD52AD300F085A3 /* NavigationDrawer.xib in Resources */,
 				A66C9D991FD837DE00C0E5E4 /* News.storyboard in Resources */,
@@ -621,6 +628,7 @@
 				A607E3571FD6ABFC00766EF8 /* EduSystemController.swift in Sources */,
 				A67DBB071FD50ED600F085A3 /* String.swift in Sources */,
 				A6647AF41FD7883F00AF4949 /* MDTextField.swift in Sources */,
+				A66E36811FF4C161008D88F1 /* LaunchAnimationView.swift in Sources */,
 				6C9773F81D924B9D00465CBE /* MyCourseController.swift in Sources */,
 				A62018861D86CA030085DF80 /* AppDelegate.swift in Sources */,
 				A667598B1FE21A4F00EB0001 /* Object.swift in Sources */,

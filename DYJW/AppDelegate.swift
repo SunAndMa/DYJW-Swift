@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
+        let animationView = LaunchAnimationView.loadFromNib()
+        animationView.show(in: self.window)
         // Override point for customization after application launch.
 //        self.window = UIWindow(frame: UIScreen.main.bounds)
 //        self.window?.backgroundColor = UIColor.white
