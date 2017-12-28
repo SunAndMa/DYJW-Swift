@@ -50,10 +50,6 @@ class FKBaseController: UIViewController {
                                  y: navigationBarHeight + statusBarHeight,
                                  width: Screen.width,
                                  height: Screen.height - navigationBarHeight - statusBarHeight)
-//        self.view.frame = CGRect(x: 0,
-//                                 y: navigationOffset,
-//                                 width: Screen.width,
-//                                 height: Screen.height - navigationOffset)
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,10 +57,6 @@ class FKBaseController: UIViewController {
                                  y: navigationBarHeight + statusBarHeight,
                                  width: Screen.width,
                                  height: Screen.height - navigationBarHeight - statusBarHeight)
-//        self.view.frame = CGRect(x: 0,
-//                                 y: navigationOffset,
-//                                 width: Screen.width,
-//                                 height: Screen.height - navigationOffset)
     }
     
 }

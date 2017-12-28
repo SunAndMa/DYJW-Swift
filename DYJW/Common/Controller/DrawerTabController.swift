@@ -25,8 +25,6 @@ class DrawerTabController: UITabBarController {
     fileprivate weak var drawerDelegate: DrawerTabControllerDelegate?
     fileprivate var drawerMask: UIView!
     fileprivate var drawerWidth = UIScreen.main.bounds.size.width * 2 / 3
-    
-    fileprivate var drawerLeadingConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,38 +38,13 @@ class DrawerTabController: UITabBarController {
         self.view.addGestureRecognizer(pan)
         
         self.drawer.delegate = self
-        self.drawer.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.drawer)
-        let widthConstraint = NSLayoutConstraint(item: self.view,
-                                                 attribute: .width,
-                                                 relatedBy: .equal,
-                                                 toItem: self.drawer,
-                                                 attribute: .width,
-                                                 multiplier: 1,
-                                                 constant: 0)
-        let heightConstraint = NSLayoutConstraint(item: self.view,
-                                                  attribute: .height,
-                                                  relatedBy: .equal,
-                                                  toItem: self.drawer,
-                                                  attribute: .height,
-                                                  multiplier: 1,
-                                                  constant: 0)
-        let topConstraint = NSLayoutConstraint(item: self.view,
-                                               attribute: .top,
-                                               relatedBy: .equal,
-                                               toItem: self.drawer,
-                                               attribute: .top,
-                                               multiplier: 1,
-                                               constant: -navigationBarHeight - statusBarHeight)
-        let leftConstraint = NSLayoutConstraint(item: self.view,
-                                                attribute: .leading,
-                                                relatedBy: .equal,
-                                                toItem: self.drawer,
-                                                attribute: .leading,
-                                                multiplier: 1,
-                                                constant: 0)
-        self.drawerLeadingConstraint = leftConstraint
-        NSLayoutConstraint.activate([topConstraint, heightConstraint, leftConstraint, widthConstraint])
+        self.drawer.snp.makeConstraints { (make) in
+            make.width.equalTo(self.view)
+            make.height.equalTo(self.view)
+            make.top.equalTo(self.view).offset(navigationBarHeight + statusBarHeight)
+            make.left.equalTo(self.view)
+        }
     }
     
     func openDrawer() {
@@ -87,12 +60,16 @@ class DrawerTabController: UITabBarController {
 extension DrawerTabController: NavigationDrawerDelegate {
     
     func navigationDrawerWillShow() {
-        self.drawerLeadingConstraint.constant = 0
+        self.drawer.snp.updateConstraints { (make) in
+            make.left.equalTo(self.view)
+        }
         self.view.layoutIfNeeded()
     }
     
     func navigationDrawerDidHide() {
-        self.drawerLeadingConstraint.constant = self.view.bounds.width
+        self.drawer.snp.updateConstraints { (make) in
+            make.left.equalTo(self.view).offset(-self.view.bounds.width)
+        }
         self.view.layoutIfNeeded()
     }
     

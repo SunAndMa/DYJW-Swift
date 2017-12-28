@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import SnapKit
 
 class EduSystemController: FKBaseController {
     
     fileprivate let loginPanel = LoginPanel.loadFromNib()
-    fileprivate var loginPanelTopConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,31 +27,12 @@ class EduSystemController: FKBaseController {
     
     fileprivate func setupLoginPanel() {
         self.loginPanel.delegate = self
-        self.loginPanel.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.loginPanel)
-        let topConstraint = NSLayoutConstraint(item: self.loginPanel,
-                                               attribute: .top,
-                                               relatedBy: .equal,
-                                               toItem: self.view,
-                                               attribute: .top,
-                                               multiplier: 1,
-                                               constant: 16)
-        let leftConstraint = NSLayoutConstraint(item: self.loginPanel,
-                                                attribute: .leading,
-                                                relatedBy: .equal,
-                                                toItem: self.view,
-                                                attribute: .leading,
-                                                multiplier: 1,
-                                                constant: 16)
-        let rightConstraint = NSLayoutConstraint(item: self.loginPanel,
-                                                 attribute: .trailing,
-                                                 relatedBy: .equal,
-                                                 toItem: self.view,
-                                                 attribute: .trailing,
-                                                 multiplier: 1,
-                                                 constant: -16)
-        self.loginPanelTopConstraint = topConstraint
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint])
+        self.loginPanel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view.snp.top).offset(16)
+            make.left.equalTo(self.view.snp.left).offset(16)
+            make.right.equalTo(self.view.snp.right).offset(-16)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

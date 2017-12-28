@@ -38,40 +38,26 @@ class LaunchAnimationView: UIView {
         blueLayer.frame = self.blueMaskView.bounds
         self.blueMaskView.layer.addSublayer(blueLayer)
         
-        let path1 = UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2 - 80),
-                                 radius: 40,
-                                 startAngle: 0,
-                                 endAngle: CGFloat.pi * 2,
-                                 clockwise: true)
-        blueLayer.path = path1.cgPath
+        let startPath = UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2 - 80),
+                                     radius: 40,
+                                     startAngle: 0,
+                                     endAngle: CGFloat.pi * 2,
+                                     clockwise: true)
+        blueLayer.path = startPath.cgPath
         
         let radius = sqrt(Double(Screen.width * Screen.width + Screen.height * Screen.height)) / 2 + 1
-        let path2 = UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2 - 80),
-                                 radius: 80,
-                                 startAngle: 0,
-                                 endAngle: CGFloat.pi * 2,
-                                 clockwise: true)
-        let path3 = UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2),
-                                 radius: CGFloat(radius - 40),
-                                 startAngle: 0,
-                                 endAngle: CGFloat.pi * 2,
-                                 clockwise: true)
-        let path4 = UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2),
-                                 radius: CGFloat(radius),
-                                 startAngle: 0,
-                                 endAngle: CGFloat.pi * 2,
-                                 clockwise: true)
+        let endPath = UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2),
+                                   radius: CGFloat(radius),
+                                   startAngle: 0,
+                                   endAngle: CGFloat.pi * 2,
+                                   clockwise: true)
         
-        let animation = CAKeyframeAnimation(keyPath: "path")
-        animation.values = [path1.cgPath, path2.cgPath, path3.cgPath, path4.cgPath]
-        animation.keyTimes = [0, 0.18, 0.82, 1.0]
+        let animation = CABasicAnimation(keyPath: "path")
+        animation.fromValue = startPath.cgPath
+        animation.toValue = endPath.cgPath
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.duration = 0.35
-        animation.beginTime = CACurrentMediaTime() + 0.15
-        animation.timingFunctions = [
-            CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn),
-            CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear),
-            CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        ]
+        animation.beginTime = CACurrentMediaTime() + 0.25
         animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeBoth
         blueLayer.add(animation, forKey: "path")
@@ -82,6 +68,7 @@ class LaunchAnimationView: UIView {
         animation.fromValue = 1
         animation.toValue = 0
         animation.duration = 0.15
+        animation.beginTime = CACurrentMediaTime() + 0.25
         animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeBoth
         self.launchIcon.layer.add(animation, forKey: "opacity")
@@ -92,46 +79,28 @@ class LaunchAnimationView: UIView {
         mask.frame = self.bounds
         self.layer.mask = mask
         
-        let path1 = UIBezierPath(rect: mask.bounds)
-        path1.append(UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2 - 80),
-                                  radius: 0.01,
-                                  startAngle: 0,
-                                  endAngle: CGFloat.pi * 2,
-                                  clockwise: true).reversing())
-        mask.path = path1.cgPath
-        
-        let path2 = UIBezierPath(rect: mask.bounds)
-        path2.append(UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2 - 80),
-                                  radius: 60,
-                                  startAngle: 0,
-                                  endAngle: CGFloat.pi * 2,
-                                  clockwise: true).reversing())
+        let startPath = UIBezierPath(rect: mask.bounds)
+        startPath.append(UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2 - 80),
+                                      radius: 0.01,
+                                      startAngle: 0,
+                                      endAngle: CGFloat.pi * 2,
+                                      clockwise: true).reversing())
+        mask.path = startPath.cgPath
         
         let radius = sqrt(Double(Screen.width * Screen.width + Screen.height * Screen.height)) / 2 + 1
-        let path3 = UIBezierPath(rect: mask.bounds)
-        path3.append(UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2),
-                                  radius: CGFloat(radius - 60),
-                                  startAngle: 0,
-                                  endAngle: CGFloat.pi * 2,
-                                  clockwise: true).reversing())
+        let endPath = UIBezierPath(rect: mask.bounds)
+        endPath.append(UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2),
+                                    radius: CGFloat(radius),
+                                    startAngle: 0,
+                                    endAngle: CGFloat.pi * 2,
+                                    clockwise: true).reversing())
         
-        let path4 = UIBezierPath(rect: mask.bounds)
-        path4.append(UIBezierPath(arcCenter: CGPoint(x: Screen.width / 2, y: Screen.height / 2),
-                                  radius: CGFloat(radius),
-                                  startAngle: 0,
-                                  endAngle: CGFloat.pi * 2,
-                                  clockwise: true).reversing())
-        
-        let animation = CAKeyframeAnimation(keyPath: "path")
-        animation.values = [path1.cgPath, path2.cgPath, path3.cgPath, path4.cgPath]
-        animation.keyTimes = [0, 0.18, 0.82, 1.0]
+        let animation = CABasicAnimation(keyPath: "path")
+        animation.fromValue = startPath.cgPath
+        animation.toValue = endPath.cgPath
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         animation.duration = 0.4
-        animation.beginTime = CACurrentMediaTime() + 0.75
-        animation.timingFunctions = [
-            CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn),
-            CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear),
-            CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        ]
+        animation.beginTime = CACurrentMediaTime() + 1.0
         animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeBoth
         animation.delegate = self

@@ -4,5 +4,6 @@ target 'DYJW' do
     pod 'Alamofire'
     pod 'RealmSwift'
     pod 'Fuzi'
+    pod 'SnapKit'
 end
 
