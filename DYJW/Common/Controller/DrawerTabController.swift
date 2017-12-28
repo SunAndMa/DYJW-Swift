@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol DrawerTabControllerDelegate: NSObjectProtocol {
     func navigationDrawerStateValueChanged(_ stateValue: CGFloat)

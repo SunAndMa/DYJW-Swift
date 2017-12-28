@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 protocol NavigationDrawerDelegate: NSObjectProtocol {
     func navigationDrawerWillShow()
@@ -78,20 +78,18 @@ class NavigationDrawer: UIView {
     }
     
     private func setUserInfo() {
-        let uu = ModelUtil.query(User.self)?.first
-        if let user = uu {
+        do {
+            let realm = try Realm.getDB()
+            
+            guard let user = realm.objects(User.self).sorted(byKeyPath: "lastTime", ascending: false).first else {
+                return
+            }
+            
             self.userImageView.image = #imageLiteral(resourceName: "default_user")
             self.usernameLabel.text = user.name
             self.loginButton.setTitle("注销", for: UIControlState.normal)
-        } else {
-            self.userImageView.image = #imageLiteral(resourceName: "default_user")
-            self.usernameLabel.text = "请登录教务管理系统"
-            self.loginButton.setTitle("登录", for: UIControlState.normal)
-            let _ = ModelUtil.insert({ (user: User) in
-                user.name = "风筝"
-                user.username = "1234567489"
-                user.password = "44564564"
-            })
+        } catch {
+            print("Query User failed: \(error)")
         }
     }
     
