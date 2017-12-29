@@ -100,6 +100,7 @@ class LoginPanel: UIView {
         self.loginLoadingView.isHidden = false
         self.loginLoadingView.startAnimating()
         self.loginButton.isEnabled = false
+        self.endEditing(true)
         self.delegate?.login(username: username, password: password, verifycode: verifycode)
     }
 }
