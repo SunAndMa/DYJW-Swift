@@ -43,7 +43,23 @@ class EduSystemController: FKBaseController {
 extension EduSystemController: LoginPanelDelegate {
     
     func login(username: String, password: String, verifycode: String) {
-        
+        let user = User()
+        user.username = username
+        user.password = password
+        EduSystemManager.shared.login(with: user, verifycode: verifycode) { (errorMessage) in
+            let success = errorMessage == nil
+            self.loginPanel.setLogin(success: success, errorMessage: errorMessage)
+            if success {
+                self.loginSuccess()
+            }
+        }
+    }
+    
+    fileprivate func loginSuccess() {
+//        UIView.animate(withDuration: <#T##TimeInterval#>, delay: <#T##TimeInterval#>, options: <#T##UIViewAnimationOptions#>, animations: <#T##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+//        self.loginPanel.snp.updateConstraints { (make) in
+//            make
+//        }
     }
     
     func loadVerifycode() {

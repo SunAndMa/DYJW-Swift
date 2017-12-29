@@ -52,8 +52,10 @@
 		A67DBB271FD52ED800F085A3 /* DrawerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67DBB251FD52ED800F085A3 /* DrawerCell.xib */; };
 		A67F35FE1FDE247A00EFEC3F /* NewsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F35FC1FDE247A00EFEC3F /* NewsListViewCell.swift */; };
 		A67F35FF1FDE247A00EFEC3F /* NewsListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67F35FD1FDE247A00EFEC3F /* NewsListViewCell.xib */; };
+		A68248B41FF5F3BE0073344A /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68248B31FF5F3BE0073344A /* Path.swift */; };
 		A69C7ED41FE3A2FC00C8523A /* MDSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69C7ED31FE3A2FC00C8523A /* MDSwitch.swift */; };
 		A6BD47CD1FF50E12009DDC45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD47CC1FF50E12009DDC45 /* User.swift */; };
+		A6BD47D01FF512B6009DDC45 /* EduSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD47CF1FF512B6009DDC45 /* EduSystemManager.swift */; };
 		FD2ED9911DF94B4A003FE4F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2ED9901DF94B4A003FE4F8 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,8 +107,10 @@
 		A67DBB251FD52ED800F085A3 /* DrawerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrawerCell.xib; sourceTree = "<group>"; };
 		A67F35FC1FDE247A00EFEC3F /* NewsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewCell.swift; sourceTree = "<group>"; };
 		A67F35FD1FDE247A00EFEC3F /* NewsListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsListViewCell.xib; sourceTree = "<group>"; };
+		A68248B31FF5F3BE0073344A /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		A69C7ED31FE3A2FC00C8523A /* MDSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSwitch.swift; sourceTree = "<group>"; };
 		A6BD47CC1FF50E12009DDC45 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A6BD47CF1FF512B6009DDC45 /* EduSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduSystemManager.swift; sourceTree = "<group>"; };
 		D312F7E4B87FAA396006D039 /* Pods-DYJW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYJW.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYJW/Pods-DYJW.release.xcconfig"; sourceTree = "<group>"; };
 		F283166917F21BF4A2FD0341 /* Pods_DYJW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYJW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2ED9901DF94B4A003FE4F8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -225,6 +229,7 @@
 		A607E34F1FD6ABB300766EF8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A6BD47CE1FF512A9009DDC45 /* Util */,
 				A607E3561FD6ABFC00766EF8 /* EduSystemController.swift */,
 			);
 			path = Controller;
@@ -304,6 +309,7 @@
 		A630EFF01F221E2C00148B93 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A68248B31FF5F3BE0073344A /* Path.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -427,6 +433,14 @@
 				A66E36821FF4C16C008D88F1 /* LaunchAnimationView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A6BD47CE1FF512A9009DDC45 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A6BD47CF1FF512B6009DDC45 /* EduSystemManager.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		DA4F608D2A4E362EC5065D5D /* Pods */ = {
@@ -605,6 +619,7 @@
 				A67DBB091FD50ED600F085A3 /* File.swift in Sources */,
 				A607E3591FD6AC7E00766EF8 /* LoginPanel.swift in Sources */,
 				6CED3E971D9132F5009F15E8 /* FKBaseController.swift in Sources */,
+				A68248B41FF5F3BE0073344A /* Path.swift in Sources */,
 				A66C9DA01FD83B3300C0E5E4 /* NewsTabView.swift in Sources */,
 				A67F35FE1FDE247A00EFEC3F /* NewsListViewCell.swift in Sources */,
 				A6647AFA1FD7FBE900AF4949 /* VerifyCode.swift in Sources */,
@@ -613,6 +628,7 @@
 				A67DBB041FD50ED600F085A3 /* Array.swift in Sources */,
 				A67DBB181FD5275000F085A3 /* DrawerTabController.swift in Sources */,
 				A67DBB021FD50ED600F085A3 /* CALayer.swift in Sources */,
+				A6BD47D01FF512B6009DDC45 /* EduSystemManager.swift in Sources */,
 				A67DBB0A1FD50ED600F085A3 /* FKButton.swift in Sources */,
 				A67DBB081FD50ED600F085A3 /* Color.swift in Sources */,
 				A67DBB261FD52ED800F085A3 /* DrawerCell.swift in Sources */,

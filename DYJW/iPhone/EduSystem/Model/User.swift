@@ -15,4 +15,8 @@ class User: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var lastTime: Date = Date()
     @objc dynamic var lastSessionId: String = ""
+    
+    override static func primaryKey() -> String? {
+        return "username"
+    }
 }

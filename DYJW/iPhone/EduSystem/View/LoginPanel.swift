@@ -62,9 +62,13 @@ class LoginPanel: UIView {
     }
     
     func setLogin(success: Bool, errorMessage: String?) {
-        
+        self.errorMessageLabel.text = errorMessage
+        self.loginButton.isEnabled = true
         self.loginLoadingView.isHidden = true
         self.loginLoadingView.stopAnimating()
+        if !success {
+            self.loadVerifycode()
+        }
     }
     
     @IBAction func verifycodeImageClicked(_ sender: Any) {
